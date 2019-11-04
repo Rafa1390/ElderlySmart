@@ -1,0 +1,49 @@
+{
+    "name": "InventoryPharmacy",
+    "fields": [
+        {
+            "fieldName": "idInventoryPharmacy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "purchasePrice",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "salePrice",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cuantity",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "pharmacy",
+            "otherEntityRelationshipName": "inventoryPharmacy",
+            "relationshipName": "pharmacy",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191104165956",
+    "entityTableName": "inventory_pharmacy",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.allergies.home.title">Allergies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-allergies" [routerLink]="['/allergies/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.allergies.home.createLabel">
+            Create a new Allergies
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="allergies?.length === 0">
+        <span jhiTranslate="elderlySmartApp.allergies.home.notFound">No allergies found</span>
+    </div>
+    <div class="table-responsive" *ngIf="allergies?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.idAllergies">Id Allergies</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.description">Description</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.caseFile">Case File</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let allergies of allergies ;trackBy: trackId">
+                <td><a [routerLink]="['/allergies', allergies.id, 'view' ]">{{allergies.id}}</a></td>
+                <td>{{allergies.idAllergies}}</td>
+                <td>{{allergies.name}}</td>
+                <td>{{allergies.description}}</td>
+                <td>
+                    <div *ngIf="allergies.caseFile">
+                        <a [routerLink]="['/case-file', allergies.caseFile?.id, 'view' ]" >{{allergies.caseFile?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/allergies', allergies.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/allergies', allergies.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/allergies', { outlets: { popup: allergies.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

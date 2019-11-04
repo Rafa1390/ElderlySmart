@@ -1,0 +1,26 @@
+{
+  "elderlySmartApp": {
+    "cleaningProgram": {
+      "home": {
+        "title": "Cleaning Programs",
+        "createLabel": "Crear nuevo Cleaning Program",
+        "createOrEditLabel": "Crear o editar Cleaning Program",
+        "notFound": "No Cleaning Programs found"
+      },
+      "created": "Un nuevo Cleaning Program ha sido creado con el identificador {{ param }}",
+      "updated": "Un Cleaning Program ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Cleaning Program ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Cleaning Program {{ id }}?"
+      },
+      "detail": {
+        "title": "Cleaning Program"
+      },
+      "idCleaningProgram": "Id Cleaning Program",
+      "day": "Day",
+      "time": "Time",
+      "cleaningTask": "Cleaning Task",
+      "asylum": "Asylum"
+    }
+  }
+}

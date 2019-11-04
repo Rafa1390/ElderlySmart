@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="provider">
+            <h2><span jhiTranslate="elderlySmartApp.provider.detail.title">Provider</span> {{provider.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.provider.identification">Identification</span></dt>
+                <dd>
+                    <span>{{provider.identification}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.provider.email">Email</span></dt>
+                <dd>
+                    <span>{{provider.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.provider.name">Name</span></dt>
+                <dd>
+                    <span>{{provider.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.provider.providerType">Provider Type</span></dt>
+                <dd>
+                    <span>{{provider.providerType}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.provider.address">Address</span></dt>
+                <dd>
+                    <span>{{provider.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.provider.userApp">User App</span></dt>
+                <dd>
+                    <div *ngIf="provider.userApp">
+                        <a [routerLink]="['/user-app', provider.userApp?.id, 'view']">{{provider.userApp?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/provider', provider.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

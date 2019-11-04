@@ -1,0 +1,28 @@
+{
+  "elderlySmartApp": {
+    "providerHistory": {
+      "home": {
+        "title": "Provider Histories",
+        "createLabel": "Crear nuevo Provider History",
+        "createOrEditLabel": "Crear o editar Provider History",
+        "notFound": "No Provider Histories found"
+      },
+      "created": "Un nuevo Provider History ha sido creado con el identificador {{ param }}",
+      "updated": "Un Provider History ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Provider History ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Provider History {{ id }}?"
+      },
+      "detail": {
+        "title": "Provider History"
+      },
+      "idProviderHistory": "Id Provider History",
+      "code": "Code",
+      "client": "Client",
+      "phone": "Phone",
+      "purchaseMade": "Purchase Made",
+      "date": "Date",
+      "provider": "Provider"
+    }
+  }
+}

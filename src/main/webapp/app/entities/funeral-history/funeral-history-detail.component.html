@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="funeralHistory">
+            <h2><span jhiTranslate="elderlySmartApp.funeralHistory.detail.title">Funeral History</span> {{funeralHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.funeralHistory.idFuneralHistory">Id Funeral History</span></dt>
+                <dd>
+                    <span>{{funeralHistory.idFuneralHistory}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.funeralHistory.customer">Customer</span></dt>
+                <dd>
+                    <span>{{funeralHistory.customer}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.funeralHistory.phone">Phone</span></dt>
+                <dd>
+                    <span>{{funeralHistory.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.funeralHistory.purchaseMade">Purchase Made</span></dt>
+                <dd>
+                    <span>{{funeralHistory.purchaseMade}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.funeralHistory.date">Date</span></dt>
+                <dd>
+                    <span>{{funeralHistory.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.funeralHistory.state">State</span></dt>
+                <dd>
+                    <span>{{funeralHistory.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.funeralHistory.mortuary">Mortuary</span></dt>
+                <dd>
+                    <div *ngIf="funeralHistory.mortuary">
+                        <a [routerLink]="['/mortuary', funeralHistory.mortuary?.id, 'view']">{{funeralHistory.mortuary?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/funeral-history', funeralHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "elderlySmartApp": {
+    "medicationSchedule": {
+      "home": {
+        "title": "Medication Schedules",
+        "createLabel": "Crear nuevo Medication Schedule",
+        "createOrEditLabel": "Crear o editar Medication Schedule",
+        "notFound": "No Medication Schedules found"
+      },
+      "created": "Un nuevo Medication Schedule ha sido creado con el identificador {{ param }}",
+      "updated": "Un Medication Schedule ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Medication Schedule ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Medication Schedule {{ id }}?"
+      },
+      "detail": {
+        "title": "Medication Schedule"
+      },
+      "idMedicationSchedule": "Id Medication Schedule",
+      "meticationName": "Metication Name",
+      "elderly": "Elderly",
+      "dose": "Dose",
+      "time": "Time",
+      "state": "State"
+    }
+  }
+}

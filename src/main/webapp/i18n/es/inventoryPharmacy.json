@@ -1,0 +1,28 @@
+{
+  "elderlySmartApp": {
+    "inventoryPharmacy": {
+      "home": {
+        "title": "Inventory Pharmacies",
+        "createLabel": "Crear nuevo Inventory Pharmacy",
+        "createOrEditLabel": "Crear o editar Inventory Pharmacy",
+        "notFound": "No Inventory Pharmacies found"
+      },
+      "created": "Un nuevo Inventory Pharmacy ha sido creado con el identificador {{ param }}",
+      "updated": "Un Inventory Pharmacy ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Inventory Pharmacy ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Inventory Pharmacy {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory Pharmacy"
+      },
+      "idInventoryPharmacy": "Id Inventory Pharmacy",
+      "code": "Code",
+      "name": "Name",
+      "purchasePrice": "Purchase Price",
+      "salePrice": "Sale Price",
+      "cuantity": "Cuantity",
+      "pharmacy": "Pharmacy"
+    }
+  }
+}

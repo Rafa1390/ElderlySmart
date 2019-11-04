@@ -1,0 +1,25 @@
+{
+  "elderlySmartApp": {
+    "pathologies": {
+      "home": {
+        "title": "Pathologies",
+        "createLabel": "Crear nuevo Pathologies",
+        "createOrEditLabel": "Crear o editar Pathologies",
+        "notFound": "No Pathologies found"
+      },
+      "created": "Un nuevo Pathologies ha sido creado con el identificador {{ param }}",
+      "updated": "Un Pathologies ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Pathologies ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Pathologies {{ id }}?"
+      },
+      "detail": {
+        "title": "Pathologies"
+      },
+      "idPathologies": "Id Pathologies",
+      "name": "Name",
+      "description": "Description",
+      "caseFile": "Case File"
+    }
+  }
+}

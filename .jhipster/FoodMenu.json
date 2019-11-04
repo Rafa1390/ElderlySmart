@@ -1,0 +1,35 @@
+{
+    "name": "FoodMenu",
+    "fields": [
+        {
+            "fieldName": "idFoodMenu",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "feedingTime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "asylum",
+            "otherEntityName": "asylum",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191104165949",
+    "entityTableName": "food_menu",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

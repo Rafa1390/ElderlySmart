@@ -1,0 +1,28 @@
+{
+  "elderlySmartApp": {
+    "inventoryProvider": {
+      "home": {
+        "title": "Inventory Providers",
+        "createLabel": "Crear nuevo Inventory Provider",
+        "createOrEditLabel": "Crear o editar Inventory Provider",
+        "notFound": "No Inventory Providers found"
+      },
+      "created": "Un nuevo Inventory Provider ha sido creado con el identificador {{ param }}",
+      "updated": "Un Inventory Provider ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Inventory Provider ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Inventory Provider {{ id }}?"
+      },
+      "detail": {
+        "title": "Inventory Provider"
+      },
+      "idInventoryProvider": "Id Inventory Provider",
+      "code": "Code",
+      "name": "Name",
+      "price": "Price",
+      "cuantity": "Cuantity",
+      "provider": "Provider",
+      "product": "Product"
+    }
+  }
+}

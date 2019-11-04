@@ -1,0 +1,51 @@
+{
+    "name": "Employee",
+    "fields": [
+        {
+            "fieldName": "idEmployee",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "asylum",
+            "otherEntityName": "asylum",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userApp",
+            "otherEntityRelationshipName": "employee",
+            "relationshipName": "userApp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "elderly",
+            "otherEntityRelationshipName": "employee",
+            "relationshipName": "elderly"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "medicalAppointment",
+            "otherEntityRelationshipName": "employee",
+            "relationshipName": "medicalAppointment"
+        }
+    ],
+    "changelogDate": "20191104165948",
+    "entityTableName": "employee",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

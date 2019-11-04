@@ -1,0 +1,27 @@
+{
+  "elderlySmartApp": {
+    "funeralPackages": {
+      "home": {
+        "title": "Funeral Packages",
+        "createLabel": "Crear nuevo Funeral Packages",
+        "createOrEditLabel": "Crear o editar Funeral Packages",
+        "notFound": "No Funeral Packages found"
+      },
+      "created": "Un nuevo Funeral Packages ha sido creado con el identificador {{ param }}",
+      "updated": "Un Funeral Packages ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Funeral Packages ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Funeral Packages {{ id }}?"
+      },
+      "detail": {
+        "title": "Funeral Packages"
+      },
+      "idFuneralPackages": "Id Funeral Packages",
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "state": "State",
+      "mortuary": "Mortuary"
+    }
+  }
+}

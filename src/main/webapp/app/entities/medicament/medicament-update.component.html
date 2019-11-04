@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-medicament-heading" jhiTranslate="elderlySmartApp.medicament.home.createOrEditLabel">Create or edit a Medicament</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicament.idMedicament" for="field_idMedicament">Id Medicament</label>
+                    <input type="number" class="form-control" name="idMedicament" id="field_idMedicament"
+                           formControlName="idMedicament"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicament.presentation" for="field_presentation">Presentation</label>
+                    <input type="text" class="form-control" name="presentation" id="field_presentation"
+                           formControlName="presentation"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicament.dateExpiry" for="field_dateExpiry">Date Expiry</label>
+                    <div class="input-group">
+                        <input id="field_dateExpiry" type="text" class="form-control" name="dateExpiry" ngbDatepicker  #dateExpiryDp="ngbDatepicker" formControlName="dateExpiry"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateExpiryDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicament.cuantity" for="field_cuantity">Cuantity</label>
+                    <input type="text" class="form-control" name="cuantity" id="field_cuantity"
+                           formControlName="cuantity"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicament.product" for="field_product">Product</label>
+                    <select class="form-control" id="field_product" name="product" formControlName="product">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="productOption.id === editForm.get('product').value?.id ? editForm.get('product').value : productOption" *ngFor="let productOption of products; trackBy: trackProductById">{{productOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

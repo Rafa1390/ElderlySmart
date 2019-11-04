@@ -1,0 +1,33 @@
+{
+  "elderlySmartApp": {
+    "asylum": {
+      "home": {
+        "title": "Asylums",
+        "createLabel": "Crear nuevo Asylum",
+        "createOrEditLabel": "Crear o editar Asylum",
+        "notFound": "No Asylums found"
+      },
+      "created": "Un nuevo Asylum ha sido creado con el identificador {{ param }}",
+      "updated": "Un Asylum ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Asylum ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Asylum {{ id }}?"
+      },
+      "detail": {
+        "title": "Asylum"
+      },
+      "identification": "Identification",
+      "email": "Email",
+      "name": "Name",
+      "address": "Address",
+      "userApp": "User App",
+      "cleaningProgram": "Cleaning Program",
+      "foodMenu": "Food Menu",
+      "recreationalActivity": "Recreational Activity",
+      "employee": "Employee",
+      "mortuary": "Mortuary",
+      "pharmacy": "Pharmacy",
+      "partner": "Partner"
+    }
+  }
+}

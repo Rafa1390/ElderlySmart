@@ -1,0 +1,89 @@
+{
+    "name": "Asylum",
+    "fields": [
+        {
+            "fieldName": "identification",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userApp",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "userApp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "cleaningProgram",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "cleaningProgram"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "foodMenu",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "foodMenu"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "recreationalActivity",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "recreationalActivity"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "employee"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "mortuary",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "mortuary",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "pharmacy",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "pharmacy",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "partner",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "partner",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191104165946",
+    "entityTableName": "asylum",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

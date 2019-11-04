@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="allergies">
+            <h2><span jhiTranslate="elderlySmartApp.allergies.detail.title">Allergies</span> {{allergies.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.allergies.idAllergies">Id Allergies</span></dt>
+                <dd>
+                    <span>{{allergies.idAllergies}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.allergies.name">Name</span></dt>
+                <dd>
+                    <span>{{allergies.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.allergies.description">Description</span></dt>
+                <dd>
+                    <span>{{allergies.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.allergies.caseFile">Case File</span></dt>
+                <dd>
+                    <div *ngIf="allergies.caseFile">
+                        <a [routerLink]="['/case-file', allergies.caseFile?.id, 'view']">{{allergies.caseFile?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/allergies', allergies.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

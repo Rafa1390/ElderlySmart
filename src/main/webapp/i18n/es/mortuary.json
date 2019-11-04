@@ -1,0 +1,28 @@
+{
+  "elderlySmartApp": {
+    "mortuary": {
+      "home": {
+        "title": "Mortuaries",
+        "createLabel": "Crear nuevo Mortuary",
+        "createOrEditLabel": "Crear o editar Mortuary",
+        "notFound": "No Mortuaries found"
+      },
+      "created": "Un nuevo Mortuary ha sido creado con el identificador {{ param }}",
+      "updated": "Un Mortuary ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Mortuary ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Mortuary {{ id }}?"
+      },
+      "detail": {
+        "title": "Mortuary"
+      },
+      "idMortuary": "Id Mortuary",
+      "email": "Email",
+      "name": "Name",
+      "address": "Address",
+      "userApp": "User App",
+      "funeralPackages": "Funeral Packages",
+      "asylum": "Asylum"
+    }
+  }
+}

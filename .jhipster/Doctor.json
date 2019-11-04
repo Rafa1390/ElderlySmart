@@ -1,0 +1,61 @@
+{
+    "name": "Doctor",
+    "fields": [
+        {
+            "fieldName": "idDoctor",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "officeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userApp",
+            "otherEntityRelationshipName": "doctor",
+            "relationshipName": "userApp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "prescription",
+            "otherEntityRelationshipName": "doctor",
+            "relationshipName": "prescription"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "medicalAppointment",
+            "otherEntityRelationshipName": "doctor",
+            "relationshipName": "medicalAppointment"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "elderly",
+            "otherEntityRelationshipName": "doctor",
+            "relationshipName": "elderly",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191104170002",
+    "entityTableName": "doctor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

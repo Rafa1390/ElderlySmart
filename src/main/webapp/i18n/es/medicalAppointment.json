@@ -1,0 +1,27 @@
+{
+  "elderlySmartApp": {
+    "medicalAppointment": {
+      "home": {
+        "title": "Medical Appointments",
+        "createLabel": "Crear nuevo Medical Appointment",
+        "createOrEditLabel": "Crear o editar Medical Appointment",
+        "notFound": "No Medical Appointments found"
+      },
+      "created": "Un nuevo Medical Appointment ha sido creado con el identificador {{ param }}",
+      "updated": "Un Medical Appointment ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Medical Appointment ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Medical Appointment {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Appointment"
+      },
+      "idMedicalAppointment": "Id Medical Appointment",
+      "date": "Date",
+      "time": "Time",
+      "state": "State",
+      "employee": "Employee",
+      "doctor": "Doctor"
+    }
+  }
+}

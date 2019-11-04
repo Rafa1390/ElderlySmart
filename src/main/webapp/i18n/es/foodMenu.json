@@ -1,0 +1,25 @@
+{
+  "elderlySmartApp": {
+    "foodMenu": {
+      "home": {
+        "title": "Food Menus",
+        "createLabel": "Crear nuevo Food Menu",
+        "createOrEditLabel": "Crear o editar Food Menu",
+        "notFound": "No Food Menus found"
+      },
+      "created": "Un nuevo Food Menu ha sido creado con el identificador {{ param }}",
+      "updated": "Un Food Menu ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Food Menu ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Food Menu {{ id }}?"
+      },
+      "detail": {
+        "title": "Food Menu"
+      },
+      "idFoodMenu": "Id Food Menu",
+      "feedingTime": "Feeding Time",
+      "description": "Description",
+      "asylum": "Asylum"
+    }
+  }
+}

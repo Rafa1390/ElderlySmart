@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pathologies">
+            <h2><span jhiTranslate="elderlySmartApp.pathologies.detail.title">Pathologies</span> {{pathologies.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.pathologies.idPathologies">Id Pathologies</span></dt>
+                <dd>
+                    <span>{{pathologies.idPathologies}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.pathologies.name">Name</span></dt>
+                <dd>
+                    <span>{{pathologies.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.pathologies.description">Description</span></dt>
+                <dd>
+                    <span>{{pathologies.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.pathologies.caseFile">Case File</span></dt>
+                <dd>
+                    <div *ngIf="pathologies.caseFile">
+                        <a [routerLink]="['/case-file', pathologies.caseFile?.id, 'view']">{{pathologies.caseFile?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pathologies', pathologies.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

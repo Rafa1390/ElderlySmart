@@ -1,0 +1,29 @@
+{
+  "elderlySmartApp": {
+    "doctor": {
+      "home": {
+        "title": "Doctors",
+        "createLabel": "Crear nuevo Doctor",
+        "createOrEditLabel": "Crear o editar Doctor",
+        "notFound": "No Doctors found"
+      },
+      "created": "Un nuevo Doctor ha sido creado con el identificador {{ param }}",
+      "updated": "Un Doctor ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Doctor ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Doctor {{ id }}?"
+      },
+      "detail": {
+        "title": "Doctor"
+      },
+      "idDoctor": "Id Doctor",
+      "email": "Email",
+      "officeName": "Office Name",
+      "address": "Address",
+      "userApp": "User App",
+      "prescription": "Prescription",
+      "medicalAppointment": "Medical Appointment",
+      "elderly": "Elderly"
+    }
+  }
+}

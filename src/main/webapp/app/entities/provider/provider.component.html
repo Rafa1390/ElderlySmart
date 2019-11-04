@@ -1,0 +1,72 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.provider.home.title">Providers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-provider" [routerLink]="['/provider/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.provider.home.createLabel">
+            Create a new Provider
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="providers?.length === 0">
+        <span jhiTranslate="elderlySmartApp.provider.home.notFound">No providers found</span>
+    </div>
+    <div class="table-responsive" *ngIf="providers?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.identification">Identification</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.email">Email</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.providerType">Provider Type</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.address">Address</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.userApp">User App</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let provider of providers ;trackBy: trackId">
+                <td><a [routerLink]="['/provider', provider.id, 'view' ]">{{provider.id}}</a></td>
+                <td>{{provider.identification}}</td>
+                <td>{{provider.email}}</td>
+                <td>{{provider.name}}</td>
+                <td>{{provider.providerType}}</td>
+                <td>{{provider.address}}</td>
+                <td>
+                    <div *ngIf="provider.userApp">
+                        <a [routerLink]="['/user-app', provider.userApp?.id, 'view' ]" >{{provider.userApp?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/provider', provider.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/provider', provider.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/provider', { outlets: { popup: provider.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

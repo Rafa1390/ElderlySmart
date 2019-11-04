@@ -1,0 +1,40 @@
+{
+    "name": "MedicationSchedule",
+    "fields": [
+        {
+            "fieldName": "idMedicationSchedule",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "meticationName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "elderly",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dose",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191104170012",
+    "entityTableName": "medication_schedule",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

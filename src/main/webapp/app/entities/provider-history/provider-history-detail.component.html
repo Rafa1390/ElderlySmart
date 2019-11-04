@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="providerHistory">
+            <h2><span jhiTranslate="elderlySmartApp.providerHistory.detail.title">Provider History</span> {{providerHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.providerHistory.idProviderHistory">Id Provider History</span></dt>
+                <dd>
+                    <span>{{providerHistory.idProviderHistory}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.providerHistory.code">Code</span></dt>
+                <dd>
+                    <span>{{providerHistory.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.providerHistory.client">Client</span></dt>
+                <dd>
+                    <span>{{providerHistory.client}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.providerHistory.phone">Phone</span></dt>
+                <dd>
+                    <span>{{providerHistory.phone}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.providerHistory.purchaseMade">Purchase Made</span></dt>
+                <dd>
+                    <span>{{providerHistory.purchaseMade}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.providerHistory.date">Date</span></dt>
+                <dd>
+                    <span>{{providerHistory.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.providerHistory.provider">Provider</span></dt>
+                <dd>
+                    <div *ngIf="providerHistory.provider">
+                        <a [routerLink]="['/provider', providerHistory.provider?.id, 'view']">{{providerHistory.provider?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/provider-history', providerHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

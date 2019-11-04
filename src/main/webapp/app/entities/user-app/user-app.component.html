@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.userApp.home.title">User Apps</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-user-app" [routerLink]="['/user-app/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.userApp.home.createLabel">
+            Create a new User App
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="userApps?.length === 0">
+        <span jhiTranslate="elderlySmartApp.userApp.home.notFound">No userApps found</span>
+    </div>
+    <div class="table-responsive" *ngIf="userApps?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.identification">Identification</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.idTypeUser">Id Type User</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.email">Email</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.name2">Name 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.lastName">Last Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.lastName2">Last Name 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.phone1">Phone 1</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.phone2">Phone 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.age">Age</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.password">Password</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.userApp.state">State</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let userApp of userApps ;trackBy: trackId">
+                <td><a [routerLink]="['/user-app', userApp.id, 'view' ]">{{userApp.id}}</a></td>
+                <td>{{userApp.identification}}</td>
+                <td>{{userApp.idTypeUser}}</td>
+                <td>{{userApp.email}}</td>
+                <td>{{userApp.name}}</td>
+                <td>{{userApp.name2}}</td>
+                <td>{{userApp.lastName}}</td>
+                <td>{{userApp.lastName2}}</td>
+                <td>{{userApp.phone1}}</td>
+                <td>{{userApp.phone2}}</td>
+                <td>{{userApp.age}}</td>
+                <td>{{userApp.password}}</td>
+                <td>{{userApp.state}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/user-app', userApp.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/user-app', userApp.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/user-app', { outlets: { popup: userApp.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

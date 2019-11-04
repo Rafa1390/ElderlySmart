@@ -1,0 +1,31 @@
+{
+  "elderlySmartApp": {
+    "prescription": {
+      "home": {
+        "title": "Prescriptions",
+        "createLabel": "Crear nuevo Prescription",
+        "createOrEditLabel": "Crear o editar Prescription",
+        "notFound": "No Prescriptions found"
+      },
+      "created": "Un nuevo Prescription ha sido creado con el identificador {{ param }}",
+      "updated": "Un Prescription ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Prescription ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Prescription {{ id }}?"
+      },
+      "detail": {
+        "title": "Prescription"
+      },
+      "idPrescription": "Id Prescription",
+      "officeName": "Office Name",
+      "creationDate": "Creation Date",
+      "doctorName": "Doctor Name",
+      "patientName": "Patient Name",
+      "patientAge": "Patient Age",
+      "prescriptionDrugs": "Prescription Drugs",
+      "state": "State",
+      "pharmacy": "Pharmacy",
+      "doctor": "Doctor"
+    }
+  }
+}

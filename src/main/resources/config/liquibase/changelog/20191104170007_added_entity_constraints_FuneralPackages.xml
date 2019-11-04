@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity FuneralPackages.
+    -->
+    <changeSet id="20191104170007-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="mortuary_id"
+                                 baseTableName="funeral_packages"
+                                 constraintName="fk_funeral_packages_mortuary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mortuary"/>
+
+    </changeSet>
+</databaseChangeLog>

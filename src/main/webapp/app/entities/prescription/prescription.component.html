@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.prescription.home.title">Prescriptions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prescription" [routerLink]="['/prescription/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.prescription.home.createLabel">
+            Create a new Prescription
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="prescriptions?.length === 0">
+        <span jhiTranslate="elderlySmartApp.prescription.home.notFound">No prescriptions found</span>
+    </div>
+    <div class="table-responsive" *ngIf="prescriptions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.idPrescription">Id Prescription</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.officeName">Office Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.creationDate">Creation Date</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.doctorName">Doctor Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.patientName">Patient Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.patientAge">Patient Age</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.prescriptionDrugs">Prescription Drugs</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.state">State</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.pharmacy">Pharmacy</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.doctor">Doctor</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prescription of prescriptions ;trackBy: trackId">
+                <td><a [routerLink]="['/prescription', prescription.id, 'view' ]">{{prescription.id}}</a></td>
+                <td>{{prescription.idPrescription}}</td>
+                <td>{{prescription.officeName}}</td>
+                <td>{{prescription.creationDate | date:'mediumDate'}}</td>
+                <td>{{prescription.doctorName}}</td>
+                <td>{{prescription.patientName}}</td>
+                <td>{{prescription.patientAge}}</td>
+                <td>{{prescription.prescriptionDrugs}}</td>
+                <td>{{prescription.state}}</td>
+                <td>
+                    <div *ngIf="prescription.pharmacy">
+                        <a [routerLink]="['/pharmacy', prescription.pharmacy?.id, 'view' ]" >{{prescription.pharmacy?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="prescription.doctor">
+                        <a [routerLink]="['/doctor', prescription.doctor?.id, 'view' ]" >{{prescription.doctor?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/prescription', prescription.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/prescription', prescription.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/prescription', { outlets: { popup: prescription.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

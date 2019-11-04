@@ -1,0 +1,27 @@
+{
+  "elderlySmartApp": {
+    "pharmacyHistory": {
+      "home": {
+        "title": "Pharmacy Histories",
+        "createLabel": "Create a new Pharmacy History",
+        "createOrEditLabel": "Create or edit a Pharmacy History",
+        "notFound": "No Pharmacy Histories found"
+      },
+      "created": "A new Pharmacy History is created with identifier {{ param }}",
+      "updated": "A Pharmacy History is updated with identifier {{ param }}",
+      "deleted": "A Pharmacy History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pharmacy History {{ id }}?"
+      },
+      "detail": {
+        "title": "Pharmacy History"
+      },
+      "idPharmacyHistory": "Id Pharmacy History",
+      "code": "Code",
+      "client": "Client",
+      "phone": "Phone",
+      "purchaseMade": "Purchase Made",
+      "date": "Date"
+    }
+  }
+}

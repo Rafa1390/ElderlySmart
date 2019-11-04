@@ -1,0 +1,30 @@
+{
+  "elderlySmartApp": {
+    "elderly": {
+      "home": {
+        "title": "Elderlies",
+        "createLabel": "Crear nuevo Elderly",
+        "createOrEditLabel": "Crear o editar Elderly",
+        "notFound": "No Elderlies found"
+      },
+      "created": "Un nuevo Elderly ha sido creado con el identificador {{ param }}",
+      "updated": "Un Elderly ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Elderly ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Elderly {{ id }}?"
+      },
+      "detail": {
+        "title": "Elderly"
+      },
+      "idElderly": "Id Elderly",
+      "nationality": "Nationality",
+      "address": "Address",
+      "admissionDate": "Admission Date",
+      "state": "State",
+      "employee": "Employee",
+      "userApp": "User App",
+      "family": "Family",
+      "doctor": "Doctor"
+    }
+  }
+}

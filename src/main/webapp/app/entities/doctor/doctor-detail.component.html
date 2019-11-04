@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="doctor">
+            <h2><span jhiTranslate="elderlySmartApp.doctor.detail.title">Doctor</span> {{doctor.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.doctor.idDoctor">Id Doctor</span></dt>
+                <dd>
+                    <span>{{doctor.idDoctor}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.doctor.email">Email</span></dt>
+                <dd>
+                    <span>{{doctor.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.doctor.officeName">Office Name</span></dt>
+                <dd>
+                    <span>{{doctor.officeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.doctor.address">Address</span></dt>
+                <dd>
+                    <span>{{doctor.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.doctor.userApp">User App</span></dt>
+                <dd>
+                    <div *ngIf="doctor.userApp">
+                        <a [routerLink]="['/user-app', doctor.userApp?.id, 'view']">{{doctor.userApp?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.doctor.elderly">Elderly</span></dt>
+                <dd>
+                    <span *ngFor="let elderly of doctor.elderlies; let last = last">
+                        <a [routerLink]="['/elderly', elderly?.id, 'view' ]">{{elderly.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/doctor', doctor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

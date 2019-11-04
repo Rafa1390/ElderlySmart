@@ -1,0 +1,33 @@
+{
+  "elderlySmartApp": {
+    "userApp": {
+      "home": {
+        "title": "User Apps",
+        "createLabel": "Crear nuevo User App",
+        "createOrEditLabel": "Crear o editar User App",
+        "notFound": "No User Apps found"
+      },
+      "created": "Un nuevo User App ha sido creado con el identificador {{ param }}",
+      "updated": "Un User App ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un User App ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar User App {{ id }}?"
+      },
+      "detail": {
+        "title": "User App"
+      },
+      "identification": "Identification",
+      "idTypeUser": "Id Type User",
+      "email": "Email",
+      "name": "Name",
+      "name2": "Name 2",
+      "lastName": "Last Name",
+      "lastName2": "Last Name 2",
+      "phone1": "Phone 1",
+      "phone2": "Phone 2",
+      "age": "Age",
+      "password": "Password",
+      "state": "State"
+    }
+  }
+}

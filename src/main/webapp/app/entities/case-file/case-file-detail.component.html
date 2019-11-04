@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="caseFile">
+            <h2><span jhiTranslate="elderlySmartApp.caseFile.detail.title">Case File</span> {{caseFile.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.idCaseFile">Id Case File</span></dt>
+                <dd>
+                    <span>{{caseFile.idCaseFile}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{caseFile.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.fullNameElderly">Full Name Elderly</span></dt>
+                <dd>
+                    <span>{{caseFile.fullNameElderly}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.age">Age</span></dt>
+                <dd>
+                    <span>{{caseFile.age}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.religion">Religion</span></dt>
+                <dd>
+                    <span>{{caseFile.religion}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.nationality">Nationality</span></dt>
+                <dd>
+                    <span>{{caseFile.nationality}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.weight">Weight</span></dt>
+                <dd>
+                    <span>{{caseFile.weight}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.height">Height</span></dt>
+                <dd>
+                    <span>{{caseFile.height}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.birth">Birth</span></dt>
+                <dd>
+                    <span>{{caseFile.birth}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.gender">Gender</span></dt>
+                <dd>
+                    <span>{{caseFile.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.bloodType">Blood Type</span></dt>
+                <dd>
+                    <span>{{caseFile.bloodType}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.resuscitation">Resuscitation</span></dt>
+                <dd>
+                    <span>{{caseFile.resuscitation}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.organDonation">Organ Donation</span></dt>
+                <dd>
+                    <span>{{caseFile.organDonation}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.state">State</span></dt>
+                <dd>
+                    <span>{{caseFile.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.elderly">Elderly</span></dt>
+                <dd>
+                    <div *ngIf="caseFile.elderly">
+                        <a [routerLink]="['/elderly', caseFile.elderly?.id, 'view']">{{caseFile.elderly?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/case-file', caseFile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+{
+  "elderlySmartApp": {
+    "caseFile": {
+      "home": {
+        "title": "Case Files",
+        "createLabel": "Crear nuevo Case File",
+        "createOrEditLabel": "Crear o editar Case File",
+        "notFound": "No Case Files found"
+      },
+      "created": "Un nuevo Case File ha sido creado con el identificador {{ param }}",
+      "updated": "Un Case File ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Case File ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Case File {{ id }}?"
+      },
+      "detail": {
+        "title": "Case File"
+      },
+      "idCaseFile": "Id Case File",
+      "creationDate": "Creation Date",
+      "fullNameElderly": "Full Name Elderly",
+      "age": "Age",
+      "religion": "Religion",
+      "nationality": "Nationality",
+      "weight": "Weight",
+      "height": "Height",
+      "birth": "Birth",
+      "gender": "Gender",
+      "bloodType": "Blood Type",
+      "resuscitation": "Resuscitation",
+      "organDonation": "Organ Donation",
+      "state": "State",
+      "elderly": "Elderly",
+      "alergies": "Alergies",
+      "pathologies": "Pathologies"
+    }
+  }
+}

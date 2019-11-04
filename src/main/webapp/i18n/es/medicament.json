@@ -1,0 +1,26 @@
+{
+  "elderlySmartApp": {
+    "medicament": {
+      "home": {
+        "title": "Medicaments",
+        "createLabel": "Crear nuevo Medicament",
+        "createOrEditLabel": "Crear o editar Medicament",
+        "notFound": "No Medicaments found"
+      },
+      "created": "Un nuevo Medicament ha sido creado con el identificador {{ param }}",
+      "updated": "Un Medicament ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Medicament ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Medicament {{ id }}?"
+      },
+      "detail": {
+        "title": "Medicament"
+      },
+      "idMedicament": "Id Medicament",
+      "presentation": "Presentation",
+      "dateExpiry": "Date Expiry",
+      "cuantity": "Cuantity",
+      "product": "Product"
+    }
+  }
+}

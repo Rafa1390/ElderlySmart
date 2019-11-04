@@ -1,0 +1,25 @@
+{
+  "elderlySmartApp": {
+    "allergies": {
+      "home": {
+        "title": "Allergies",
+        "createLabel": "Create a new Allergies",
+        "createOrEditLabel": "Create or edit a Allergies",
+        "notFound": "No Allergies found"
+      },
+      "created": "A new Allergies is created with identifier {{ param }}",
+      "updated": "A Allergies is updated with identifier {{ param }}",
+      "deleted": "A Allergies is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Allergies {{ id }}?"
+      },
+      "detail": {
+        "title": "Allergies"
+      },
+      "idAllergies": "Id Allergies",
+      "name": "Name",
+      "description": "Description",
+      "caseFile": "Case File"
+    }
+  }
+}

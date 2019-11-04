@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Elderly.
+    -->
+    <changeSet id="20191104165955-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="elderly"
+                                 constraintName="fk_elderly_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_app_id"
+                                 baseTableName="elderly"
+                                 constraintName="fk_elderly_user_app_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_app"/>
+
+        <addForeignKeyConstraint baseColumnNames="elderly_id"
+                                 baseTableName="elderly_family"
+                                 constraintName="fk_elderly_family_elderly_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="elderly"/>
+
+        <addForeignKeyConstraint baseColumnNames="family_id"
+                                 baseTableName="elderly_family"
+                                 constraintName="fk_elderly_family_family_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="family"/>
+        
+    </changeSet>
+</databaseChangeLog>

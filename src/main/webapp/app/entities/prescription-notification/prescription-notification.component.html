@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.prescriptionNotification.home.title">Prescription Notifications</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prescription-notification" [routerLink]="['/prescription-notification/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.prescriptionNotification.home.createLabel">
+            Create a new Prescription Notification
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="prescriptionNotifications?.length === 0">
+        <span jhiTranslate="elderlySmartApp.prescriptionNotification.home.notFound">No prescriptionNotifications found</span>
+    </div>
+    <div class="table-responsive" *ngIf="prescriptionNotifications?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescriptionNotification.idPrescriptionNotification">Id Prescription Notification</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescriptionNotification.description">Description</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescriptionNotification.state">State</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescriptionNotification.prescription">Prescription</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prescriptionNotification of prescriptionNotifications ;trackBy: trackId">
+                <td><a [routerLink]="['/prescription-notification', prescriptionNotification.id, 'view' ]">{{prescriptionNotification.id}}</a></td>
+                <td>{{prescriptionNotification.idPrescriptionNotification}}</td>
+                <td>{{prescriptionNotification.description}}</td>
+                <td>{{prescriptionNotification.state}}</td>
+                <td>
+                    <div *ngIf="prescriptionNotification.prescription">
+                        <a [routerLink]="['/prescription', prescriptionNotification.prescription?.id, 'view' ]" >{{prescriptionNotification.prescription?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/prescription-notification', prescriptionNotification.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/prescription-notification', prescriptionNotification.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/prescription-notification', { outlets: { popup: prescriptionNotification.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

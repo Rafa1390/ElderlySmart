@@ -1,0 +1,66 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.family.home.title">Families</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-family" [routerLink]="['/family/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.family.home.createLabel">
+            Create a new Family
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="families?.length === 0">
+        <span jhiTranslate="elderlySmartApp.family.home.notFound">No families found</span>
+    </div>
+    <div class="table-responsive" *ngIf="families?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.idFamily">Id Family</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.familyRelation">Family Relation</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.userApp">User App</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let family of families ;trackBy: trackId">
+                <td><a [routerLink]="['/family', family.id, 'view' ]">{{family.id}}</a></td>
+                <td>{{family.idFamily}}</td>
+                <td>{{family.familyRelation}}</td>
+                <td>
+                    <div *ngIf="family.userApp">
+                        <a [routerLink]="['/user-app', family.userApp?.id, 'view' ]" >{{family.userApp?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/family', family.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/family', family.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/family', { outlets: { popup: family.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

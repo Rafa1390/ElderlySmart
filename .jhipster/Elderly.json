@@ -1,0 +1,67 @@
+{
+    "name": "Elderly",
+    "fields": [
+        {
+            "fieldName": "idElderly",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nationality",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "admissionDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "employee",
+            "otherEntityName": "employee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userApp",
+            "otherEntityRelationshipName": "elderly",
+            "relationshipName": "userApp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "family",
+            "otherEntityRelationshipName": "elderly",
+            "relationshipName": "family",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "doctor",
+            "otherEntityRelationshipName": "elderly",
+            "relationshipName": "doctor",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191104165955",
+    "entityTableName": "elderly",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

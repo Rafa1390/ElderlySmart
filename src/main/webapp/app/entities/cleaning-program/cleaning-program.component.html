@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.cleaningProgram.home.title">Cleaning Programs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-cleaning-program" [routerLink]="['/cleaning-program/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.cleaningProgram.home.createLabel">
+            Create a new Cleaning Program
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="cleaningPrograms?.length === 0">
+        <span jhiTranslate="elderlySmartApp.cleaningProgram.home.notFound">No cleaningPrograms found</span>
+    </div>
+    <div class="table-responsive" *ngIf="cleaningPrograms?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.cleaningProgram.idCleaningProgram">Id Cleaning Program</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.cleaningProgram.day">Day</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.cleaningProgram.time">Time</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.cleaningProgram.cleaningTask">Cleaning Task</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.cleaningProgram.asylum">Asylum</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let cleaningProgram of cleaningPrograms ;trackBy: trackId">
+                <td><a [routerLink]="['/cleaning-program', cleaningProgram.id, 'view' ]">{{cleaningProgram.id}}</a></td>
+                <td>{{cleaningProgram.idCleaningProgram}}</td>
+                <td>{{cleaningProgram.day | date:'mediumDate'}}</td>
+                <td>{{cleaningProgram.time}}</td>
+                <td>{{cleaningProgram.cleaningTask}}</td>
+                <td>
+                    <div *ngIf="cleaningProgram.asylum">
+                        <a [routerLink]="['/asylum', cleaningProgram.asylum?.id, 'view' ]" >{{cleaningProgram.asylum?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/cleaning-program', cleaningProgram.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cleaning-program', cleaningProgram.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/cleaning-program', { outlets: { popup: cleaningProgram.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

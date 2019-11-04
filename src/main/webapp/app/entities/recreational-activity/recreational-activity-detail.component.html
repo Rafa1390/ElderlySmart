@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="recreationalActivity">
+            <h2><span jhiTranslate="elderlySmartApp.recreationalActivity.detail.title">Recreational Activity</span> {{recreationalActivity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.idRecreationalActivity">Id Recreational Activity</span></dt>
+                <dd>
+                    <span>{{recreationalActivity.idRecreationalActivity}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.name">Name</span></dt>
+                <dd>
+                    <span>{{recreationalActivity.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.description">Description</span></dt>
+                <dd>
+                    <span>{{recreationalActivity.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.date">Date</span></dt>
+                <dd>
+                    <span>{{recreationalActivity.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.startTime">Start Time</span></dt>
+                <dd>
+                    <span>{{recreationalActivity.startTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.endTime">End Time</span></dt>
+                <dd>
+                    <span>{{recreationalActivity.endTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.state">State</span></dt>
+                <dd>
+                    <span>{{recreationalActivity.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.recreationalActivity.asylum">Asylum</span></dt>
+                <dd>
+                    <div *ngIf="recreationalActivity.asylum">
+                        <a [routerLink]="['/asylum', recreationalActivity.asylum?.id, 'view']">{{recreationalActivity.asylum?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/recreational-activity', recreationalActivity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

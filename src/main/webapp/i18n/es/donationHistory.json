@@ -1,0 +1,26 @@
+{
+  "elderlySmartApp": {
+    "donationHistory": {
+      "home": {
+        "title": "Donation Histories",
+        "createLabel": "Crear nuevo Donation History",
+        "createOrEditLabel": "Crear o editar Donation History",
+        "notFound": "No Donation Histories found"
+      },
+      "created": "Un nuevo Donation History ha sido creado con el identificador {{ param }}",
+      "updated": "Un Donation History ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Donation History ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Donation History {{ id }}?"
+      },
+      "detail": {
+        "title": "Donation History"
+      },
+      "idDonationHistory": "Id Donation History",
+      "phone": "Phone",
+      "donationMade": "Donation Made",
+      "date": "Date",
+      "partner": "Partner"
+    }
+  }
+}

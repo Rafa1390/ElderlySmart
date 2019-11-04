@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-case-file-heading" jhiTranslate="elderlySmartApp.caseFile.home.createOrEditLabel">Create or edit a Case File</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.idCaseFile" for="field_idCaseFile">Id Case File</label>
+                    <input type="number" class="form-control" name="idCaseFile" id="field_idCaseFile"
+                           formControlName="idCaseFile"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="input-group">
+                        <input id="field_creationDate" type="text" class="form-control" name="creationDate" ngbDatepicker  #creationDateDp="ngbDatepicker" formControlName="creationDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creationDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.fullNameElderly" for="field_fullNameElderly">Full Name Elderly</label>
+                    <input type="text" class="form-control" name="fullNameElderly" id="field_fullNameElderly"
+                           formControlName="fullNameElderly"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.age" for="field_age">Age</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                           formControlName="age"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.religion" for="field_religion">Religion</label>
+                    <input type="text" class="form-control" name="religion" id="field_religion"
+                           formControlName="religion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.nationality" for="field_nationality">Nationality</label>
+                    <input type="text" class="form-control" name="nationality" id="field_nationality"
+                           formControlName="nationality"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.weight" for="field_weight">Weight</label>
+                    <input type="text" class="form-control" name="weight" id="field_weight"
+                           formControlName="weight"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.height" for="field_height">Height</label>
+                    <input type="text" class="form-control" name="height" id="field_height"
+                           formControlName="height"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.birth" for="field_birth">Birth</label>
+                    <div class="input-group">
+                        <input id="field_birth" type="text" class="form-control" name="birth" ngbDatepicker  #birthDp="ngbDatepicker" formControlName="birth"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="birthDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.gender" for="field_gender">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="field_gender"
+                           formControlName="gender"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.bloodType" for="field_bloodType">Blood Type</label>
+                    <input type="text" class="form-control" name="bloodType" id="field_bloodType"
+                           formControlName="bloodType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.resuscitation" for="field_resuscitation">Resuscitation</label>
+                    <input type="text" class="form-control" name="resuscitation" id="field_resuscitation"
+                           formControlName="resuscitation"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.organDonation" for="field_organDonation">Organ Donation</label>
+                    <input type="text" class="form-control" name="organDonation" id="field_organDonation"
+                           formControlName="organDonation"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.state" for="field_state">State</label>
+                    <input type="text" class="form-control" name="state" id="field_state"
+                           formControlName="state"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.elderly" for="field_elderly">Elderly</label>
+                    <select class="form-control" id="field_elderly" name="elderly" formControlName="elderly">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="elderlyOption.id === editForm.get('elderly').value?.id ? editForm.get('elderly').value : elderlyOption" *ngFor="let elderlyOption of elderlies; trackBy: trackElderlyById">{{elderlyOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

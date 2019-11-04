@@ -1,0 +1,55 @@
+{
+    "name": "Mortuary",
+    "fields": [
+        {
+            "fieldName": "idMortuary",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userApp",
+            "otherEntityRelationshipName": "mortuary",
+            "relationshipName": "userApp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "funeralPackages",
+            "otherEntityRelationshipName": "mortuary",
+            "relationshipName": "funeralPackages"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "asylum",
+            "otherEntityRelationshipName": "mortuary",
+            "relationshipName": "asylum",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191104170005",
+    "entityTableName": "mortuary",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

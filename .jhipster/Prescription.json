@@ -1,0 +1,61 @@
+{
+    "name": "Prescription",
+    "fields": [
+        {
+            "fieldName": "idPrescription",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "officeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "doctorName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "patientName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "patientAge",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "prescriptionDrugs",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "pharmacy",
+            "otherEntityName": "pharmacy",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "doctor",
+            "otherEntityName": "doctor",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191104170010",
+    "entityTableName": "prescription",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

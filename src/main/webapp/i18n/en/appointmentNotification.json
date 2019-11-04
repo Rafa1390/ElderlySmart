@@ -1,0 +1,25 @@
+{
+  "elderlySmartApp": {
+    "appointmentNotification": {
+      "home": {
+        "title": "Appointment Notifications",
+        "createLabel": "Create a new Appointment Notification",
+        "createOrEditLabel": "Create or edit a Appointment Notification",
+        "notFound": "No Appointment Notifications found"
+      },
+      "created": "A new Appointment Notification is created with identifier {{ param }}",
+      "updated": "A Appointment Notification is updated with identifier {{ param }}",
+      "deleted": "A Appointment Notification is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appointment Notification {{ id }}?"
+      },
+      "detail": {
+        "title": "Appointment Notification"
+      },
+      "idAppointmentNotification": "Id Appointment Notification",
+      "description": "Description",
+      "state": "State",
+      "medicalAppointment": "Medical Appointment"
+    }
+  }
+}

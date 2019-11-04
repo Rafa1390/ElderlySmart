@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="family">
+            <h2><span jhiTranslate="elderlySmartApp.family.detail.title">Family</span> {{family.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.family.idFamily">Id Family</span></dt>
+                <dd>
+                    <span>{{family.idFamily}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.familyRelation">Family Relation</span></dt>
+                <dd>
+                    <span>{{family.familyRelation}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.userApp">User App</span></dt>
+                <dd>
+                    <div *ngIf="family.userApp">
+                        <a [routerLink]="['/user-app', family.userApp?.id, 'view']">{{family.userApp?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/family', family.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

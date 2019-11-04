@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="prescription">
+            <h2><span jhiTranslate="elderlySmartApp.prescription.detail.title">Prescription</span> {{prescription.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.prescription.idPrescription">Id Prescription</span></dt>
+                <dd>
+                    <span>{{prescription.idPrescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.officeName">Office Name</span></dt>
+                <dd>
+                    <span>{{prescription.officeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{prescription.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.doctorName">Doctor Name</span></dt>
+                <dd>
+                    <span>{{prescription.doctorName}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.patientName">Patient Name</span></dt>
+                <dd>
+                    <span>{{prescription.patientName}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.patientAge">Patient Age</span></dt>
+                <dd>
+                    <span>{{prescription.patientAge}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.prescriptionDrugs">Prescription Drugs</span></dt>
+                <dd>
+                    <span>{{prescription.prescriptionDrugs}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.state">State</span></dt>
+                <dd>
+                    <span>{{prescription.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.pharmacy">Pharmacy</span></dt>
+                <dd>
+                    <div *ngIf="prescription.pharmacy">
+                        <a [routerLink]="['/pharmacy', prescription.pharmacy?.id, 'view']">{{prescription.pharmacy?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.prescription.doctor">Doctor</span></dt>
+                <dd>
+                    <div *ngIf="prescription.doctor">
+                        <a [routerLink]="['/doctor', prescription.doctor?.id, 'view']">{{prescription.doctor?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/prescription', prescription.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

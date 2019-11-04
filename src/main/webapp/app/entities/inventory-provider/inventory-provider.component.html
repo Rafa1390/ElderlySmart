@@ -1,0 +1,78 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.inventoryProvider.home.title">Inventory Providers</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory-provider" [routerLink]="['/inventory-provider/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.inventoryProvider.home.createLabel">
+            Create a new Inventory Provider
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="inventoryProviders?.length === 0">
+        <span jhiTranslate="elderlySmartApp.inventoryProvider.home.notFound">No inventoryProviders found</span>
+    </div>
+    <div class="table-responsive" *ngIf="inventoryProviders?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryProvider.idInventoryProvider">Id Inventory Provider</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryProvider.code">Code</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryProvider.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryProvider.price">Price</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryProvider.cuantity">Cuantity</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryProvider.provider">Provider</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryProvider.product">Product</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let inventoryProvider of inventoryProviders ;trackBy: trackId">
+                <td><a [routerLink]="['/inventory-provider', inventoryProvider.id, 'view' ]">{{inventoryProvider.id}}</a></td>
+                <td>{{inventoryProvider.idInventoryProvider}}</td>
+                <td>{{inventoryProvider.code}}</td>
+                <td>{{inventoryProvider.name}}</td>
+                <td>{{inventoryProvider.price}}</td>
+                <td>{{inventoryProvider.cuantity}}</td>
+                <td>
+                    <div *ngIf="inventoryProvider.provider">
+                        <a [routerLink]="['/provider', inventoryProvider.provider?.id, 'view' ]" >{{inventoryProvider.provider?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let product of inventoryProvider.products; let last = last">
+                            <a class="form-control-static" [routerLink]="['/product', product?.id, 'view' ]">{{product.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/inventory-provider', inventoryProvider.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/inventory-provider', inventoryProvider.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/inventory-provider', { outlets: { popup: inventoryProvider.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

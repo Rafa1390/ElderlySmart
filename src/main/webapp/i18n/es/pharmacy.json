@@ -1,0 +1,29 @@
+{
+  "elderlySmartApp": {
+    "pharmacy": {
+      "home": {
+        "title": "Pharmacies",
+        "createLabel": "Crear nuevo Pharmacy",
+        "createOrEditLabel": "Crear o editar Pharmacy",
+        "notFound": "No Pharmacies found"
+      },
+      "created": "Un nuevo Pharmacy ha sido creado con el identificador {{ param }}",
+      "updated": "Un Pharmacy ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Pharmacy ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Pharmacy {{ id }}?"
+      },
+      "detail": {
+        "title": "Pharmacy"
+      },
+      "idPharmacy": "Id Pharmacy",
+      "email": "Email",
+      "name": "Name",
+      "address": "Address",
+      "userApp": "User App",
+      "prescription": "Prescription",
+      "provider": "Provider",
+      "asylum": "Asylum"
+    }
+  }
+}

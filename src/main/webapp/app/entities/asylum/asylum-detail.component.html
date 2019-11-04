@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="asylum">
+            <h2><span jhiTranslate="elderlySmartApp.asylum.detail.title">Asylum</span> {{asylum.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.asylum.identification">Identification</span></dt>
+                <dd>
+                    <span>{{asylum.identification}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.asylum.email">Email</span></dt>
+                <dd>
+                    <span>{{asylum.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.asylum.name">Name</span></dt>
+                <dd>
+                    <span>{{asylum.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.asylum.address">Address</span></dt>
+                <dd>
+                    <span>{{asylum.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.asylum.userApp">User App</span></dt>
+                <dd>
+                    <div *ngIf="asylum.userApp">
+                        <a [routerLink]="['/user-app', asylum.userApp?.id, 'view']">{{asylum.userApp?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.asylum.mortuary">Mortuary</span></dt>
+                <dd>
+                    <span *ngFor="let mortuary of asylum.mortuaries; let last = last">
+                        <a [routerLink]="['/mortuary', mortuary?.id, 'view' ]">{{mortuary.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.asylum.pharmacy">Pharmacy</span></dt>
+                <dd>
+                    <span *ngFor="let pharmacy of asylum.pharmacies; let last = last">
+                        <a [routerLink]="['/pharmacy', pharmacy?.id, 'view' ]">{{pharmacy.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.asylum.partner">Partner</span></dt>
+                <dd>
+                    <span *ngFor="let partner of asylum.partners; let last = last">
+                        <a [routerLink]="['/partner', partner?.id, 'view' ]">{{partner.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/asylum', asylum.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

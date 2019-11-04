@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span jhiTranslate="elderlySmartApp.product.detail.title">Product</span> {{product.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.product.idProduct">Id Product</span></dt>
+                <dd>
+                    <span>{{product.idProduct}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.product.code">Code</span></dt>
+                <dd>
+                    <span>{{product.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.product.name">Name</span></dt>
+                <dd>
+                    <span>{{product.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.product.brand">Brand</span></dt>
+                <dd>
+                    <span>{{product.brand}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.product.description">Description</span></dt>
+                <dd>
+                    <span>{{product.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.product.type">Type</span></dt>
+                <dd>
+                    <span>{{product.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.product.state">State</span></dt>
+                <dd>
+                    <span>{{product.state}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

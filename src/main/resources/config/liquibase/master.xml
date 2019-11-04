@@ -14,6 +14,62 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165945_added_entity_UserApp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165946_added_entity_Asylum.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165947_added_entity_CleaningProgram.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165948_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165949_added_entity_FoodMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165950_added_entity_Medicament.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165951_added_entity_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165952_added_entity_ProviderHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165953_added_entity_Allergies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165954_added_entity_CaseFile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165955_added_entity_Elderly.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165956_added_entity_InventoryPharmacy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165957_added_entity_InventoryProvider.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165958_added_entity_Pathologies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165959_added_entity_Provider.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170000_added_entity_RecreationalActivity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170001_added_entity_Pharmacy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170002_added_entity_Doctor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170003_added_entity_Partner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170004_added_entity_Family.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170005_added_entity_Mortuary.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170006_added_entity_FuneralHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170007_added_entity_FuneralPackages.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170008_added_entity_DonationHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170009_added_entity_PharmacyHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170010_added_entity_Prescription.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170011_added_entity_PrescriptionNotification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170012_added_entity_MedicationSchedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170013_added_entity_MedicalAppointment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170014_added_entity_AppointmentNotification.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20191104165946_added_entity_constraints_Asylum.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165947_added_entity_constraints_CleaningProgram.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165948_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165949_added_entity_constraints_FoodMenu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165950_added_entity_constraints_Medicament.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165952_added_entity_constraints_ProviderHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165953_added_entity_constraints_Allergies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165954_added_entity_constraints_CaseFile.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165955_added_entity_constraints_Elderly.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165956_added_entity_constraints_InventoryPharmacy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165957_added_entity_constraints_InventoryProvider.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165958_added_entity_constraints_Pathologies.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104165959_added_entity_constraints_Provider.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170000_added_entity_constraints_RecreationalActivity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170001_added_entity_constraints_Pharmacy.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170002_added_entity_constraints_Doctor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170003_added_entity_constraints_Partner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170004_added_entity_constraints_Family.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170005_added_entity_constraints_Mortuary.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170006_added_entity_constraints_FuneralHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170007_added_entity_constraints_FuneralPackages.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170008_added_entity_constraints_DonationHistory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170010_added_entity_constraints_Prescription.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170011_added_entity_constraints_PrescriptionNotification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170013_added_entity_constraints_MedicalAppointment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191104170014_added_entity_constraints_AppointmentNotification.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

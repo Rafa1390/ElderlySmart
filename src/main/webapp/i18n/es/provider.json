@@ -1,0 +1,28 @@
+{
+  "elderlySmartApp": {
+    "provider": {
+      "home": {
+        "title": "Providers",
+        "createLabel": "Crear nuevo Provider",
+        "createOrEditLabel": "Crear o editar Provider",
+        "notFound": "No Providers found"
+      },
+      "created": "Un nuevo Provider ha sido creado con el identificador {{ param }}",
+      "updated": "Un Provider ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Provider ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Provider {{ id }}?"
+      },
+      "detail": {
+        "title": "Provider"
+      },
+      "identification": "Identification",
+      "email": "Email",
+      "name": "Name",
+      "providerType": "Provider Type",
+      "address": "Address",
+      "userApp": "User App",
+      "pharmacy": "Pharmacy"
+    }
+  }
+}

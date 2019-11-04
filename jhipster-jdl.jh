@@ -1,0 +1,301 @@
+
+entity UserApp {
+	identification String,
+    idTypeUser Integer,
+    email String,
+    name String,
+    name2 String,
+    lastName String,
+    lastName2 String,
+    phone1 String,
+    phone2 String,
+    age Integer,
+    password String,
+    state String 
+}
+
+entity Asylum {
+	identification String,
+	email String,
+	name String,
+	address String
+}
+
+entity CleaningProgram {
+idCleaningProgram Integer,
+day LocalDate,
+time String,
+cleaningTask String
+}
+
+entity Employee{
+idEmployee Integer,
+address String
+}
+
+entity FoodMenu{
+idFoodMenu Integer,
+feedingTime String,
+description String
+}
+
+entity Medicament{
+idMedicament Integer,
+presentation String,
+dateExpiry LocalDate,
+cuantity String
+}
+
+entity Product{
+idProduct Integer,
+code String,
+name String,
+brand String
+description String,
+type Integer,
+state String
+}
+
+entity ProviderHistory{
+idProviderHistory Integer,
+code String,
+client String,
+phone String,
+purchaseMade String,
+date LocalDate
+}
+
+entity Allergies{
+idAllergies Integer,
+name String,
+description String
+}
+
+entity CaseFile{
+idCaseFile Integer,
+creationDate LocalDate,
+fullNameElderly String,
+age Integer,
+religion String,
+nationality String,
+weight String,
+height String,
+birth LocalDate,
+gender String,
+bloodType String,
+resuscitation String,
+organDonation String,
+state String
+}
+
+entity Elderly{
+idElderly Integer,
+nationality String,
+address String,
+admissionDate LocalDate,
+state String
+}
+
+entity InventoryPharmacy{
+idInventoryPharmacy String,
+code String,
+name String,
+purchasePrice Integer,
+salePrice Integer,
+cuantity Integer,
+}
+
+entity InventoryProvider{
+idInventoryProvider String,
+code String,
+name String,
+price Integer,
+cuantity Integer,
+}
+
+entity Pathologies{
+idPathologies Integer,
+name String,
+description String
+}
+
+entity Provider{
+identification String,
+email String,
+name String,
+providerType String,
+address String
+}
+
+entity RecreationalActivity{
+idRecreationalActivity Integer,
+name String,
+description String, 
+date LocalDate,
+startTime String,
+endTime String,
+state String
+}
+
+entity Pharmacy{
+idPharmacy String,
+email String,
+name String,
+address String
+} 
+
+entity Doctor{
+idDoctor String,
+email String,
+officeName String,
+address String
+}
+
+entity Partner{
+idPartner Integer,
+address String
+}
+
+entity Family{
+idFamily Integer,
+familyRelation String
+}
+
+entity Mortuary{
+idMortuary String,
+email String,
+name String,
+address String
+}
+
+entity FuneralHistory{
+idFuneralHistory Integer,
+customer String,
+phone String,
+purchaseMade String,
+date LocalDate,
+state String
+}
+
+entity FuneralPackages{
+idFuneralPackages Integer,
+name String,
+description String,
+price Integer,
+state String
+}
+
+entity DonationHistory{
+idDonationHistory Integer,
+phone String,
+donationMade Integer,
+date LocalDate
+}
+
+entity PharmacyHistory{
+idPharmacyHistory Integer,
+code String,
+client String,
+phone String,
+purchaseMade String,
+date LocalDate
+}
+
+entity Prescription{
+idPrescription Integer,
+officeName String,
+creationDate LocalDate,
+doctorName String,
+patientName String,
+patientAge Integer,
+prescriptionDrugs String,
+state String
+}
+
+entity PrescriptionNotification{
+idPrescriptionNotification Integer,
+description String,
+state String
+}
+
+entity MedicationSchedule{
+idMedicationSchedule Integer,
+meticationName String,
+elderly String,
+dose String,
+time String,
+state String
+}
+
+entity MedicalAppointment{
+idMedicalAppointment Integer,
+date LocalDate,
+time String,
+state String
+}
+
+entity AppointmentNotification{
+idAppointmentNotification Integer,
+description String,
+state String
+}
+
+
+relationship OneToOne {
+    
+    Medicament{product} to Product,
+    FuneralHistory{mortuary} to Mortuary,
+    DonationHistory{partner} to Partner,
+    PrescriptionNotification{prescription} to Prescription,
+    AppointmentNotification{medicalAppointment} to MedicalAppointment,
+    ProviderHistory{provider} to Provider,
+    CaseFile{elderly} to Elderly,
+    InventoryProvider{provider} to Provider,
+    InventoryPharmacy{pharmacy} to Pharmacy
+   
+    
+}
+
+relationship OneToOne {
+    
+ 	Asylum{userApp} to UserApp,
+    Employee{userApp} to UserApp,
+    Elderly{userApp} to UserApp,
+    Provider{userApp} to UserApp,
+    Pharmacy{userApp} to UserApp,
+    Doctor{userApp} to UserApp,
+    Partner{userApp} to UserApp,
+    Family{userApp} to UserApp,
+    Mortuary{userApp} to UserApp
+    
+}
+
+relationship ManyToMany{
+	Asylum{mortuary} to Mortuary{asylum},
+	Elderly{family} to Family{elderly},
+	Asylum{pharmacy} to Pharmacy{asylum},
+	Asylum{partner} to Partner{asylum},
+	Pharmacy{provider} to Provider{pharmacy},
+	Doctor{elderly} to Elderly{doctor},
+	InventoryProvider{product} to Product{inventoryProvider}
+}
+
+relationship OneToMany {
+	Asylum{cleaningProgram} to CleaningProgram,
+	Asylum{foodMenu} to FoodMenu,
+	Asylum{recreationalActivity} to RecreationalActivity,
+    Employee{elderly} to Elderly,
+	Asylum{employee} to Employee,
+    CaseFile{alergies} to Allergies,
+    CaseFile{pathologies} to Pathologies,
+    Mortuary{funeralPackages} to FuneralPackages,
+    Doctor{prescription} to Prescription,
+    Pharmacy{prescription} to Prescription,
+    Doctor{medicalAppointment} to MedicalAppointment,
+    Employee{medicalAppointment} to MedicalAppointment  
+}
+
+
+
+
+

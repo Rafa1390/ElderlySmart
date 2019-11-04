@@ -1,0 +1,29 @@
+{
+  "elderlySmartApp": {
+    "recreationalActivity": {
+      "home": {
+        "title": "Recreational Activities",
+        "createLabel": "Crear nuevo Recreational Activity",
+        "createOrEditLabel": "Crear o editar Recreational Activity",
+        "notFound": "No Recreational Activities found"
+      },
+      "created": "Un nuevo Recreational Activity ha sido creado con el identificador {{ param }}",
+      "updated": "Un Recreational Activity ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Recreational Activity ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Recreational Activity {{ id }}?"
+      },
+      "detail": {
+        "title": "Recreational Activity"
+      },
+      "idRecreationalActivity": "Id Recreational Activity",
+      "name": "Name",
+      "description": "Description",
+      "date": "Date",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "state": "State",
+      "asylum": "Asylum"
+    }
+  }
+}

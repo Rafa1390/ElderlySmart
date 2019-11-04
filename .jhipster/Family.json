@@ -1,0 +1,41 @@
+{
+    "name": "Family",
+    "fields": [
+        {
+            "fieldName": "idFamily",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "familyRelation",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userApp",
+            "otherEntityRelationshipName": "family",
+            "relationshipName": "userApp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "elderly",
+            "otherEntityRelationshipName": "family",
+            "relationshipName": "elderly",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191104170004",
+    "entityTableName": "family",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

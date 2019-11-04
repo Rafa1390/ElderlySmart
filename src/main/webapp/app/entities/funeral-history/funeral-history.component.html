@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.funeralHistory.home.title">Funeral Histories</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-funeral-history" [routerLink]="['/funeral-history/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.funeralHistory.home.createLabel">
+            Create a new Funeral History
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="funeralHistories?.length === 0">
+        <span jhiTranslate="elderlySmartApp.funeralHistory.home.notFound">No funeralHistories found</span>
+    </div>
+    <div class="table-responsive" *ngIf="funeralHistories?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.funeralHistory.idFuneralHistory">Id Funeral History</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.funeralHistory.customer">Customer</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.funeralHistory.phone">Phone</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.funeralHistory.purchaseMade">Purchase Made</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.funeralHistory.date">Date</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.funeralHistory.state">State</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.funeralHistory.mortuary">Mortuary</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let funeralHistory of funeralHistories ;trackBy: trackId">
+                <td><a [routerLink]="['/funeral-history', funeralHistory.id, 'view' ]">{{funeralHistory.id}}</a></td>
+                <td>{{funeralHistory.idFuneralHistory}}</td>
+                <td>{{funeralHistory.customer}}</td>
+                <td>{{funeralHistory.phone}}</td>
+                <td>{{funeralHistory.purchaseMade}}</td>
+                <td>{{funeralHistory.date | date:'mediumDate'}}</td>
+                <td>{{funeralHistory.state}}</td>
+                <td>
+                    <div *ngIf="funeralHistory.mortuary">
+                        <a [routerLink]="['/mortuary', funeralHistory.mortuary?.id, 'view' ]" >{{funeralHistory.mortuary?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/funeral-history', funeralHistory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/funeral-history', funeralHistory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/funeral-history', { outlets: { popup: funeralHistory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

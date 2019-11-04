@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-cleaning-program-heading" jhiTranslate="elderlySmartApp.cleaningProgram.home.createOrEditLabel">Create or edit a Cleaning Program</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.cleaningProgram.idCleaningProgram" for="field_idCleaningProgram">Id Cleaning Program</label>
+                    <input type="number" class="form-control" name="idCleaningProgram" id="field_idCleaningProgram"
+                           formControlName="idCleaningProgram"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.cleaningProgram.day" for="field_day">Day</label>
+                    <div class="input-group">
+                        <input id="field_day" type="text" class="form-control" name="day" ngbDatepicker  #dayDp="ngbDatepicker" formControlName="day"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dayDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.cleaningProgram.time" for="field_time">Time</label>
+                    <input type="text" class="form-control" name="time" id="field_time"
+                           formControlName="time"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.cleaningProgram.cleaningTask" for="field_cleaningTask">Cleaning Task</label>
+                    <input type="text" class="form-control" name="cleaningTask" id="field_cleaningTask"
+                           formControlName="cleaningTask"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.cleaningProgram.asylum" for="field_asylum">Asylum</label>
+                    <select class="form-control" id="field_asylum" name="asylum" formControlName="asylum">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="asylumOption.id === editForm.get('asylum').value?.id ? editForm.get('asylum').value : asylumOption" *ngFor="let asylumOption of asylums; trackBy: trackAsylumById">{{asylumOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

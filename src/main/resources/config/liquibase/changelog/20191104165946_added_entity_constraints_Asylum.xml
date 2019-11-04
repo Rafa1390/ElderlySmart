@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Asylum.
+    -->
+    <changeSet id="20191104165946-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_app_id"
+                                 baseTableName="asylum"
+                                 constraintName="fk_asylum_user_app_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_app"/>
+
+        <addForeignKeyConstraint baseColumnNames="asylum_id"
+                                 baseTableName="asylum_mortuary"
+                                 constraintName="fk_asylum_mortuary_asylum_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asylum"/>
+
+        <addForeignKeyConstraint baseColumnNames="mortuary_id"
+                                 baseTableName="asylum_mortuary"
+                                 constraintName="fk_asylum_mortuary_mortuary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mortuary"/>
+        
+        <addForeignKeyConstraint baseColumnNames="asylum_id"
+                                 baseTableName="asylum_pharmacy"
+                                 constraintName="fk_asylum_pharmacy_asylum_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asylum"/>
+
+        <addForeignKeyConstraint baseColumnNames="pharmacy_id"
+                                 baseTableName="asylum_pharmacy"
+                                 constraintName="fk_asylum_pharmacy_pharmacy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pharmacy"/>
+        
+        <addForeignKeyConstraint baseColumnNames="asylum_id"
+                                 baseTableName="asylum_partner"
+                                 constraintName="fk_asylum_partner_asylum_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asylum"/>
+
+        <addForeignKeyConstraint baseColumnNames="partner_id"
+                                 baseTableName="asylum_partner"
+                                 constraintName="fk_asylum_partner_partner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="partner"/>
+        
+    </changeSet>
+</databaseChangeLog>

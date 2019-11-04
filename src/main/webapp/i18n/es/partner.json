@@ -1,0 +1,25 @@
+{
+  "elderlySmartApp": {
+    "partner": {
+      "home": {
+        "title": "Partners",
+        "createLabel": "Crear nuevo Partner",
+        "createOrEditLabel": "Crear o editar Partner",
+        "notFound": "No Partners found"
+      },
+      "created": "Un nuevo Partner ha sido creado con el identificador {{ param }}",
+      "updated": "Un Partner ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Partner ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Partner {{ id }}?"
+      },
+      "detail": {
+        "title": "Partner"
+      },
+      "idPartner": "Id Partner",
+      "address": "Address",
+      "userApp": "User App",
+      "asylum": "Asylum"
+    }
+  }
+}

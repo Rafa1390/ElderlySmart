@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-food-menu-heading" jhiTranslate="elderlySmartApp.foodMenu.home.createOrEditLabel">Create or edit a Food Menu</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.foodMenu.idFoodMenu" for="field_idFoodMenu">Id Food Menu</label>
+                    <input type="number" class="form-control" name="idFoodMenu" id="field_idFoodMenu"
+                           formControlName="idFoodMenu"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.foodMenu.feedingTime" for="field_feedingTime">Feeding Time</label>
+                    <input type="text" class="form-control" name="feedingTime" id="field_feedingTime"
+                           formControlName="feedingTime"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.foodMenu.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.foodMenu.asylum" for="field_asylum">Asylum</label>
+                    <select class="form-control" id="field_asylum" name="asylum" formControlName="asylum">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="asylumOption.id === editForm.get('asylum').value?.id ? editForm.get('asylum').value : asylumOption" *ngFor="let asylumOption of asylums; trackBy: trackAsylumById">{{asylumOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

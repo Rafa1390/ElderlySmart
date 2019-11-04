@@ -1,0 +1,93 @@
+{
+    "name": "CaseFile",
+    "fields": [
+        {
+            "fieldName": "idCaseFile",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "creationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "fullNameElderly",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "age",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "religion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nationality",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birth",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bloodType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "resuscitation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "organDonation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "elderly",
+            "otherEntityRelationshipName": "caseFile",
+            "relationshipName": "elderly",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "allergies",
+            "otherEntityRelationshipName": "caseFile",
+            "relationshipName": "alergies"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pathologies",
+            "otherEntityRelationshipName": "caseFile",
+            "relationshipName": "pathologies"
+        }
+    ],
+    "changelogDate": "20191104165954",
+    "entityTableName": "case_file",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

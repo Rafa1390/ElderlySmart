@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-prescription-heading" jhiTranslate="elderlySmartApp.prescription.home.createOrEditLabel">Create or edit a Prescription</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.idPrescription" for="field_idPrescription">Id Prescription</label>
+                    <input type="number" class="form-control" name="idPrescription" id="field_idPrescription"
+                           formControlName="idPrescription"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.officeName" for="field_officeName">Office Name</label>
+                    <input type="text" class="form-control" name="officeName" id="field_officeName"
+                           formControlName="officeName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="input-group">
+                        <input id="field_creationDate" type="text" class="form-control" name="creationDate" ngbDatepicker  #creationDateDp="ngbDatepicker" formControlName="creationDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creationDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.doctorName" for="field_doctorName">Doctor Name</label>
+                    <input type="text" class="form-control" name="doctorName" id="field_doctorName"
+                           formControlName="doctorName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.patientName" for="field_patientName">Patient Name</label>
+                    <input type="text" class="form-control" name="patientName" id="field_patientName"
+                           formControlName="patientName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.patientAge" for="field_patientAge">Patient Age</label>
+                    <input type="number" class="form-control" name="patientAge" id="field_patientAge"
+                           formControlName="patientAge"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.prescriptionDrugs" for="field_prescriptionDrugs">Prescription Drugs</label>
+                    <input type="text" class="form-control" name="prescriptionDrugs" id="field_prescriptionDrugs"
+                           formControlName="prescriptionDrugs"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.state" for="field_state">State</label>
+                    <input type="text" class="form-control" name="state" id="field_state"
+                           formControlName="state"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.pharmacy" for="field_pharmacy">Pharmacy</label>
+                    <select class="form-control" id="field_pharmacy" name="pharmacy" formControlName="pharmacy">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pharmacyOption.id === editForm.get('pharmacy').value?.id ? editForm.get('pharmacy').value : pharmacyOption" *ngFor="let pharmacyOption of pharmacies; trackBy: trackPharmacyById">{{pharmacyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.doctor" for="field_doctor">Doctor</label>
+                    <select class="form-control" id="field_doctor" name="doctor" formControlName="doctor">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="doctorOption.id === editForm.get('doctor').value?.id ? editForm.get('doctor').value : doctorOption" *ngFor="let doctorOption of doctors; trackBy: trackDoctorById">{{doctorOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Pharmacy.
+    -->
+    <changeSet id="20191104170001-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_app_id"
+                                 baseTableName="pharmacy"
+                                 constraintName="fk_pharmacy_user_app_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_app"/>
+
+        <addForeignKeyConstraint baseColumnNames="pharmacy_id"
+                                 baseTableName="pharmacy_provider"
+                                 constraintName="fk_pharmacy_provider_pharmacy_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pharmacy"/>
+
+        <addForeignKeyConstraint baseColumnNames="provider_id"
+                                 baseTableName="pharmacy_provider"
+                                 constraintName="fk_pharmacy_provider_provider_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="provider"/>
+        
+    </changeSet>
+</databaseChangeLog>

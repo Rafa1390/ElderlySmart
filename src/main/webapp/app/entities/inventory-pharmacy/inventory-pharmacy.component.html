@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="elderlySmartApp.inventoryPharmacy.home.title">Inventory Pharmacies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inventory-pharmacy" [routerLink]="['/inventory-pharmacy/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="elderlySmartApp.inventoryPharmacy.home.createLabel">
+            Create a new Inventory Pharmacy
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="inventoryPharmacies?.length === 0">
+        <span jhiTranslate="elderlySmartApp.inventoryPharmacy.home.notFound">No inventoryPharmacies found</span>
+    </div>
+    <div class="table-responsive" *ngIf="inventoryPharmacies?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryPharmacy.idInventoryPharmacy">Id Inventory Pharmacy</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryPharmacy.code">Code</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryPharmacy.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryPharmacy.purchasePrice">Purchase Price</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryPharmacy.salePrice">Sale Price</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryPharmacy.cuantity">Cuantity</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.inventoryPharmacy.pharmacy">Pharmacy</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let inventoryPharmacy of inventoryPharmacies ;trackBy: trackId">
+                <td><a [routerLink]="['/inventory-pharmacy', inventoryPharmacy.id, 'view' ]">{{inventoryPharmacy.id}}</a></td>
+                <td>{{inventoryPharmacy.idInventoryPharmacy}}</td>
+                <td>{{inventoryPharmacy.code}}</td>
+                <td>{{inventoryPharmacy.name}}</td>
+                <td>{{inventoryPharmacy.purchasePrice}}</td>
+                <td>{{inventoryPharmacy.salePrice}}</td>
+                <td>{{inventoryPharmacy.cuantity}}</td>
+                <td>
+                    <div *ngIf="inventoryPharmacy.pharmacy">
+                        <a [routerLink]="['/pharmacy', inventoryPharmacy.pharmacy?.id, 'view' ]" >{{inventoryPharmacy.pharmacy?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/inventory-pharmacy', inventoryPharmacy.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/inventory-pharmacy', inventoryPharmacy.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/inventory-pharmacy', { outlets: { popup: inventoryPharmacy.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

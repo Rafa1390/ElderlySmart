@@ -1,0 +1,63 @@
+{
+    "name": "Pharmacy",
+    "fields": [
+        {
+            "fieldName": "idPharmacy",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "userApp",
+            "otherEntityRelationshipName": "pharmacy",
+            "relationshipName": "userApp",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "prescription",
+            "otherEntityRelationshipName": "pharmacy",
+            "relationshipName": "prescription"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "provider",
+            "otherEntityRelationshipName": "pharmacy",
+            "relationshipName": "provider",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "asylum",
+            "otherEntityRelationshipName": "pharmacy",
+            "relationshipName": "asylum",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191104170001",
+    "entityTableName": "pharmacy",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

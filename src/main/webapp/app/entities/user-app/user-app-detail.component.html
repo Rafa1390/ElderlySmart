@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userApp">
+            <h2><span jhiTranslate="elderlySmartApp.userApp.detail.title">User App</span> {{userApp.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="elderlySmartApp.userApp.identification">Identification</span></dt>
+                <dd>
+                    <span>{{userApp.identification}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.idTypeUser">Id Type User</span></dt>
+                <dd>
+                    <span>{{userApp.idTypeUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.email">Email</span></dt>
+                <dd>
+                    <span>{{userApp.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.name">Name</span></dt>
+                <dd>
+                    <span>{{userApp.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.name2">Name 2</span></dt>
+                <dd>
+                    <span>{{userApp.name2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{userApp.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.lastName2">Last Name 2</span></dt>
+                <dd>
+                    <span>{{userApp.lastName2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.phone1">Phone 1</span></dt>
+                <dd>
+                    <span>{{userApp.phone1}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.phone2">Phone 2</span></dt>
+                <dd>
+                    <span>{{userApp.phone2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.age">Age</span></dt>
+                <dd>
+                    <span>{{userApp.age}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.password">Password</span></dt>
+                <dd>
+                    <span>{{userApp.password}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.userApp.state">State</span></dt>
+                <dd>
+                    <span>{{userApp.state}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-app', userApp.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

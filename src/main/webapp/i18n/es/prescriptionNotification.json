@@ -1,0 +1,25 @@
+{
+  "elderlySmartApp": {
+    "prescriptionNotification": {
+      "home": {
+        "title": "Prescription Notifications",
+        "createLabel": "Crear nuevo Prescription Notification",
+        "createOrEditLabel": "Crear o editar Prescription Notification",
+        "notFound": "No Prescription Notifications found"
+      },
+      "created": "Un nuevo Prescription Notification ha sido creado con el identificador {{ param }}",
+      "updated": "Un Prescription Notification ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Prescription Notification ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Prescription Notification {{ id }}?"
+      },
+      "detail": {
+        "title": "Prescription Notification"
+      },
+      "idPrescriptionNotification": "Id Prescription Notification",
+      "description": "Description",
+      "state": "State",
+      "prescription": "Prescription"
+    }
+  }
+}

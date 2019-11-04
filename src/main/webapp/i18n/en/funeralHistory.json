@@ -1,0 +1,28 @@
+{
+  "elderlySmartApp": {
+    "funeralHistory": {
+      "home": {
+        "title": "Funeral Histories",
+        "createLabel": "Create a new Funeral History",
+        "createOrEditLabel": "Create or edit a Funeral History",
+        "notFound": "No Funeral Histories found"
+      },
+      "created": "A new Funeral History is created with identifier {{ param }}",
+      "updated": "A Funeral History is updated with identifier {{ param }}",
+      "deleted": "A Funeral History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Funeral History {{ id }}?"
+      },
+      "detail": {
+        "title": "Funeral History"
+      },
+      "idFuneralHistory": "Id Funeral History",
+      "customer": "Customer",
+      "phone": "Phone",
+      "purchaseMade": "Purchase Made",
+      "date": "Date",
+      "state": "State",
+      "mortuary": "Mortuary"
+    }
+  }
+}
