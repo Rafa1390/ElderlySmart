@@ -1,86 +1,73 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card card-chart">
-                <div class="card-header card-header-rose" data-header-animation="true">
-                    <div class="ct-chart" id="websiteViewsChart"></div>
-                </div>
-                <div class="card-body">
-                    <div class="card-actions">
-                        <button mat-raised-button type="button" class="btn btn-danger btn-link fix-broken-card">
-                            <i class="material-icons">build</i> Fix Header!
-                        </button>
-                        <button mat-raised-button type="button" class="btn btn-info btn-link" matTooltip="Refresh">
-                            <i class="material-icons">refresh</i>
-                        </button>
-                        <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="Change Date">
-                            <i class="material-icons">edit</i>
-                        </button>
+<div class="wrapper wrapper-full-page">
+    <div class="page-header login-page header-filter" filter-color="black"
+         style="background: url('../../content/images/login.jpg'); background-size: cover; background-position: top center;">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+                    <form action="" class="form" method="">
+                        <div class="card card-login card-hidden">
+                            <div class="card-header card-header-rose text-center">
+                                <h4 class="card-title">Iniciar sesión</h4>
+                            </div>
+                            <div class="card-body ">
+
+                                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">email</i>
+                      </span>
                     </div>
-                    <h4 class="card-title">Website Views</h4>
-                    <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    <input class="form-control" placeholder="Correo electrónico" style="border: none" type="email">
+                  </div>
+                </span>
+                                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
                     </div>
+                    <input class="form-control" placeholder="Contraseña" style="border: none" type="password">
+                  </div>
+                </span>
+                            </div>
+                            <div class="card-footer justify-content-center">
+                                <a class="btn btn-rose btn-link btn-lg" href="#pablo">Ingresar</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card card-chart">
-                <div class="card-header card-header-success" data-header-animation="true">
-                    <div class="ct-chart" id="dailySalesChart"></div>
-                </div>
-                <div class="card-body">
-                    <div class="card-actions">
-                        <button mat-raised-button type="button" class="btn btn-danger btn-link fix-broken-card">
-                            <i class="material-icons">build</i> Fix Header!
-                        </button>
-                        <button mat-raised-button type="button" class="btn btn-info btn-link" matTooltip="Refresh">
-                            <i class="material-icons">refresh</i>
-                        </button>
-                        <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="Change Date">
-                            <i class="material-icons">edit</i>
-                        </button>
-                    </div>
-                    <h4 class="card-title">Daily Sales</h4>
-                    <p class="card-category">
-                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">access_time</i> updated 4 minutes ago
-                    </div>
-                </div>
+        <footer class="footer ">
+            <div class="container">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="https://www.creative-tim.com">
+                                Creative Tim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://creative-tim.com/about-us">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://blog.creative-tim.com">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.creative-tim.com/license">
+                                Licenses
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card card-chart">
-                <div class="card-header card-header-info" data-header-animation="true">
-                    <div class="ct-chart" id="completedTasksChart"></div>
-                </div>
-                <div class="card-body">
-                    <div class="card-actions">
-                        <button mat-raised-button type="button" class="btn btn-danger btn-link fix-broken-card">
-                            <i class="material-icons">build</i> Fix Header!
-                        </button>
-                        <button mat-raised-button type="button" class="btn btn-info btn-link" matTooltip="Refresh">
-                            <i class="material-icons">refresh</i>
-                        </button>
-                        <button mat-raised-button type="button" class="btn btn-default btn-link" matTooltip="Change Date" >
-                            <i class="material-icons">edit</i>
-                        </button>
-                    </div>
-                    <h4 class="card-title">Completed Tasks</h4>
-                    <p class="card-category">Last Campaign Performance</p>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">access_time</i> campaign sent 2 days ago
-                    </div>
-                </div>
-            </div>
-        </div>
+        </footer>
     </div>
-    </div>
+</div>
