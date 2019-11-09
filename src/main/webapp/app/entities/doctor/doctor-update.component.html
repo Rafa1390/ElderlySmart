@@ -1,7 +1,13 @@
-<div class="row justify-content-center">
+<div class="card">
     <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-doctor-heading" jhiTranslate="elderlySmartApp.doctor.home.createOrEditLabel">Create or edit a Doctor</h2>
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm" class="form-horizontal">
+            <div class="card-header card-header-rose card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">{{labelCreateDoctor}}</h4>
+                </div>
+            </div>
+
+
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
@@ -10,27 +16,27 @@
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.doctor.idDoctor" for="field_idDoctor">Id Doctor</label>
+                    <label class="form-control-label">Código médico</label>
                     <input type="text" class="form-control" name="idDoctor" id="field_idDoctor"
                            formControlName="idDoctor"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.doctor.email" for="field_email">Email</label>
+                    <label class="form-control-label">Correo electrónico</label>
                     <input type="text" class="form-control" name="email" id="field_email"
                            formControlName="email"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.doctor.officeName" for="field_officeName">Office Name</label>
+                    <label class="form-control-label">Nombre del consultorio</label>
                     <input type="text" class="form-control" name="officeName" id="field_officeName"
                            formControlName="officeName"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.doctor.address" for="field_address">Address</label>
+                    <label class="form-control-label">Dirección del consultorio</label>
                     <input type="text" class="form-control" name="address" id="field_address"
                            formControlName="address"/>
                 </div>
 
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label class="form-control-label" jhiTranslate="elderlySmartApp.doctor.userApp" for="field_userApp">User App</label>
                     <select class="form-control" id="field_userApp" name="userApp" formControlName="userApp">
                         <option [ngValue]="null"></option>
@@ -42,7 +48,7 @@
                     <select class="form-control" id="field_elderlies" multiple name="elderlies" formControlName="elderlies">
                         <option [ngValue]="getSelected(editForm.get('elderlies').value, elderlyOption)" *ngFor="let elderlyOption of elderlies; trackBy: trackElderlyById">{{elderlyOption.id}}</option>
                     </select>
-                </div>
+                </div>-->
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
