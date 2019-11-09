@@ -1,7 +1,13 @@
-<div class="row justify-content-center">
+<div class="card">
     <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2>{{labelCreateDoctor}}</h2>
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm" class="form-horizontal">
+            <div class="card-header card-header-rose card-header-text">
+                <div class="card-text">
+                    <h4 class="card-title">{{labelCreateDoctor}}</h4>
+                </div>
+            </div>
+
+
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
