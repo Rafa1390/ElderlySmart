@@ -37,13 +37,13 @@
 
             <button type="submit"
                     (click)="previousState()"
-                    class="btn btn-info">
+                    class="btn btn-secondary">
                 <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Atrás</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/pharmacy', pharmacy.id, 'edit']"
-                    class="btn btn-primary">
+                    class="btn btn-info">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Editar</span>
             </button>
         </div>

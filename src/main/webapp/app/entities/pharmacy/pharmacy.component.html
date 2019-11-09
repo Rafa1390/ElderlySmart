@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
         <span>Farmacias existentes</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
+        <button id="jh-create-entity" class="btn btn-info float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
             Registrar farmacia
@@ -18,11 +18,12 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span>ID</span></th>
-            <th scope="col" ><span>Cédula jurídica</span></th>
-            <th scope="col" ><span>Correo electrónico</span></th>
-            <th scope="col" ><span>Nombre</span></th>
-            <th scope="col" ><span>Dirección</span></th>
+            <th scope="col" class="text-center" ><span>ID</span></th>
+            <th scope="col" class="text-center"><span>Cédula jurídica</span></th>
+            <th scope="col" class="text-center"><span>Correo electrónico</span></th>
+            <th scope="col" class="text-center"><span>Nombre</span></th>
+            <th scope="col" class="text-center"><span>Dirección</span></th>
+            <th scope="col" class="text-center"><span>Acciones</span></th>
 <!--            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.userApp">User App</span></th>-->
 <!--            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.provider">Provider</span></th>-->
             <th scope="col"></th>
@@ -49,13 +50,13 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/pharmacy', pharmacy.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" >Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/pharmacy', pharmacy.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btn-info btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" >Editar</span>
                         </button>
@@ -63,7 +64,7 @@
                                 [routerLink]="['/pharmacy', { outlets: { popup: pharmacy.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline">Elimnar</span>
                         </button>
