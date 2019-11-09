@@ -1,50 +1,50 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="pharmacy">
-            <h2><span jhiTranslate="elderlySmartApp.pharmacy.detail.title">Pharmacy</span> {{pharmacy.id}}</h2>
+            <h2><span>Farmacia</span> {{pharmacy.name}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="elderlySmartApp.pharmacy.idPharmacy">Id Pharmacy</span></dt>
+                <dt><span>Cédula jurídica</span></dt>
                 <dd>
                     <span>{{pharmacy.idPharmacy}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.pharmacy.email">Email</span></dt>
+                <dt><span>Correo electrónico</span></dt>
                 <dd>
                     <span>{{pharmacy.email}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.pharmacy.name">Name</span></dt>
+                <dt><span jhiTranslate="elderlySmartApp.pharmacy.name">Nombre</span></dt>
                 <dd>
                     <span>{{pharmacy.name}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.pharmacy.address">Address</span></dt>
+                <dt><span jhiTranslate="elderlySmartApp.pharmacy.address">Dirección</span></dt>
                 <dd>
                     <span>{{pharmacy.address}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.pharmacy.userApp">User App</span></dt>
-                <dd>
-                    <div *ngIf="pharmacy.userApp">
-                        <a [routerLink]="['/user-app', pharmacy.userApp?.id, 'view']">{{pharmacy.userApp?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="elderlySmartApp.pharmacy.provider">Provider</span></dt>
-                <dd>
-                    <span *ngFor="let provider of pharmacy.providers; let last = last">
-                        <a [routerLink]="['/provider', provider?.id, 'view' ]">{{provider.id}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
+<!--                <dt><span jhiTranslate="elderlySmartApp.pharmacy.userApp">User App</span></dt>-->
+<!--                <dd>-->
+<!--                    <div *ngIf="pharmacy.userApp">-->
+<!--                        <a [routerLink]="['/user-app', pharmacy.userApp?.id, 'view']">{{pharmacy.userApp?.id}}</a>-->
+<!--                    </div>-->
+<!--                </dd>-->
+<!--                <dt><span jhiTranslate="elderlySmartApp.pharmacy.provider">Provider</span></dt>-->
+<!--                <dd>-->
+<!--                    <span *ngFor="let provider of pharmacy.providers; let last = last">-->
+<!--                        <a [routerLink]="['/provider', provider?.id, 'view' ]">{{provider.id}}</a>{{last ? '' : ', '}}-->
+<!--                    </span>-->
+<!--                </dd>-->
             </dl>
 
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
-                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Atrás</span>
             </button>
 
             <button type="button"
                     [routerLink]="['/pharmacy', pharmacy.id, 'edit']"
                     class="btn btn-primary">
-                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Editar</span>
             </button>
         </div>
     </div>

@@ -1,30 +1,30 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="employee">
-            <h2><span jhiTranslate="elderlySmartApp.employee.detail.title">Employee</span> {{employee.id}}</h2>
+            <h2><span>Empleado</span> {{employee.id}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="elderlySmartApp.employee.idEmployee">Id Employee</span></dt>
+                <dt><span>Cédula</span></dt>
                 <dd>
                     <span>{{employee.idEmployee}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.employee.address">Address</span></dt>
+                <dt><span jhiTranslate="elderlySmartApp.employee.address">Dirección</span></dt>
                 <dd>
                     <span>{{employee.address}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.employee.asylum">Asylum</span></dt>
+                <dt><span jhiTranslate="elderlySmartApp.employee.asylum">Asilo</span></dt>
                 <dd>
                     <div *ngIf="employee.asylum">
                         <a [routerLink]="['/asylum', employee.asylum?.id, 'view']">{{employee.asylum?.id}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.employee.userApp">User App</span></dt>
-                <dd>
-                    <div *ngIf="employee.userApp">
-                        <a [routerLink]="['/user-app', employee.userApp?.id, 'view']">{{employee.userApp?.id}}</a>
-                    </div>
-                </dd>
+<!--                <dt><span jhiTranslate="elderlySmartApp.employee.userApp">User App</span></dt>-->
+<!--                <dd>-->
+<!--                    <div *ngIf="employee.userApp">-->
+<!--                        <a [routerLink]="['/user-app', employee.userApp?.id, 'view']">{{employee.userApp?.id}}</a>-->
+<!--                    </div>-->
+<!--                </dd>-->
             </dl>
 
             <button type="submit"
