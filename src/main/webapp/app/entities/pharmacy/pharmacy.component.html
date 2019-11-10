@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
         <span>Farmacias existentes</span>
-        <button id="jh-create-entity" class="btn btn-info float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
             Registrar farmacia
@@ -56,7 +56,7 @@
                         </button>
                         <button type="submit"
                                 [routerLink]="['/pharmacy', pharmacy.id, 'edit']"
-                                class="btn btn-info btn-link">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" >Editar</span>
                         </button>

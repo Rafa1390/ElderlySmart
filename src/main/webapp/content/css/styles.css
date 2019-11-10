@@ -87,4 +87,30 @@
     left: 0px;
     position: absolute;
   }
+
+  input,
+  .form-control,
+  .is-focused {
+    background-image: linear-gradient(to top, #0b6eb0 2px, rgba(156, 39, 176, 0) 2px),
+      linear-gradient(to top, #ced4da 1px, rgba(206, 212, 218, 0) 1px) !important;
+    box-shadow: none !important;
+    font-size: 18px !important;
+  }
+  .btns {
+    background-color: #3051a1 !important;
+  }
+
+  .btns-words {
+    color: #3051a1 !important;
+  }
+  .form-control-label {
+    font-size: 17px !important;
+  }
+
+  .form-check,
+  .form-check-label,
+  .circle,
+  .check {
+    background-color: #3051a1 !important;
+  }
 }
