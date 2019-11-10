@@ -6,6 +6,7 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginService } from 'app/core/login/login.service';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
+import { AccountService } from 'app/core/auth/account.service';
 
 @Component({
   selector: 'jhi-login-modal',
@@ -22,6 +23,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
 
   constructor(
     private eventManager: JhiEventManager,
+    private accountService: AccountService,
     private loginService: LoginService,
     private stateStorageService: StateStorageService,
     private elementRef: ElementRef,
@@ -88,5 +90,9 @@ export class JhiLoginModalComponent implements AfterViewInit {
   requestResetPassword() {
     this.activeModal.dismiss('to state requestReset');
     this.router.navigate(['/account/reset', 'request']);
+  }
+
+  isAuthenticated() {
+    return this.accountService.isAuthenticated();
   }
 }

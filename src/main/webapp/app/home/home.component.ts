@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
@@ -12,7 +12,7 @@ import { Account } from 'app/core/user/account.model';
   templateUrl: './home.component.html',
   styleUrls: ['home.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, DoCheck {
   account: Account;
   authSubscription: Subscription;
   modalRef: NgbModalRef;
@@ -51,4 +51,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.eventManager.destroy(this.authSubscription);
     }
   }
+
+  ngDoCheck(): void {}
 }
