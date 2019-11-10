@@ -65,20 +65,19 @@
                         <option [ngValue]="employeeOption.id === editForm.get('employee').value?.id ? editForm.get('employee').value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
                     </select>
                 </div>
-
-
-
                 <div class="form-check mt-3">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="state" value="Activo" checked> Activo
+                    <label class="form-check-label" for="field_state">
+                        <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
+                               formControlName="state" checked> Activo
                         <span class="circle">
                         <span class="check"></span>
                       </span>
                     </label>
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="state" value="Inactivo"> Inactivo
+                <div class="form-check mt-3">
+                    <label class="form-check-label" for="field_state2">
+                        <input class="form-check-input" type="radio" name="state" value="Inactivo" id="field_state2"
+                               formControlName="state"> Inactivo
                         <span class="circle">
                         <span class="check"></span>
                       </span>
