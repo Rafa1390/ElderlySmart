@@ -20,12 +20,16 @@
             <tr>
             <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.idElderly">Id Elderly</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.name2">Name 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.lastName">Last Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.lastName2">Last Name 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.age">Age</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.nationality">Nationality</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.address">Address</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.admissionDate">Admission Date</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.state">State</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.employee">Employee</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.userApp">User App</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.family">Family</span></th>
             <th scope="col"></th>
             </tr>
@@ -34,6 +38,11 @@
             <tr *ngFor="let elderly of elderlies ;trackBy: trackId">
                 <td><a [routerLink]="['/elderly', elderly.id, 'view' ]">{{elderly.id}}</a></td>
                 <td>{{elderly.idElderly}}</td>
+                <td>{{elderly.name}}</td>
+                <td>{{elderly.name2}}</td>
+                <td>{{elderly.lastName}}</td>
+                <td>{{elderly.lastName2}}</td>
+                <td>{{elderly.age}}</td>
                 <td>{{elderly.nationality}}</td>
                 <td>{{elderly.address}}</td>
                 <td>{{elderly.admissionDate | date:'mediumDate'}}</td>
@@ -41,11 +50,6 @@
                 <td>
                     <div *ngIf="elderly.employee">
                         <a [routerLink]="['/employee', elderly.employee?.id, 'view' ]" >{{elderly.employee?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="elderly.userApp">
-                        <a [routerLink]="['/user-app', elderly.userApp?.id, 'view' ]" >{{elderly.userApp?.id}}</a>
                     </div>
                 </td>
                 <td>

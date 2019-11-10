@@ -89,7 +89,12 @@ state String
 }
 
 entity Elderly{
-idElderly Integer,
+idElderly String,
+name String,
+name2 String,
+lastName String,
+lastName2 String,
+age Integer,
 nationality String,
 address String,
 admissionDate LocalDate,
@@ -260,7 +265,6 @@ relationship OneToOne {
     
  	Asylum{userApp} to UserApp,
     Employee{userApp} to UserApp,
-    Elderly{userApp} to UserApp,
     Provider{userApp} to UserApp,
     Pharmacy{userApp} to UserApp,
     Doctor{userApp} to UserApp,

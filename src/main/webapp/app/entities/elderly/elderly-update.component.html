@@ -1,31 +1,56 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-elderly-heading" jhiTranslate="elderlySmartApp.elderly.home.createOrEditLabel">Create or edit a Elderly</h2>
+            <h2 id="jhi-elderly-heading" class="text-center mt-5">Adulto mayor</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.idElderly" for="field_idElderly">Id Elderly</label>
-                    <input type="number" class="form-control" name="idElderly" id="field_idElderly"
+                    <label class="form-control-label"for="field_idElderly">Identificación</label>
+                    <input type="text" class="form-control" name="idElderly" id="field_idElderly"
                            formControlName="idElderly"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.nationality" for="field_nationality">Nationality</label>
+                    <label class="form-control-label" for="field_name">Primer nombre</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name2">Segundo nombre</label>
+                    <input type="text" class="form-control" name="name2" id="field_name2"
+                           formControlName="name2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lastName">Primer apellido</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lastName2">Segundo apellido</label>
+                    <input type="text" class="form-control" name="lastName2" id="field_lastName2"
+                           formControlName="lastName2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_age">Edad</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                           formControlName="age"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_nationality">Nacionalidad</label>
                     <input type="text" class="form-control" name="nationality" id="field_nationality"
                            formControlName="nationality"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.address" for="field_address">Address</label>
+                    <label class="form-control-label"  for="field_address">Dirección</label>
                     <input type="text" class="form-control" name="address" id="field_address"
                            formControlName="address"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.admissionDate" for="field_admissionDate">Admission Date</label>
+                    <label class="form-control-label" for="field_admissionDate">Fecha de admisión</label>
                     <div class="input-group">
                         <input id="field_admissionDate" type="text" class="form-control" name="admissionDate" ngbDatepicker  #admissionDateDp="ngbDatepicker" formControlName="admissionDate"/>
                         <span class="input-group-append">
@@ -34,38 +59,38 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.state" for="field_state">State</label>
-                    <input type="text" class="form-control" name="state" id="field_state"
-                           formControlName="state"/>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Employee</label>
+                    <label class="form-control-label"  for="field_employee">Empleado</label>
                     <select class="form-control" id="field_employee" name="employee" formControlName="employee">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="employeeOption.id === editForm.get('employee').value?.id ? editForm.get('employee').value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.userApp" for="field_userApp">User App</label>
-                    <select class="form-control" id="field_userApp" name="userApp" formControlName="userApp">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="userAppOption.id === editForm.get('userApp').value?.id ? editForm.get('userApp').value : userAppOption" *ngFor="let userAppOption of userapps; trackBy: trackUserAppById">{{userAppOption.id}}</option>
-                    </select>
+
+
+
+                <div class="form-check mt-3">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="state" value="Activo" checked> Activo
+                        <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label jhiTranslate="elderlySmartApp.elderly.family" for="field_families">Family</label>
-                    <select class="form-control" id="field_families" multiple name="families" formControlName="families">
-                        <option [ngValue]="getSelected(editForm.get('families').value, familyOption)" *ngFor="let familyOption of families; trackBy: trackFamilyById">{{familyOption.id}}</option>
-                    </select>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="state" value="Inactivo"> Inactivo
+                        <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
                 </div>
             </div>
-            <div>
+            <div class="mt-4">
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
                 </button>
             </div>
         </form>

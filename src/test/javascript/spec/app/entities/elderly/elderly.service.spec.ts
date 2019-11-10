@@ -24,7 +24,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new Elderly(0, 0, 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA');
+      elemDefault = new Elderly(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -71,7 +71,12 @@ describe('Service Tests', () => {
       it('should update a Elderly', () => {
         const returnedFromService = Object.assign(
           {
-            idElderly: 1,
+            idElderly: 'BBBBBB',
+            name: 'BBBBBB',
+            name2: 'BBBBBB',
+            lastName: 'BBBBBB',
+            lastName2: 'BBBBBB',
+            age: 1,
             nationality: 'BBBBBB',
             address: 'BBBBBB',
             admissionDate: currentDate.format(DATE_FORMAT),
@@ -98,7 +103,12 @@ describe('Service Tests', () => {
       it('should return a list of Elderly', () => {
         const returnedFromService = Object.assign(
           {
-            idElderly: 1,
+            idElderly: 'BBBBBB',
+            name: 'BBBBBB',
+            name2: 'BBBBBB',
+            lastName: 'BBBBBB',
+            lastName2: 'BBBBBB',
+            age: 1,
             nationality: 'BBBBBB',
             address: 'BBBBBB',
             admissionDate: currentDate.format(DATE_FORMAT),
