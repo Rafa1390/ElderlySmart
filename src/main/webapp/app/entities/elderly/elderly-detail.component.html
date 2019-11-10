@@ -9,6 +9,26 @@
                 <dd>
                     <span>{{elderly.idElderly}}</span>
                 </dd>
+                <dt><span jhiTranslate="elderlySmartApp.elderly.name">Name</span></dt>
+                <dd>
+                    <span>{{elderly.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.elderly.name2">Name 2</span></dt>
+                <dd>
+                    <span>{{elderly.name2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.elderly.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{elderly.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.elderly.lastName2">Last Name 2</span></dt>
+                <dd>
+                    <span>{{elderly.lastName2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.elderly.age">Age</span></dt>
+                <dd>
+                    <span>{{elderly.age}}</span>
+                </dd>
                 <dt><span jhiTranslate="elderlySmartApp.elderly.nationality">Nationality</span></dt>
                 <dd>
                     <span>{{elderly.nationality}}</span>
@@ -29,12 +49,6 @@
                 <dd>
                     <div *ngIf="elderly.employee">
                         <a [routerLink]="['/employee', elderly.employee?.id, 'view']">{{elderly.employee?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="elderlySmartApp.elderly.userApp">User App</span></dt>
-                <dd>
-                    <div *ngIf="elderly.userApp">
-                        <a [routerLink]="['/user-app', elderly.userApp?.id, 'view']">{{elderly.userApp?.id}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="elderlySmartApp.elderly.family">Family</span></dt>

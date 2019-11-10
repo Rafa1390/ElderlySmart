@@ -12,8 +12,6 @@ import { IElderly, Elderly } from 'app/shared/model/elderly.model';
 import { ElderlyService } from './elderly.service';
 import { IEmployee } from 'app/shared/model/employee.model';
 import { EmployeeService } from 'app/entities/employee/employee.service';
-import { IUserApp } from 'app/shared/model/user-app.model';
-import { UserAppService } from 'app/entities/user-app/user-app.service';
 import { IFamily } from 'app/shared/model/family.model';
 import { FamilyService } from 'app/entities/family/family.service';
 import { IDoctor } from 'app/shared/model/doctor.model';
@@ -28,8 +26,6 @@ export class ElderlyUpdateComponent implements OnInit {
 
   employees: IEmployee[];
 
-  userapps: IUserApp[];
-
   families: IFamily[];
 
   doctors: IDoctor[];
@@ -38,12 +34,16 @@ export class ElderlyUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     idElderly: [],
+    name: [],
+    name2: [],
+    lastName: [],
+    lastName2: [],
+    age: [],
     nationality: [],
     address: [],
     admissionDate: [],
     state: [],
     employee: [],
-    userApp: [],
     families: []
   });
 
@@ -51,7 +51,6 @@ export class ElderlyUpdateComponent implements OnInit {
     protected jhiAlertService: JhiAlertService,
     protected elderlyService: ElderlyService,
     protected employeeService: EmployeeService,
-    protected userAppService: UserAppService,
     protected familyService: FamilyService,
     protected doctorService: DoctorService,
     protected activatedRoute: ActivatedRoute,
@@ -70,31 +69,6 @@ export class ElderlyUpdateComponent implements OnInit {
         map((response: HttpResponse<IEmployee[]>) => response.body)
       )
       .subscribe((res: IEmployee[]) => (this.employees = res), (res: HttpErrorResponse) => this.onError(res.message));
-    this.userAppService
-      .query({ filter: 'elderly-is-null' })
-      .pipe(
-        filter((mayBeOk: HttpResponse<IUserApp[]>) => mayBeOk.ok),
-        map((response: HttpResponse<IUserApp[]>) => response.body)
-      )
-      .subscribe(
-        (res: IUserApp[]) => {
-          if (!this.editForm.get('userApp').value || !this.editForm.get('userApp').value.id) {
-            this.userapps = res;
-          } else {
-            this.userAppService
-              .find(this.editForm.get('userApp').value.id)
-              .pipe(
-                filter((subResMayBeOk: HttpResponse<IUserApp>) => subResMayBeOk.ok),
-                map((subResponse: HttpResponse<IUserApp>) => subResponse.body)
-              )
-              .subscribe(
-                (subRes: IUserApp) => (this.userapps = [subRes].concat(res)),
-                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-              );
-          }
-        },
-        (res: HttpErrorResponse) => this.onError(res.message)
-      );
     this.familyService
       .query()
       .pipe(
@@ -115,12 +89,16 @@ export class ElderlyUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: elderly.id,
       idElderly: elderly.idElderly,
+      name: elderly.name,
+      name2: elderly.name2,
+      lastName: elderly.lastName,
+      lastName2: elderly.lastName2,
+      age: elderly.age,
       nationality: elderly.nationality,
       address: elderly.address,
       admissionDate: elderly.admissionDate,
       state: elderly.state,
       employee: elderly.employee,
-      userApp: elderly.userApp,
       families: elderly.families
     });
   }
@@ -144,12 +122,16 @@ export class ElderlyUpdateComponent implements OnInit {
       ...new Elderly(),
       id: this.editForm.get(['id']).value,
       idElderly: this.editForm.get(['idElderly']).value,
+      name: this.editForm.get(['name']).value,
+      name2: this.editForm.get(['name2']).value,
+      lastName: this.editForm.get(['lastName']).value,
+      lastName2: this.editForm.get(['lastName2']).value,
+      age: this.editForm.get(['age']).value,
       nationality: this.editForm.get(['nationality']).value,
       address: this.editForm.get(['address']).value,
       admissionDate: this.editForm.get(['admissionDate']).value,
       state: this.editForm.get(['state']).value,
       employee: this.editForm.get(['employee']).value,
-      userApp: this.editForm.get(['userApp']).value,
       families: this.editForm.get(['families']).value
     };
   }
@@ -171,10 +153,6 @@ export class ElderlyUpdateComponent implements OnInit {
   }
 
   trackEmployeeById(index: number, item: IEmployee) {
-    return item.id;
-  }
-
-  trackUserAppById(index: number, item: IUserApp) {
     return item.id;
   }
 

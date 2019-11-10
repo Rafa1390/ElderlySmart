@@ -26,7 +26,22 @@ public class Elderly implements Serializable {
     private Long id;
 
     @Column(name = "id_elderly")
-    private Integer idElderly;
+    private String idElderly;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "name_2")
+    private String name2;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "last_name_2")
+    private String lastName2;
+
+    @Column(name = "age")
+    private Integer age;
 
     @Column(name = "nationality")
     private String nationality;
@@ -43,10 +58,6 @@ public class Elderly implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("elderlies")
     private Employee employee;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private UserApp userApp;
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -69,17 +80,82 @@ public class Elderly implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdElderly() {
+    public String getIdElderly() {
         return idElderly;
     }
 
-    public Elderly idElderly(Integer idElderly) {
+    public Elderly idElderly(String idElderly) {
         this.idElderly = idElderly;
         return this;
     }
 
-    public void setIdElderly(Integer idElderly) {
+    public void setIdElderly(String idElderly) {
         this.idElderly = idElderly;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Elderly name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public Elderly name2(String name2) {
+        this.name2 = name2;
+        return this;
+    }
+
+    public void setName2(String name2) {
+        this.name2 = name2;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Elderly lastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastName2() {
+        return lastName2;
+    }
+
+    public Elderly lastName2(String lastName2) {
+        this.lastName2 = lastName2;
+        return this;
+    }
+
+    public void setLastName2(String lastName2) {
+        this.lastName2 = lastName2;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public Elderly age(Integer age) {
+        this.age = age;
+        return this;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getNationality() {
@@ -145,19 +221,6 @@ public class Elderly implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-
-    public UserApp getUserApp() {
-        return userApp;
-    }
-
-    public Elderly userApp(UserApp userApp) {
-        this.userApp = userApp;
-        return this;
-    }
-
-    public void setUserApp(UserApp userApp) {
-        this.userApp = userApp;
     }
 
     public Set<Family> getFamilies() {
@@ -231,7 +294,12 @@ public class Elderly implements Serializable {
     public String toString() {
         return "Elderly{" +
             "id=" + getId() +
-            ", idElderly=" + getIdElderly() +
+            ", idElderly='" + getIdElderly() + "'" +
+            ", name='" + getName() + "'" +
+            ", name2='" + getName2() + "'" +
+            ", lastName='" + getLastName() + "'" +
+            ", lastName2='" + getLastName2() + "'" +
+            ", age=" + getAge() +
             ", nationality='" + getNationality() + "'" +
             ", address='" + getAddress() + "'" +
             ", admissionDate='" + getAdmissionDate() + "'" +

@@ -40,8 +40,23 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ElderlySmartApp.class)
 public class ElderlyResourceIT {
 
-    private static final Integer DEFAULT_ID_ELDERLY = 1;
-    private static final Integer UPDATED_ID_ELDERLY = 2;
+    private static final String DEFAULT_ID_ELDERLY = "AAAAAAAAAA";
+    private static final String UPDATED_ID_ELDERLY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_NAME_2 = "AAAAAAAAAA";
+    private static final String UPDATED_NAME_2 = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LAST_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_LAST_NAME = "BBBBBBBBBB";
+
+    private static final String DEFAULT_LAST_NAME_2 = "AAAAAAAAAA";
+    private static final String UPDATED_LAST_NAME_2 = "BBBBBBBBBB";
+
+    private static final Integer DEFAULT_AGE = 1;
+    private static final Integer UPDATED_AGE = 2;
 
     private static final String DEFAULT_NATIONALITY = "AAAAAAAAAA";
     private static final String UPDATED_NATIONALITY = "BBBBBBBBBB";
@@ -101,6 +116,11 @@ public class ElderlyResourceIT {
     public static Elderly createEntity(EntityManager em) {
         Elderly elderly = new Elderly()
             .idElderly(DEFAULT_ID_ELDERLY)
+            .name(DEFAULT_NAME)
+            .name2(DEFAULT_NAME_2)
+            .lastName(DEFAULT_LAST_NAME)
+            .lastName2(DEFAULT_LAST_NAME_2)
+            .age(DEFAULT_AGE)
             .nationality(DEFAULT_NATIONALITY)
             .address(DEFAULT_ADDRESS)
             .admissionDate(DEFAULT_ADMISSION_DATE)
@@ -116,6 +136,11 @@ public class ElderlyResourceIT {
     public static Elderly createUpdatedEntity(EntityManager em) {
         Elderly elderly = new Elderly()
             .idElderly(UPDATED_ID_ELDERLY)
+            .name(UPDATED_NAME)
+            .name2(UPDATED_NAME_2)
+            .lastName(UPDATED_LAST_NAME)
+            .lastName2(UPDATED_LAST_NAME_2)
+            .age(UPDATED_AGE)
             .nationality(UPDATED_NATIONALITY)
             .address(UPDATED_ADDRESS)
             .admissionDate(UPDATED_ADMISSION_DATE)
@@ -144,6 +169,11 @@ public class ElderlyResourceIT {
         assertThat(elderlyList).hasSize(databaseSizeBeforeCreate + 1);
         Elderly testElderly = elderlyList.get(elderlyList.size() - 1);
         assertThat(testElderly.getIdElderly()).isEqualTo(DEFAULT_ID_ELDERLY);
+        assertThat(testElderly.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testElderly.getName2()).isEqualTo(DEFAULT_NAME_2);
+        assertThat(testElderly.getLastName()).isEqualTo(DEFAULT_LAST_NAME);
+        assertThat(testElderly.getLastName2()).isEqualTo(DEFAULT_LAST_NAME_2);
+        assertThat(testElderly.getAge()).isEqualTo(DEFAULT_AGE);
         assertThat(testElderly.getNationality()).isEqualTo(DEFAULT_NATIONALITY);
         assertThat(testElderly.getAddress()).isEqualTo(DEFAULT_ADDRESS);
         assertThat(testElderly.getAdmissionDate()).isEqualTo(DEFAULT_ADMISSION_DATE);
@@ -182,6 +212,11 @@ public class ElderlyResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(elderly.getId().intValue())))
             .andExpect(jsonPath("$.[*].idElderly").value(hasItem(DEFAULT_ID_ELDERLY)))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
+            .andExpect(jsonPath("$.[*].name2").value(hasItem(DEFAULT_NAME_2)))
+            .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
+            .andExpect(jsonPath("$.[*].lastName2").value(hasItem(DEFAULT_LAST_NAME_2)))
+            .andExpect(jsonPath("$.[*].age").value(hasItem(DEFAULT_AGE)))
             .andExpect(jsonPath("$.[*].nationality").value(hasItem(DEFAULT_NATIONALITY)))
             .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS)))
             .andExpect(jsonPath("$.[*].admissionDate").value(hasItem(DEFAULT_ADMISSION_DATE.toString())))
@@ -233,6 +268,11 @@ public class ElderlyResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(elderly.getId().intValue()))
             .andExpect(jsonPath("$.idElderly").value(DEFAULT_ID_ELDERLY))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
+            .andExpect(jsonPath("$.name2").value(DEFAULT_NAME_2))
+            .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
+            .andExpect(jsonPath("$.lastName2").value(DEFAULT_LAST_NAME_2))
+            .andExpect(jsonPath("$.age").value(DEFAULT_AGE))
             .andExpect(jsonPath("$.nationality").value(DEFAULT_NATIONALITY))
             .andExpect(jsonPath("$.address").value(DEFAULT_ADDRESS))
             .andExpect(jsonPath("$.admissionDate").value(DEFAULT_ADMISSION_DATE.toString()))
@@ -261,6 +301,11 @@ public class ElderlyResourceIT {
         em.detach(updatedElderly);
         updatedElderly
             .idElderly(UPDATED_ID_ELDERLY)
+            .name(UPDATED_NAME)
+            .name2(UPDATED_NAME_2)
+            .lastName(UPDATED_LAST_NAME)
+            .lastName2(UPDATED_LAST_NAME_2)
+            .age(UPDATED_AGE)
             .nationality(UPDATED_NATIONALITY)
             .address(UPDATED_ADDRESS)
             .admissionDate(UPDATED_ADMISSION_DATE)
@@ -276,6 +321,11 @@ public class ElderlyResourceIT {
         assertThat(elderlyList).hasSize(databaseSizeBeforeUpdate);
         Elderly testElderly = elderlyList.get(elderlyList.size() - 1);
         assertThat(testElderly.getIdElderly()).isEqualTo(UPDATED_ID_ELDERLY);
+        assertThat(testElderly.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testElderly.getName2()).isEqualTo(UPDATED_NAME_2);
+        assertThat(testElderly.getLastName()).isEqualTo(UPDATED_LAST_NAME);
+        assertThat(testElderly.getLastName2()).isEqualTo(UPDATED_LAST_NAME_2);
+        assertThat(testElderly.getAge()).isEqualTo(UPDATED_AGE);
         assertThat(testElderly.getNationality()).isEqualTo(UPDATED_NATIONALITY);
         assertThat(testElderly.getAddress()).isEqualTo(UPDATED_ADDRESS);
         assertThat(testElderly.getAdmissionDate()).isEqualTo(UPDATED_ADMISSION_DATE);

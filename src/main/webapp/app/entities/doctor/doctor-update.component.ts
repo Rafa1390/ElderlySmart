@@ -25,8 +25,6 @@ export class DoctorUpdateComponent implements OnInit {
 
   elderlies: IElderly[];
 
-  labelCreateDoctor = 'Registro | Doctor';
-
   editForm = this.fb.group({
     id: [],
     idDoctor: [],
@@ -83,14 +81,6 @@ export class DoctorUpdateComponent implements OnInit {
         map((response: HttpResponse<IElderly[]>) => response.body)
       )
       .subscribe((res: IElderly[]) => (this.elderlies = res), (res: HttpErrorResponse) => this.onError(res.message));
-    this.proveLabel();
-  }
-
-  proveLabel() {
-    const doctor = this.createFromForm();
-    if (doctor.id !== undefined) {
-      this.labelCreateDoctor = 'Editar | Doctor';
-    }
   }
 
   updateForm(doctor: IDoctor) {
