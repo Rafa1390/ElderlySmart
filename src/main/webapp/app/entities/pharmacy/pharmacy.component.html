@@ -1,6 +1,6 @@
 <div>
     <h2 id="page-heading">
-        <span>Farmacias existentes</span>
+        Farmacias existentes
         <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
@@ -64,9 +64,9 @@
                                 [routerLink]="['/pharmacy', { outlets: { popup: pharmacy.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-link">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Elimnar</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>

@@ -87,6 +87,30 @@
     left: 0px;
     position: absolute;
   }
+  /*------------------------------------------*/
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: 'Montserrat', sans-serif !important;
+  }
+
+  body,
+  p,
+  input,
+  label,
+  td,
+  th,
+  tr {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px !important;
+  }
+
+  td {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 16px !important;
+  }
 
   input,
   .form-control,
@@ -98,6 +122,13 @@
   }
   .btns {
     background-color: #3051a1 !important;
+    font-size: 16px !important;
+  }
+
+  .btn-link,
+  .btn-danger-word,
+  .btn-secondary {
+    font-size: 15px !important;
   }
 
   .btns-words {
@@ -112,5 +143,19 @@
   .circle,
   .check {
     background-color: #3051a1 !important;
+  }
+
+  .btn-danger-word {
+    color: #cc2936 !important;
+  }
+
+  .btn-danger {
+    background-color: #cc2936 !important;
+    color: white !important;
+    font-size: 15px !important;
+  }
+
+  th {
+    font-size: 20px !important;
   }
 }
