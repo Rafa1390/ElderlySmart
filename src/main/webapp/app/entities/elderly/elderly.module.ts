@@ -7,13 +7,11 @@ import { ElderlyDetailComponent } from './elderly-detail.component';
 import { ElderlyUpdateComponent } from './elderly-update.component';
 import { ElderlyDeletePopupComponent, ElderlyDeleteDialogComponent } from './elderly-delete-dialog.component';
 import { elderlyRoute, elderlyPopupRoute } from './elderly.route';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 
 const ENTITY_STATES = [...elderlyRoute, ...elderlyPopupRoute];
 
 @NgModule({
-  imports: [ElderlySmartSharedModule, RouterModule.forChild(ENTITY_STATES), MatFormFieldModule, MatDatepickerModule],
+  imports: [ElderlySmartSharedModule, RouterModule.forChild(ENTITY_STATES)],
   declarations: [
     ElderlyComponent,
     ElderlyDetailComponent,

@@ -55,7 +55,7 @@
             "otherEntityRelationshipName": "elderly",
             "relationshipName": "family",
             "otherEntityField": "id",
-            "ownerSide": true
+            "ownerSide": false
         },
         {
             "relationshipType": "many-to-many",

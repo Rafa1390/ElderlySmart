@@ -1,39 +1,91 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-family-heading" jhiTranslate="elderlySmartApp.family.home.createOrEditLabel">Create or edit a Family</h2>
+            <h2 id="jhi-family-heading" class="text-center mt-5">Familiar</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.idFamily" for="field_idFamily">Id Family</label>
-                    <input type="number" class="form-control" name="idFamily" id="field_idFamily"
+                    <label class="form-control-label" for="field_idFamily">Identificación</label>
+                    <input type="text" class="form-control" name="idFamily" id="field_idFamily"
                            formControlName="idFamily"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.familyRelation" for="field_familyRelation">Family Relation</label>
+                    <label class="form-control-label" for="field_name">Primer nombre</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name2">Segundo nombre</label>
+                    <input type="text" class="form-control" name="name2" id="field_name2"
+                           formControlName="name2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_lastName">Primer apellido</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_lastName2">Segundo apellido</label>
+                    <input type="text" class="form-control" name="lastName2" id="field_lastName2"
+                           formControlName="lastName2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_phone1">Número de teléfono</label>
+                    <input type="text" class="form-control" name="phone1" id="field_phone1"
+                           formControlName="phone1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_phone2">Número de teléfono extra</label>
+                    <input type="text" class="form-control" name="phone2" id="field_phone2"
+                           formControlName="phone2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_age">Edad</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                           formControlName="age"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"  for="field_familyRelation">Relación con el familiar</label>
                     <input type="text" class="form-control" name="familyRelation" id="field_familyRelation"
                            formControlName="familyRelation"/>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.userApp" for="field_userApp">User App</label>
-                    <select class="form-control" id="field_userApp" name="userApp" formControlName="userApp">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="userAppOption.id === editForm.get('userApp').value?.id ? editForm.get('userApp').value : userAppOption" *ngFor="let userAppOption of userapps; trackBy: trackUserAppById">{{userAppOption.id}}</option>
+                    <label  for="field_elderlies">Adulto</label>
+                    <select class="form-control" id="field_elderlies" multiple name="elderlies" formControlName="elderlies">
+                        <option [ngValue]="getSelected(editForm.get('elderlies').value, elderlyOption)" *ngFor="let elderlyOption of elderlies; trackBy: trackElderlyById">{{elderlyOption.id}}</option>
                     </select>
                 </div>
+                <div class="form-check mt-3">
+                    <label class="form-check-label" for="field_state">
+                        <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
+                               formControlName="state" checked> Activo
+                        <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label" for="field_state2">
+                        <input class="form-check-input" type="radio" name="state" value="Inactivo" id="field_state2"
+                               formControlName="state"> Inactivo
+                        <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                </div>
             </div>
-            <div>
+            <div class="mt-4">
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
                 </button>
             </div>
         </form>

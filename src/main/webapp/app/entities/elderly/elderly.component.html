@@ -30,7 +30,6 @@
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.admissionDate">Admission Date</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.state">State</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.employee">Employee</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.family">Family</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -51,11 +50,6 @@
                     <div *ngIf="elderly.employee">
                         <a [routerLink]="['/employee', elderly.employee?.id, 'view' ]" >{{elderly.employee?.id}}</a>
                     </div>
-                </td>
-                <td>
-                    <span *ngFor="let family of elderly.families; let last = last">
-                            <a class="form-control-static" [routerLink]="['/family', family?.id, 'view' ]">{{family.id}}</a>{{last ? '' : ', '}}
-                        </span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group">

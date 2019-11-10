@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(FamilyService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Family(0, 0, 'AAAAAAA');
+      elemDefault = new Family(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -56,8 +56,16 @@ describe('Service Tests', () => {
       it('should update a Family', () => {
         const returnedFromService = Object.assign(
           {
-            idFamily: 1,
-            familyRelation: 'BBBBBB'
+            idFamily: 'BBBBBB',
+            name: 'BBBBBB',
+            name2: 'BBBBBB',
+            lastName: 'BBBBBB',
+            lastName2: 'BBBBBB',
+            phone1: 'BBBBBB',
+            phone2: 'BBBBBB',
+            age: 1,
+            familyRelation: 'BBBBBB',
+            state: 'BBBBBB'
           },
           elemDefault
         );
@@ -75,8 +83,16 @@ describe('Service Tests', () => {
       it('should return a list of Family', () => {
         const returnedFromService = Object.assign(
           {
-            idFamily: 1,
-            familyRelation: 'BBBBBB'
+            idFamily: 'BBBBBB',
+            name: 'BBBBBB',
+            name2: 'BBBBBB',
+            lastName: 'BBBBBB',
+            lastName2: 'BBBBBB',
+            phone1: 'BBBBBB',
+            phone2: 'BBBBBB',
+            age: 1,
+            familyRelation: 'BBBBBB',
+            state: 'BBBBBB'
           },
           elemDefault
         );

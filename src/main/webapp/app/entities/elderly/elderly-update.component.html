@@ -5,12 +5,12 @@
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
-                    <label for="id">ID</label>
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label"for="field_idElderly">Identificación</label>
+                    <label class="form-control-label" for="field_idElderly">Identificación</label>
                     <input type="text" class="form-control" name="idElderly" id="field_idElderly"
                            formControlName="idElderly"/>
                 </div>
@@ -20,7 +20,7 @@
                            formControlName="name"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_name2">Segundo nombre</label>
+                    <label class="form-control-label"  for="field_name2">Segundo nombre</label>
                     <input type="text" class="form-control" name="name2" id="field_name2"
                            formControlName="name2"/>
                 </div>
@@ -40,12 +40,12 @@
                            formControlName="age"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label"  for="field_nationality">Nacionalidad</label>
+                    <label class="form-control-label" for="field_nationality">Nacionalidad</label>
                     <input type="text" class="form-control" name="nationality" id="field_nationality"
                            formControlName="nationality"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label"  for="field_address">Dirección</label>
+                    <label class="form-control-label" for="field_address">Dirección</label>
                     <input type="text" class="form-control" name="address" id="field_address"
                            formControlName="address"/>
                 </div>
@@ -58,23 +58,25 @@
                         </span>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label"  for="field_employee">Empleado</label>
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Empleado</label>
                     <select class="form-control" id="field_employee" name="employee" formControlName="employee">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="employeeOption.id === editForm.get('employee').value?.id ? editForm.get('employee').value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-check mt-3">
-                    <label class="form-check-label" for="field_state">
-                        <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
-                               formControlName="state" checked> Activo
-                        <span class="circle">
+                        <label class="form-check-label" for="field_state">
+                            <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
+                                   formControlName="state" checked> Activo
+                            <span class="circle">
                         <span class="check"></span>
                       </span>
-                    </label>
+                        </label>
                 </div>
-                <div class="form-check mt-3">
+
+                <div class="form-check">
                     <label class="form-check-label" for="field_state2">
                         <input class="form-check-input" type="radio" name="state" value="Inactivo" id="field_state2"
                                formControlName="state"> Inactivo
