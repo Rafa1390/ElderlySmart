@@ -1,12 +1,19 @@
 <div>
-    <h2 id="page-heading">
-        Farmacias existentes
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Farmacias existentes </h4>
         <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
             Registrar farmacia
             </span>
         </button>
+    </div>
+    <h2 id="page-heading">
+
+
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
