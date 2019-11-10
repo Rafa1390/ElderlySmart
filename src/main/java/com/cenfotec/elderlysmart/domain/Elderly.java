@@ -59,11 +59,9 @@ public class Elderly implements Serializable {
     @JsonIgnoreProperties("elderlies")
     private Employee employee;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "elderlies")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "elderly_family",
-               joinColumns = @JoinColumn(name = "elderly_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "family_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Set<Family> families = new HashSet<>();
 
     @ManyToMany(mappedBy = "elderlies")

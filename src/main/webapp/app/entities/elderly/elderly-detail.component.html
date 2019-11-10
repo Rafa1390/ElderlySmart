@@ -51,12 +51,6 @@
                         <a [routerLink]="['/employee', elderly.employee?.id, 'view']">{{elderly.employee?.id}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.elderly.family">Family</span></dt>
-                <dd>
-                    <span *ngFor="let family of elderly.families; let last = last">
-                        <a [routerLink]="['/family', family?.id, 'view' ]">{{family.id}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
             </dl>
 
             <button type="submit"

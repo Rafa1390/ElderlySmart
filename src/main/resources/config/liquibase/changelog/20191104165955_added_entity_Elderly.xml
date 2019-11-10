@@ -55,17 +55,6 @@
 
     <changeSet id="20191104165955-1-relations" author="jhipster">
 
-        <createTable tableName="elderly_family">
-            <column name="family_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="elderly_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="elderly_id, family_id" tableName="elderly_family"/>
-        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 

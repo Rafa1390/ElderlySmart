@@ -43,8 +43,7 @@ export class ElderlyUpdateComponent implements OnInit {
     address: [],
     admissionDate: [],
     state: [],
-    employee: [],
-    families: []
+    employee: []
   });
 
   constructor(
@@ -98,8 +97,7 @@ export class ElderlyUpdateComponent implements OnInit {
       address: elderly.address,
       admissionDate: elderly.admissionDate,
       state: elderly.state,
-      employee: elderly.employee,
-      families: elderly.families
+      employee: elderly.employee
     });
   }
 
@@ -131,8 +129,7 @@ export class ElderlyUpdateComponent implements OnInit {
       address: this.editForm.get(['address']).value,
       admissionDate: this.editForm.get(['admissionDate']).value,
       state: this.editForm.get(['state']).value,
-      employee: this.editForm.get(['employee']).value,
-      families: this.editForm.get(['families']).value
+      employee: this.editForm.get(['employee']).value
     };
   }
 

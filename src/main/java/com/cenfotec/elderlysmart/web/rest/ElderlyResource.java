@@ -81,13 +81,13 @@ public class ElderlyResource {
     /**
      * {@code GET  /elderlies} : get all the elderlies.
      *
-     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
+
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of elderlies in body.
      */
     @GetMapping("/elderlies")
-    public List<Elderly> getAllElderlies(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+    public List<Elderly> getAllElderlies() {
         log.debug("REST request to get all Elderlies");
-        return elderlyRepository.findAllWithEagerRelationships();
+        return elderlyRepository.findAll();
     }
 
     /**
@@ -99,7 +99,7 @@ public class ElderlyResource {
     @GetMapping("/elderlies/{id}")
     public ResponseEntity<Elderly> getElderly(@PathVariable Long id) {
         log.debug("REST request to get Elderly : {}", id);
-        Optional<Elderly> elderly = elderlyRepository.findOneWithEagerRelationships(id);
+        Optional<Elderly> elderly = elderlyRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(elderly);
     }
 

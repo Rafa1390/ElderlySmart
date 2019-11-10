@@ -20,8 +20,16 @@
             <tr>
             <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.family.idFamily">Id Family</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.name">Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.name2">Name 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.lastName">Last Name</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.lastName2">Last Name 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.phone1">Phone 1</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.phone2">Phone 2</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.age">Age</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.family.familyRelation">Family Relation</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.userApp">User App</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.state">State</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.elderly">Elderly</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -29,11 +37,19 @@
             <tr *ngFor="let family of families ;trackBy: trackId">
                 <td><a [routerLink]="['/family', family.id, 'view' ]">{{family.id}}</a></td>
                 <td>{{family.idFamily}}</td>
+                <td>{{family.name}}</td>
+                <td>{{family.name2}}</td>
+                <td>{{family.lastName}}</td>
+                <td>{{family.lastName2}}</td>
+                <td>{{family.phone1}}</td>
+                <td>{{family.phone2}}</td>
+                <td>{{family.age}}</td>
                 <td>{{family.familyRelation}}</td>
+                <td>{{family.state}}</td>
                 <td>
-                    <div *ngIf="family.userApp">
-                        <a [routerLink]="['/user-app', family.userApp?.id, 'view' ]" >{{family.userApp?.id}}</a>
-                    </div>
+                    <span *ngFor="let elderly of family.elderlies; let last = last">
+                            <a class="form-control-static" [routerLink]="['/elderly', elderly?.id, 'view' ]">{{elderly.id}}</a>{{last ? '' : ', '}}
+                        </span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group">

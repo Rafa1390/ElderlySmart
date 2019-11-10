@@ -9,15 +9,47 @@
                 <dd>
                     <span>{{family.idFamily}}</span>
                 </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.name">Name</span></dt>
+                <dd>
+                    <span>{{family.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.name2">Name 2</span></dt>
+                <dd>
+                    <span>{{family.name2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{family.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.lastName2">Last Name 2</span></dt>
+                <dd>
+                    <span>{{family.lastName2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.phone1">Phone 1</span></dt>
+                <dd>
+                    <span>{{family.phone1}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.phone2">Phone 2</span></dt>
+                <dd>
+                    <span>{{family.phone2}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.age">Age</span></dt>
+                <dd>
+                    <span>{{family.age}}</span>
+                </dd>
                 <dt><span jhiTranslate="elderlySmartApp.family.familyRelation">Family Relation</span></dt>
                 <dd>
                     <span>{{family.familyRelation}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.family.userApp">User App</span></dt>
+                <dt><span jhiTranslate="elderlySmartApp.family.state">State</span></dt>
                 <dd>
-                    <div *ngIf="family.userApp">
-                        <a [routerLink]="['/user-app', family.userApp?.id, 'view']">{{family.userApp?.id}}</a>
-                    </div>
+                    <span>{{family.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="elderlySmartApp.family.elderly">Elderly</span></dt>
+                <dd>
+                    <span *ngFor="let elderly of family.elderlies; let last = last">
+                        <a [routerLink]="['/elderly', elderly?.id, 'view' ]">{{elderly.id}}</a>{{last ? '' : ', '}}
+                    </span>
                 </dd>
             </dl>
 

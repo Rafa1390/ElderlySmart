@@ -11,20 +11,59 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="elderlySmartApp.family.idFamily" for="field_idFamily">Id Family</label>
-                    <input type="number" class="form-control" name="idFamily" id="field_idFamily"
+                    <input type="text" class="form-control" name="idFamily" id="field_idFamily"
                            formControlName="idFamily"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.name2" for="field_name2">Name 2</label>
+                    <input type="text" class="form-control" name="name2" id="field_name2"
+                           formControlName="name2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                           formControlName="lastName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.lastName2" for="field_lastName2">Last Name 2</label>
+                    <input type="text" class="form-control" name="lastName2" id="field_lastName2"
+                           formControlName="lastName2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.phone1" for="field_phone1">Phone 1</label>
+                    <input type="text" class="form-control" name="phone1" id="field_phone1"
+                           formControlName="phone1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.phone2" for="field_phone2">Phone 2</label>
+                    <input type="text" class="form-control" name="phone2" id="field_phone2"
+                           formControlName="phone2"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.age" for="field_age">Age</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                           formControlName="age"/>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="elderlySmartApp.family.familyRelation" for="field_familyRelation">Family Relation</label>
                     <input type="text" class="form-control" name="familyRelation" id="field_familyRelation"
                            formControlName="familyRelation"/>
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.state" for="field_state">State</label>
+                    <input type="text" class="form-control" name="state" id="field_state"
+                           formControlName="state"/>
+                </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.family.userApp" for="field_userApp">User App</label>
-                    <select class="form-control" id="field_userApp" name="userApp" formControlName="userApp">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="userAppOption.id === editForm.get('userApp').value?.id ? editForm.get('userApp').value : userAppOption" *ngFor="let userAppOption of userapps; trackBy: trackUserAppById">{{userAppOption.id}}</option>
+                    <label jhiTranslate="elderlySmartApp.family.elderly" for="field_elderlies">Elderly</label>
+                    <select class="form-control" id="field_elderlies" multiple name="elderlies" formControlName="elderlies">
+                        <option [ngValue]="getSelected(editForm.get('elderlies').value, elderlyOption)" *ngFor="let elderlyOption of elderlies; trackBy: trackElderlyById">{{elderlyOption.id}}</option>
                     </select>
                 </div>
             </div>

@@ -162,8 +162,16 @@ address String
 }
 
 entity Family{
-idFamily Integer,
-familyRelation String
+idFamily String,
+name String,
+name2 String,
+lastName String,
+lastName2 String,
+phone1 String,
+phone2 String,
+age Integer,
+familyRelation String,
+state String
 }
 
 entity Mortuary{
@@ -269,14 +277,13 @@ relationship OneToOne {
     Pharmacy{userApp} to UserApp,
     Doctor{userApp} to UserApp,
     Partner{userApp} to UserApp,
-    Family{userApp} to UserApp,
     Mortuary{userApp} to UserApp
     
 }
 
 relationship ManyToMany{
 	Asylum{mortuary} to Mortuary{asylum},
-	Elderly{family} to Family{elderly},
+	Family{elderly} to Elderly{family},
 	Asylum{pharmacy} to Pharmacy{asylum},
 	Asylum{partner} to Partner{asylum},
 	Pharmacy{provider} to Provider{pharmacy},
