@@ -16,10 +16,12 @@ import { PharmacyService } from 'app/entities/pharmacy/pharmacy.service';
 
 @Component({
   selector: 'jhi-provider-update',
-  templateUrl: './provider-update.component.html'
+  templateUrl: './provider-update.component.html',
+  styleUrls: ['./provider.component.css']
 })
 export class ProviderUpdateComponent implements OnInit {
   isSaving: boolean;
+  identification: string;
 
   userapps: IUserApp[];
 
