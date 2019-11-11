@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-elderly-heading" jhiTranslate="elderlySmartApp.elderly.home.createOrEditLabel">Create or edit a Elderly</h2>
+            <h2 id="jhi-elderly-heading" class="text-center mt-5">Adulto mayor</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
@@ -10,47 +10,47 @@
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.idElderly" for="field_idElderly">Id Elderly</label>
+                    <label class="form-control-label" for="field_idElderly">Identificación</label>
                     <input type="text" class="form-control" name="idElderly" id="field_idElderly"
                            formControlName="idElderly"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.name" for="field_name">Name</label>
+                    <label class="form-control-label" for="field_name">Primer nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                            formControlName="name"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.name2" for="field_name2">Name 2</label>
+                    <label class="form-control-label"  for="field_name2">Segundo nombre</label>
                     <input type="text" class="form-control" name="name2" id="field_name2"
                            formControlName="name2"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.lastName" for="field_lastName">Last Name</label>
+                    <label class="form-control-label" for="field_lastName">Primer apellido</label>
                     <input type="text" class="form-control" name="lastName" id="field_lastName"
                            formControlName="lastName"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.lastName2" for="field_lastName2">Last Name 2</label>
+                    <label class="form-control-label" for="field_lastName2">Segundo apellido</label>
                     <input type="text" class="form-control" name="lastName2" id="field_lastName2"
                            formControlName="lastName2"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.age" for="field_age">Age</label>
+                    <label class="form-control-label" for="field_age">Edad</label>
                     <input type="number" class="form-control" name="age" id="field_age"
                            formControlName="age"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.nationality" for="field_nationality">Nationality</label>
+                    <label class="form-control-label" for="field_nationality">Nacionalidad</label>
                     <input type="text" class="form-control" name="nationality" id="field_nationality"
                            formControlName="nationality"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.address" for="field_address">Address</label>
+                    <label class="form-control-label" for="field_address">Dirección</label>
                     <input type="text" class="form-control" name="address" id="field_address"
                            formControlName="address"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.admissionDate" for="field_admissionDate">Admission Date</label>
+                    <label class="form-control-label" for="field_admissionDate">Fecha de admisión</label>
                     <div class="input-group">
                         <input id="field_admissionDate" type="text" class="form-control" name="admissionDate" ngbDatepicker  #admissionDateDp="ngbDatepicker" formControlName="admissionDate"/>
                         <span class="input-group-append">
@@ -58,26 +58,40 @@
                         </span>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.state" for="field_state">State</label>
-                    <input type="text" class="form-control" name="state" id="field_state"
-                           formControlName="state"/>
-                </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Employee</label>
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Empleado</label>
                     <select class="form-control" id="field_employee" name="employee" formControlName="employee">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="employeeOption.id === editForm.get('employee').value?.id ? editForm.get('employee').value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
                     </select>
                 </div>
+                <div class="form-check mt-3">
+                        <label class="form-check-label" for="field_state">
+                            <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
+                                   formControlName="state" checked> Activo
+                            <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                        </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label" for="field_state2">
+                        <input class="form-check-input" type="radio" name="state" value="Inactivo" id="field_state2"
+                               formControlName="state"> Inactivo
+                        <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                </div>
             </div>
-            <div>
+            <div class="mt-4">
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
                 </button>
             </div>
         </form>
