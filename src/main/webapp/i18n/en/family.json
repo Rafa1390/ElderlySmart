@@ -17,8 +17,15 @@
         "title": "Family"
       },
       "idFamily": "Id Family",
+      "name": "Name",
+      "name2": "Name 2",
+      "lastName": "Last Name",
+      "lastName2": "Last Name 2",
+      "phone1": "Phone 1",
+      "phone2": "Phone 2",
+      "age": "Age",
       "familyRelation": "Family Relation",
-      "userApp": "User App",
+      "state": "State",
       "elderly": "Elderly"
     }
   }

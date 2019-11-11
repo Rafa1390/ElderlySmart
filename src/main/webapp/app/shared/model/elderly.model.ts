@@ -1,18 +1,21 @@
 import { Moment } from 'moment';
 import { IEmployee } from 'app/shared/model/employee.model';
-import { IUserApp } from 'app/shared/model/user-app.model';
 import { IFamily } from 'app/shared/model/family.model';
 import { IDoctor } from 'app/shared/model/doctor.model';
 
 export interface IElderly {
   id?: number;
-  idElderly?: number;
+  idElderly?: string;
+  name?: string;
+  name2?: string;
+  lastName?: string;
+  lastName2?: string;
+  age?: number;
   nationality?: string;
   address?: string;
   admissionDate?: Moment;
   state?: string;
   employee?: IEmployee;
-  userApp?: IUserApp;
   families?: IFamily[];
   doctors?: IDoctor[];
 }
@@ -20,13 +23,17 @@ export interface IElderly {
 export class Elderly implements IElderly {
   constructor(
     public id?: number,
-    public idElderly?: number,
+    public idElderly?: string,
+    public name?: string,
+    public name2?: string,
+    public lastName?: string,
+    public lastName2?: string,
+    public age?: number,
     public nationality?: string,
     public address?: string,
     public admissionDate?: Moment,
     public state?: string,
     public employee?: IEmployee,
-    public userApp?: IUserApp,
     public families?: IFamily[],
     public doctors?: IDoctor[]
   ) {}

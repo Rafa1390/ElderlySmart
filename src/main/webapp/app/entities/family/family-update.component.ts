@@ -9,8 +9,6 @@ import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IFamily, Family } from 'app/shared/model/family.model';
 import { FamilyService } from './family.service';
-import { IUserApp } from 'app/shared/model/user-app.model';
-import { UserAppService } from 'app/entities/user-app/user-app.service';
 import { IElderly } from 'app/shared/model/elderly.model';
 import { ElderlyService } from 'app/entities/elderly/elderly.service';
 
@@ -21,21 +19,26 @@ import { ElderlyService } from 'app/entities/elderly/elderly.service';
 export class FamilyUpdateComponent implements OnInit {
   isSaving: boolean;
 
-  userapps: IUserApp[];
-
   elderlies: IElderly[];
 
   editForm = this.fb.group({
     id: [],
     idFamily: [],
+    name: [],
+    name2: [],
+    lastName: [],
+    lastName2: [],
+    phone1: [],
+    phone2: [],
+    age: [],
     familyRelation: [],
-    userApp: []
+    state: [],
+    elderlies: []
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected familyService: FamilyService,
-    protected userAppService: UserAppService,
     protected elderlyService: ElderlyService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -46,31 +49,6 @@ export class FamilyUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ family }) => {
       this.updateForm(family);
     });
-    this.userAppService
-      .query({ filter: 'family-is-null' })
-      .pipe(
-        filter((mayBeOk: HttpResponse<IUserApp[]>) => mayBeOk.ok),
-        map((response: HttpResponse<IUserApp[]>) => response.body)
-      )
-      .subscribe(
-        (res: IUserApp[]) => {
-          if (!this.editForm.get('userApp').value || !this.editForm.get('userApp').value.id) {
-            this.userapps = res;
-          } else {
-            this.userAppService
-              .find(this.editForm.get('userApp').value.id)
-              .pipe(
-                filter((subResMayBeOk: HttpResponse<IUserApp>) => subResMayBeOk.ok),
-                map((subResponse: HttpResponse<IUserApp>) => subResponse.body)
-              )
-              .subscribe(
-                (subRes: IUserApp) => (this.userapps = [subRes].concat(res)),
-                (subRes: HttpErrorResponse) => this.onError(subRes.message)
-              );
-          }
-        },
-        (res: HttpErrorResponse) => this.onError(res.message)
-      );
     this.elderlyService
       .query()
       .pipe(
@@ -84,8 +62,16 @@ export class FamilyUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: family.id,
       idFamily: family.idFamily,
+      name: family.name,
+      name2: family.name2,
+      lastName: family.lastName,
+      lastName2: family.lastName2,
+      phone1: family.phone1,
+      phone2: family.phone2,
+      age: family.age,
       familyRelation: family.familyRelation,
-      userApp: family.userApp
+      state: family.state,
+      elderlies: family.elderlies
     });
   }
 
@@ -108,8 +94,16 @@ export class FamilyUpdateComponent implements OnInit {
       ...new Family(),
       id: this.editForm.get(['id']).value,
       idFamily: this.editForm.get(['idFamily']).value,
+      name: this.editForm.get(['name']).value,
+      name2: this.editForm.get(['name2']).value,
+      lastName: this.editForm.get(['lastName']).value,
+      lastName2: this.editForm.get(['lastName2']).value,
+      phone1: this.editForm.get(['phone1']).value,
+      phone2: this.editForm.get(['phone2']).value,
+      age: this.editForm.get(['age']).value,
       familyRelation: this.editForm.get(['familyRelation']).value,
-      userApp: this.editForm.get(['userApp']).value
+      state: this.editForm.get(['state']).value,
+      elderlies: this.editForm.get(['elderlies']).value
     };
   }
 
@@ -127,10 +121,6 @@ export class FamilyUpdateComponent implements OnInit {
   }
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
-  }
-
-  trackUserAppById(index: number, item: IUserApp) {
-    return item.id;
   }
 
   trackElderlyById(index: number, item: IElderly) {

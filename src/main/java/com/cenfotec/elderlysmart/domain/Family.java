@@ -1,5 +1,4 @@
 package com.cenfotec.elderlysmart.domain;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -24,18 +23,40 @@ public class Family implements Serializable {
     private Long id;
 
     @Column(name = "id_family")
-    private Integer idFamily;
+    private String idFamily;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "name_2")
+    private String name2;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "last_name_2")
+    private String lastName2;
+
+    @Column(name = "phone_1")
+    private String phone1;
+
+    @Column(name = "phone_2")
+    private String phone2;
+
+    @Column(name = "age")
+    private Integer age;
 
     @Column(name = "family_relation")
     private String familyRelation;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private UserApp userApp;
+    @Column(name = "state")
+    private String state;
 
-    @ManyToMany(mappedBy = "families")
+    @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JsonIgnore
+    @JoinTable(name = "family_elderly",
+               joinColumns = @JoinColumn(name = "family_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "elderly_id", referencedColumnName = "id"))
     private Set<Elderly> elderlies = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -47,17 +68,108 @@ public class Family implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdFamily() {
+    public String getIdFamily() {
         return idFamily;
     }
 
-    public Family idFamily(Integer idFamily) {
+    public Family idFamily(String idFamily) {
         this.idFamily = idFamily;
         return this;
     }
 
-    public void setIdFamily(Integer idFamily) {
+    public void setIdFamily(String idFamily) {
         this.idFamily = idFamily;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Family name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public Family name2(String name2) {
+        this.name2 = name2;
+        return this;
+    }
+
+    public void setName2(String name2) {
+        this.name2 = name2;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Family lastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastName2() {
+        return lastName2;
+    }
+
+    public Family lastName2(String lastName2) {
+        this.lastName2 = lastName2;
+        return this;
+    }
+
+    public void setLastName2(String lastName2) {
+        this.lastName2 = lastName2;
+    }
+
+    public String getPhone1() {
+        return phone1;
+    }
+
+    public Family phone1(String phone1) {
+        this.phone1 = phone1;
+        return this;
+    }
+
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public Family phone2(String phone2) {
+        this.phone2 = phone2;
+        return this;
+    }
+
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public Family age(Integer age) {
+        this.age = age;
+        return this;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getFamilyRelation() {
@@ -73,17 +185,17 @@ public class Family implements Serializable {
         this.familyRelation = familyRelation;
     }
 
-    public UserApp getUserApp() {
-        return userApp;
+    public String getState() {
+        return state;
     }
 
-    public Family userApp(UserApp userApp) {
-        this.userApp = userApp;
+    public Family state(String state) {
+        this.state = state;
         return this;
     }
 
-    public void setUserApp(UserApp userApp) {
-        this.userApp = userApp;
+    public void setState(String state) {
+        this.state = state;
     }
 
     public Set<Elderly> getElderlies() {
@@ -132,8 +244,16 @@ public class Family implements Serializable {
     public String toString() {
         return "Family{" +
             "id=" + getId() +
-            ", idFamily=" + getIdFamily() +
+            ", idFamily='" + getIdFamily() + "'" +
+            ", name='" + getName() + "'" +
+            ", name2='" + getName2() + "'" +
+            ", lastName='" + getLastName() + "'" +
+            ", lastName2='" + getLastName2() + "'" +
+            ", phone1='" + getPhone1() + "'" +
+            ", phone2='" + getPhone2() + "'" +
+            ", age=" + getAge() +
             ", familyRelation='" + getFamilyRelation() + "'" +
+            ", state='" + getState() + "'" +
             "}";
     }
 }

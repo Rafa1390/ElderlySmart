@@ -17,12 +17,16 @@
         "title": "Elderly"
       },
       "idElderly": "Id Elderly",
+      "name": "Name",
+      "name2": "Name 2",
+      "lastName": "Last Name",
+      "lastName2": "Last Name 2",
+      "age": "Age",
       "nationality": "Nationality",
       "address": "Address",
       "admissionDate": "Admission Date",
       "state": "State",
       "employee": "Employee",
-      "userApp": "User App",
       "family": "Family",
       "doctor": "Doctor"
     }

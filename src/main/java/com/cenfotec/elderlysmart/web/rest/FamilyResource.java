@@ -81,13 +81,13 @@ public class FamilyResource {
     /**
      * {@code GET  /families} : get all the families.
      *
-
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of families in body.
      */
     @GetMapping("/families")
-    public List<Family> getAllFamilies() {
+    public List<Family> getAllFamilies(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Families");
-        return familyRepository.findAll();
+        return familyRepository.findAllWithEagerRelationships();
     }
 
     /**
@@ -99,7 +99,7 @@ public class FamilyResource {
     @GetMapping("/families/{id}")
     public ResponseEntity<Family> getFamily(@PathVariable Long id) {
         log.debug("REST request to get Family : {}", id);
-        Optional<Family> family = familyRepository.findById(id);
+        Optional<Family> family = familyRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(family);
     }
 

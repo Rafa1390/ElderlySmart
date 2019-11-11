@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import './vendor';
 import { ElderlySmartSharedModule } from 'app/shared/shared.module';
@@ -23,7 +24,8 @@ import { ErrorComponent } from './layouts/error/error.component';
     ElderlySmartHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     ElderlySmartEntityModule,
-    ElderlySmartAppRoutingModule
+    ElderlySmartAppRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [JhiMainComponent]

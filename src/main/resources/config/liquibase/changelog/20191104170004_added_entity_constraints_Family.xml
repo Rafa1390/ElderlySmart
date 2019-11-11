@@ -8,11 +8,17 @@
     -->
     <changeSet id="20191104170004-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="user_app_id"
-                                 baseTableName="family"
-                                 constraintName="fk_family_user_app_id"
+        <addForeignKeyConstraint baseColumnNames="family_id"
+                                 baseTableName="family_elderly"
+                                 constraintName="fk_family_elderly_family_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="user_app"/>
+                                 referencedTableName="family"/>
 
+        <addForeignKeyConstraint baseColumnNames="elderly_id"
+                                 baseTableName="family_elderly"
+                                 constraintName="fk_family_elderly_elderly_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="elderly"/>
+        
     </changeSet>
 </databaseChangeLog>

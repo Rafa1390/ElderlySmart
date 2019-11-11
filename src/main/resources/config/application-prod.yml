@@ -33,12 +33,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    #    url: jdbc:mysql://localhost:3306/elderlysmart?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
-    #    username: root
-    #    password: root
-    url: jdbc:mysql://elderlysmart.mysql.database.azure.com:3306/elderlysmart? useSSL=TRUE&requireSSL=FALSE&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: soyla@elderlysmart
-    password: ElderlySmart123
+    url: jdbc:mysql://localhost:3306/elderlysmart?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root
     hikari:
       poolName: Hikari
       auto-commit: false

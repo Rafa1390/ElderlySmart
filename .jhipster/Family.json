@@ -3,29 +3,53 @@
     "fields": [
         {
             "fieldName": "idFamily",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "age",
             "fieldType": "Integer"
         },
         {
             "fieldName": "familyRelation",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
         }
     ],
     "relationships": [
-        {
-            "relationshipType": "one-to-one",
-            "otherEntityName": "userApp",
-            "otherEntityRelationshipName": "family",
-            "relationshipName": "userApp",
-            "otherEntityField": "id",
-            "ownerSide": true
-        },
         {
             "relationshipType": "many-to-many",
             "otherEntityName": "elderly",
             "otherEntityRelationshipName": "family",
             "relationshipName": "elderly",
             "otherEntityField": "id",
-            "ownerSide": false
+            "ownerSide": true
         }
     ],
     "changelogDate": "20191104170004",

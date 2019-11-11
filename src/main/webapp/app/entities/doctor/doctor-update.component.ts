@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -25,7 +25,7 @@ export class DoctorUpdateComponent implements OnInit {
 
   elderlies: IElderly[];
 
-  labelCreateDoctor = 'Registro | Doctor';
+  doctorForm: FormGroup;
 
   editForm = this.fb.group({
     id: [],
@@ -44,7 +44,9 @@ export class DoctorUpdateComponent implements OnInit {
     protected elderlyService: ElderlyService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
-  ) {}
+  ) {
+    this.doctorForm = this.createFormGroup();
+  }
 
   ngOnInit() {
     this.isSaving = false;
@@ -83,14 +85,6 @@ export class DoctorUpdateComponent implements OnInit {
         map((response: HttpResponse<IElderly[]>) => response.body)
       )
       .subscribe((res: IElderly[]) => (this.elderlies = res), (res: HttpErrorResponse) => this.onError(res.message));
-    this.proveLabel();
-  }
-
-  proveLabel() {
-    const doctor = this.createFromForm();
-    if (doctor.id !== undefined) {
-      this.labelCreateDoctor = 'Editar | Doctor';
-    }
   }
 
   updateForm(doctor: IDoctor) {
@@ -111,12 +105,25 @@ export class DoctorUpdateComponent implements OnInit {
 
   save() {
     this.isSaving = true;
-    const doctor = this.createFromForm();
-    if (doctor.id !== undefined) {
-      this.subscribeToSaveResponse(this.doctorService.update(doctor));
-    } else {
-      this.subscribeToSaveResponse(this.doctorService.create(doctor));
+
+    if (this.doctorForm.valid) {
+      /* this.subscribeToSaveResponse(this.doctorService.update(doctor.value));
+    } else {*/
+      this.subscribeToSaveResponse(this.doctorService.create(this.doctorForm.value));
     }
+  }
+
+  get idDoctor() {
+    return this.doctorForm.get('idDoctor');
+  }
+  get email() {
+    return this.doctorForm.get('email');
+  }
+  get officeName() {
+    return this.doctorForm.get('officeName');
+  }
+  get address() {
+    return this.doctorForm.get('address');
   }
 
   private createFromForm(): IDoctor {
@@ -130,6 +137,15 @@ export class DoctorUpdateComponent implements OnInit {
       userApp: this.editForm.get(['userApp']).value,
       elderlies: this.editForm.get(['elderlies']).value
     };
+  }
+
+  createFormGroup() {
+    return new FormGroup({
+      idDoctor: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      officeName: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required])
+    });
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IDoctor>>) {
