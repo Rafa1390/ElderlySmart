@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.employee.home.title">Employees</span>
+        <span>Empleados</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-employee" [routerLink]="['/employee/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.employee.home.createLabel">
-            Create a new Employee
+            <span>
+            Registrar empleado
             </span>
         </button>
     </h2>
@@ -12,17 +12,17 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="employees?.length === 0">
-        <span jhiTranslate="elderlySmartApp.employee.home.notFound">No employees found</span>
+        <span>No hay empleados</span>
     </div>
     <div class="table-responsive" *ngIf="employees?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.employee.idEmployee">Id Employee</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.employee.address">Address</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.employee.asylum">Asylum</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.employee.userApp">User App</span></th>
+            <th scope="col" ><span>ID</span></th>
+            <th scope="col" ><span>Cédula</span></th>
+            <th scope="col" ><span>Dirección</span></th>
+            <th scope="col" ><span>Asilo</span></th>
+<!--            <th scope="col" ><span jhiTranslate="elderlySmartApp.employee.userApp">User App</span></th>-->
             <th scope="col"></th>
             </tr>
             </thead>
@@ -47,13 +47,13 @@
                                 [routerLink]="['/employee', employee.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/employee', employee.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline" >Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/employee', { outlets: { popup: employee.id + '/delete'} }]"
@@ -61,7 +61,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>

@@ -1,30 +1,38 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.pharmacy.home.title">Pharmacies</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Farmacias existentes </h4>
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.pharmacy.home.createLabel">
-            Create a new Pharmacy
+            <span>
+            Registrar farmacia
             </span>
         </button>
+    </div>
+    <h2 id="page-heading">
+
+
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="pharmacies?.length === 0">
-        <span jhiTranslate="elderlySmartApp.pharmacy.home.notFound">No pharmacies found</span>
+        <span>No se encontraron farmacias</span>
     </div>
     <div class="table-responsive" *ngIf="pharmacies?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.idPharmacy">Id Pharmacy</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.email">Email</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.address">Address</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.userApp">User App</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.provider">Provider</span></th>
+            <th scope="col" class="text-center" ><span>ID</span></th>
+            <th scope="col" class="text-center"><span>Cédula jurídica</span></th>
+            <th scope="col" class="text-center"><span>Correo electrónico</span></th>
+            <th scope="col" class="text-center"><span>Nombre</span></th>
+            <th scope="col" class="text-center"><span>Dirección</span></th>
+            <th scope="col" class="text-center"><span>Acciones</span></th>
+<!--            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.userApp">User App</span></th>-->
+<!--            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.provider">Provider</span></th>-->
             <th scope="col"></th>
             </tr>
             </thead>
@@ -35,37 +43,37 @@
                 <td>{{pharmacy.email}}</td>
                 <td>{{pharmacy.name}}</td>
                 <td>{{pharmacy.address}}</td>
-                <td>
-                    <div *ngIf="pharmacy.userApp">
-                        <a [routerLink]="['/user-app', pharmacy.userApp?.id, 'view' ]" >{{pharmacy.userApp?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <span *ngFor="let provider of pharmacy.providers; let last = last">
-                            <a class="form-control-static" [routerLink]="['/provider', provider?.id, 'view' ]">{{provider.id}}</a>{{last ? '' : ', '}}
-                        </span>
-                </td>
+<!--                <td>-->
+<!--                    <div *ngIf="pharmacy.userApp">-->
+<!--                        <a [routerLink]="['/user-app', pharmacy.userApp?.id, 'view' ]" >{{pharmacy.userApp?.id}}</a>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <span *ngFor="let provider of pharmacy.providers; let last = last">-->
+<!--                            <a class="form-control-static" [routerLink]="['/provider', provider?.id, 'view' ]">{{provider.id}}</a>{{last ? '' : ', '}}-->
+<!--                        </span>-->
+<!--                </td>-->
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/pharmacy', pharmacy.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline" >Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/pharmacy', pharmacy.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline" >Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/pharmacy', { outlets: { popup: pharmacy.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>
