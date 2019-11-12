@@ -3,7 +3,9 @@ import { Subscription } from 'rxjs';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-declare let $: any;
+import { LoginModalService } from 'app/core/login/login-modal.service';
+import { AccountService } from 'app/core/auth/account.service';
+import { Account } from 'app/core/user/account.model';
 
 @Component({
   selector: 'jhi-home',
@@ -33,6 +35,14 @@ export class HomeComponent implements OnInit, OnDestroy, DoCheck {
         this.account = account;
       });
     });
+  }
+
+  isAuthenticated() {
+    return this.accountService.isAuthenticated();
+  }
+
+  login() {
+    this.modalRef = this.loginModalService.open();
   }
   ngOnDestroy() {
     const body = document.getElementsByTagName('body')[0];

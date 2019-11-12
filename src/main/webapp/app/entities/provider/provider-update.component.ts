@@ -16,8 +16,7 @@ import { PharmacyService } from 'app/entities/pharmacy/pharmacy.service';
 
 @Component({
   selector: 'jhi-provider-update',
-  templateUrl: './provider-update.component.html',
-  styleUrls: ['./provider.component.css']
+  templateUrl: './provider-update.component.html'
 })
 export class ProviderUpdateComponent implements OnInit {
   isSaving: boolean;
