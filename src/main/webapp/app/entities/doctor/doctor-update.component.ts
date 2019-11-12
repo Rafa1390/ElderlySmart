@@ -25,14 +25,12 @@ export class DoctorUpdateComponent implements OnInit {
 
   elderlies: IElderly[];
 
-  doctorForm: FormGroup;
-
   editForm = this.fb.group({
     id: [],
-    idDoctor: [],
-    email: [],
-    officeName: [],
-    address: [],
+    idDoctor: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    officeName: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
     userApp: [],
     elderlies: []
   });
@@ -44,9 +42,7 @@ export class DoctorUpdateComponent implements OnInit {
     protected elderlyService: ElderlyService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
-  ) {
-    this.doctorForm = this.createFormGroup();
-  }
+  ) {}
 
   ngOnInit() {
     this.isSaving = false;
@@ -105,25 +101,12 @@ export class DoctorUpdateComponent implements OnInit {
 
   save() {
     this.isSaving = true;
-
-    if (this.doctorForm.valid) {
-      /* this.subscribeToSaveResponse(this.doctorService.update(doctor.value));
-    } else {*/
-      this.subscribeToSaveResponse(this.doctorService.create(this.doctorForm.value));
+    const doctor = this.createFromForm();
+    if (doctor.id !== undefined) {
+      this.subscribeToSaveResponse(this.doctorService.update(doctor));
+    } else {
+      this.subscribeToSaveResponse(this.doctorService.create(doctor));
     }
-  }
-
-  get idDoctor() {
-    return this.doctorForm.get('idDoctor');
-  }
-  get email() {
-    return this.doctorForm.get('email');
-  }
-  get officeName() {
-    return this.doctorForm.get('officeName');
-  }
-  get address() {
-    return this.doctorForm.get('address');
   }
 
   private createFromForm(): IDoctor {
@@ -137,15 +120,6 @@ export class DoctorUpdateComponent implements OnInit {
       userApp: this.editForm.get(['userApp']).value,
       elderlies: this.editForm.get(['elderlies']).value
     };
-  }
-
-  createFormGroup() {
-    return new FormGroup({
-      idDoctor: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      officeName: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required])
-    });
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IDoctor>>) {
@@ -181,5 +155,18 @@ export class DoctorUpdateComponent implements OnInit {
       }
     }
     return option;
+  }
+
+  get idDoctor() {
+    return this.editForm.get('idDoctor');
+  }
+  get email() {
+    return this.editForm.get('email');
+  }
+  get officeName() {
+    return this.editForm.get('officeName');
+  }
+  get address() {
+    return this.editForm.get('address');
   }
 }

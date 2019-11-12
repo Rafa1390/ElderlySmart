@@ -5,9 +5,10 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { IDoctor } from 'app/shared/model/doctor.model';
+import { Doctor, IDoctor } from 'app/shared/model/doctor.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { DoctorService } from './doctor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-doctor',
@@ -18,7 +19,12 @@ export class DoctorComponent implements OnInit, OnDestroy {
   currentAccount: any;
   eventSubscriber: Subscription;
 
-  constructor(protected doctorService: DoctorService, protected eventManager: JhiEventManager, protected accountService: AccountService) {}
+  constructor(
+    protected doctorService: DoctorService,
+    protected eventManager: JhiEventManager,
+    protected accountService: AccountService,
+    public router: Router
+  ) {}
 
   loadAll() {
     this.doctorService
