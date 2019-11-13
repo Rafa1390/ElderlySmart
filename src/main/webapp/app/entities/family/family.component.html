@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.family.home.title">Families</span>
+        <span>Familiares</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-family" [routerLink]="['/family/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.family.home.createLabel">
-            Create a new Family
+            <span>
+            Añadir familiar
             </span>
         </button>
     </h2>
@@ -12,24 +12,19 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="families?.length === 0">
-        <span jhiTranslate="elderlySmartApp.family.home.notFound">No families found</span>
+        <span>No se encontraron familiares</span>
     </div>
     <div class="table-responsive" *ngIf="families?.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped text-center" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.idFamily">Id Family</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.name2">Name 2</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.lastName">Last Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.lastName2">Last Name 2</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.phone1">Phone 1</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.phone2">Phone 2</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.age">Age</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.familyRelation">Family Relation</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.state">State</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.family.elderly">Elderly</span></th>
+            <th scope="col" ><span jhiTranslate="global.field.id">Código</span></th>
+            <th scope="col" ><span>Identificación</span></th>
+            <th scope="col" ><span>Nombre</span></th>
+            <th scope="col" ><span>Apellido</span></th>
+            <th scope="col" ><span>Télefono</span></th>
+            <th scope="col" ><span>Relación</span></th>
+            <th scope="col" ><span>Estado</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -38,32 +33,23 @@
                 <td><a [routerLink]="['/family', family.id, 'view' ]">{{family.id}}</a></td>
                 <td>{{family.idFamily}}</td>
                 <td>{{family.name}}</td>
-                <td>{{family.name2}}</td>
                 <td>{{family.lastName}}</td>
-                <td>{{family.lastName2}}</td>
                 <td>{{family.phone1}}</td>
-                <td>{{family.phone2}}</td>
-                <td>{{family.age}}</td>
                 <td>{{family.familyRelation}}</td>
                 <td>{{family.state}}</td>
-                <td>
-                    <span *ngFor="let elderly of family.elderlies; let last = last">
-                            <a class="form-control-static" [routerLink]="['/elderly', elderly?.id, 'view' ]">{{elderly.id}}</a>{{last ? '' : ', '}}
-                        </span>
-                </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/family', family.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/family', family.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/family', { outlets: { popup: family.id + '/delete'} }]"
@@ -71,7 +57,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>
