@@ -368,4 +368,5 @@ public class CaseFile implements Serializable {
             ", state='" + getState() + "'" +
             "}";
     }
+
 }

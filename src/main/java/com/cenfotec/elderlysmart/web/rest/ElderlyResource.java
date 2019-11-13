@@ -1,6 +1,8 @@
 package com.cenfotec.elderlysmart.web.rest;
 
+import com.cenfotec.elderlysmart.domain.CaseFile;
 import com.cenfotec.elderlysmart.domain.Elderly;
+import com.cenfotec.elderlysmart.repository.CaseFileRepository;
 import com.cenfotec.elderlysmart.repository.ElderlyRepository;
 import com.cenfotec.elderlysmart.web.rest.errors.BadRequestAlertException;
 
@@ -34,6 +36,7 @@ public class ElderlyResource {
 
     private final ElderlyRepository elderlyRepository;
 
+
     public ElderlyResource(ElderlyRepository elderlyRepository) {
         this.elderlyRepository = elderlyRepository;
     }
@@ -46,7 +49,7 @@ public class ElderlyResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/elderlies")
-    public ResponseEntity<Elderly> createElderly(@RequestBody Elderly elderly) throws URISyntaxException {
+    public ResponseEntity<Elderly> createElderly(@RequestBody Elderly elderly, CaseFile caseFile) throws URISyntaxException {
         log.debug("REST request to save Elderly : {}", elderly);
         if (elderly.getId() != null) {
             throw new BadRequestAlertException("A new elderly cannot already have an ID", ENTITY_NAME, "idexists");

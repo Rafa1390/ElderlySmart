@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -17,6 +16,7 @@ import { IMortuary } from 'app/shared/model/mortuary.model';
 import { MortuaryService } from 'app/entities/mortuary/mortuary.service';
 import { IPartner } from 'app/shared/model/partner.model';
 import { PartnerService } from 'app/entities/partner/partner.service';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'jhi-asylum-update',
@@ -35,11 +35,11 @@ export class AsylumUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    identification: [],
-    email: [],
-    name: [],
-    address: [],
-    userApp: [],
+    identification: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    userApp: new FormControl('', [Validators.required]),
     pharmacies: []
   });
 
@@ -176,6 +176,22 @@ export class AsylumUpdateComponent implements OnInit {
 
   trackPartnerById(index: number, item: IPartner) {
     return item.id;
+  }
+
+  get identification() {
+    return this.editForm.get('identification');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get email() {
+    return this.editForm.get('email');
+  }
+
+  get address() {
+    return this.editForm.get('address');
   }
 
   getSelected(selectedVals: any[], option: any) {
