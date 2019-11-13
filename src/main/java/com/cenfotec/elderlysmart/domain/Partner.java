@@ -1,5 +1,4 @@
 package com.cenfotec.elderlysmart.domain;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -33,9 +32,11 @@ public class Partner implements Serializable {
     @JoinColumn(unique = true)
     private UserApp userApp;
 
-    @ManyToMany(mappedBy = "partners")
+    @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JsonIgnore
+    @JoinTable(name = "partner_asylum",
+               joinColumns = @JoinColumn(name = "partner_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "asylum_id", referencedColumnName = "id"))
     private Set<Asylum> asylums = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

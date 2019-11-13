@@ -45,6 +45,12 @@
                 <dd>
                     <span>{{elderly.state}}</span>
                 </dd>
+                <dt><span jhiTranslate="elderlySmartApp.elderly.asylum">Asylum</span></dt>
+                <dd>
+                    <div *ngIf="elderly.asylum">
+                        <a [routerLink]="['/asylum', elderly.asylum?.id, 'view']">{{elderly.asylum?.id}}</a>
+                    </div>
+                </dd>
                 <dt><span jhiTranslate="elderlySmartApp.elderly.employee">Employee</span></dt>
                 <dd>
                     <div *ngIf="elderly.employee">

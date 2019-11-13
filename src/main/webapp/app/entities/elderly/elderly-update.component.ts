@@ -6,9 +6,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import * as moment from 'moment';
 import { JhiAlertService } from 'ng-jhipster';
 import { IElderly, Elderly } from 'app/shared/model/elderly.model';
 import { ElderlyService } from './elderly.service';
+import { IAsylum } from 'app/shared/model/asylum.model';
+import { AsylumService } from 'app/entities/asylum/asylum.service';
 import { IEmployee } from 'app/shared/model/employee.model';
 import { EmployeeService } from 'app/entities/employee/employee.service';
 import { IFamily } from 'app/shared/model/family.model';
@@ -22,6 +25,8 @@ import { DoctorService } from 'app/entities/doctor/doctor.service';
 })
 export class ElderlyUpdateComponent implements OnInit {
   isSaving: boolean;
+
+  asylums: IAsylum[];
 
   employees: IEmployee[];
 
@@ -42,12 +47,14 @@ export class ElderlyUpdateComponent implements OnInit {
     address: [],
     admissionDate: [],
     state: [],
+    asylum: [],
     employee: []
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected elderlyService: ElderlyService,
+    protected asylumService: AsylumService,
     protected employeeService: EmployeeService,
     protected familyService: FamilyService,
     protected doctorService: DoctorService,
@@ -60,6 +67,13 @@ export class ElderlyUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ elderly }) => {
       this.updateForm(elderly);
     });
+    this.asylumService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<IAsylum[]>) => mayBeOk.ok),
+        map((response: HttpResponse<IAsylum[]>) => response.body)
+      )
+      .subscribe((res: IAsylum[]) => (this.asylums = res), (res: HttpErrorResponse) => this.onError(res.message));
     this.employeeService
       .query()
       .pipe(
@@ -96,6 +110,7 @@ export class ElderlyUpdateComponent implements OnInit {
       address: elderly.address,
       admissionDate: elderly.admissionDate,
       state: elderly.state,
+      asylum: elderly.asylum,
       employee: elderly.employee
     });
   }
@@ -128,6 +143,7 @@ export class ElderlyUpdateComponent implements OnInit {
       address: this.editForm.get(['address']).value,
       admissionDate: this.editForm.get(['admissionDate']).value,
       state: this.editForm.get(['state']).value,
+      asylum: this.editForm.get(['asylum']).value,
       employee: this.editForm.get(['employee']).value
     };
   }
@@ -146,6 +162,10 @@ export class ElderlyUpdateComponent implements OnInit {
   }
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  trackAsylumById(index: number, item: IAsylum) {
+    return item.id;
   }
 
   trackEmployeeById(index: number, item: IEmployee) {

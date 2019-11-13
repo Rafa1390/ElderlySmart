@@ -33,7 +33,7 @@
             <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.resuscitation">Resuscitation</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.organDonation">Organ Donation</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.state">State</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.elderly">Elderly</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.idElderly">Id Elderly</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -55,8 +55,8 @@
                 <td>{{caseFile.organDonation}}</td>
                 <td>{{caseFile.state}}</td>
                 <td>
-                    <div *ngIf="caseFile.elderly">
-                        <a [routerLink]="['/elderly', caseFile.elderly?.id, 'view' ]" >{{caseFile.elderly?.id}}</a>
+                    <div *ngIf="caseFile.idElderly">
+                        <a [routerLink]="['/elderly', caseFile.idElderly?.id, 'view' ]" >{{caseFile.idElderly?.id}}</a>
                     </div>
                 </td>
                 <td class="text-right">

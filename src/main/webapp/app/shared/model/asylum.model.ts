@@ -2,9 +2,10 @@ import { IUserApp } from 'app/shared/model/user-app.model';
 import { ICleaningProgram } from 'app/shared/model/cleaning-program.model';
 import { IFoodMenu } from 'app/shared/model/food-menu.model';
 import { IRecreationalActivity } from 'app/shared/model/recreational-activity.model';
+import { IElderly } from 'app/shared/model/elderly.model';
 import { IEmployee } from 'app/shared/model/employee.model';
-import { IMortuary } from 'app/shared/model/mortuary.model';
 import { IPharmacy } from 'app/shared/model/pharmacy.model';
+import { IMortuary } from 'app/shared/model/mortuary.model';
 import { IPartner } from 'app/shared/model/partner.model';
 
 export interface IAsylum {
@@ -17,9 +18,10 @@ export interface IAsylum {
   cleaningPrograms?: ICleaningProgram[];
   foodMenus?: IFoodMenu[];
   recreationalActivities?: IRecreationalActivity[];
+  elderlies?: IElderly[];
   employees?: IEmployee[];
-  mortuaries?: IMortuary[];
   pharmacies?: IPharmacy[];
+  mortuaries?: IMortuary[];
   partners?: IPartner[];
 }
 
@@ -34,9 +36,10 @@ export class Asylum implements IAsylum {
     public cleaningPrograms?: ICleaningProgram[],
     public foodMenus?: IFoodMenu[],
     public recreationalActivities?: IRecreationalActivity[],
+    public elderlies?: IElderly[],
     public employees?: IEmployee[],
-    public mortuaries?: IMortuary[],
     public pharmacies?: IPharmacy[],
+    public mortuaries?: IMortuary[],
     public partners?: IPartner[]
   ) {}
 }

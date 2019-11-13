@@ -7,9 +7,12 @@ import com.cenfotec.elderlysmart.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -19,11 +22,13 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.cenfotec.elderlysmart.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -47,6 +52,9 @@ public class MortuaryResourceIT {
 
     @Autowired
     private MortuaryRepository mortuaryRepository;
+
+    @Mock
+    private MortuaryRepository mortuaryRepositoryMock;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -171,6 +179,39 @@ public class MortuaryResourceIT {
             .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS)));
     }
     
+    @SuppressWarnings({"unchecked"})
+    public void getAllMortuariesWithEagerRelationshipsIsEnabled() throws Exception {
+        MortuaryResource mortuaryResource = new MortuaryResource(mortuaryRepositoryMock);
+        when(mortuaryRepositoryMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+
+        MockMvc restMortuaryMockMvc = MockMvcBuilders.standaloneSetup(mortuaryResource)
+            .setCustomArgumentResolvers(pageableArgumentResolver)
+            .setControllerAdvice(exceptionTranslator)
+            .setConversionService(createFormattingConversionService())
+            .setMessageConverters(jacksonMessageConverter).build();
+
+        restMortuaryMockMvc.perform(get("/api/mortuaries?eagerload=true"))
+        .andExpect(status().isOk());
+
+        verify(mortuaryRepositoryMock, times(1)).findAllWithEagerRelationships(any());
+    }
+
+    @SuppressWarnings({"unchecked"})
+    public void getAllMortuariesWithEagerRelationshipsIsNotEnabled() throws Exception {
+        MortuaryResource mortuaryResource = new MortuaryResource(mortuaryRepositoryMock);
+            when(mortuaryRepositoryMock.findAllWithEagerRelationships(any())).thenReturn(new PageImpl(new ArrayList<>()));
+            MockMvc restMortuaryMockMvc = MockMvcBuilders.standaloneSetup(mortuaryResource)
+            .setCustomArgumentResolvers(pageableArgumentResolver)
+            .setControllerAdvice(exceptionTranslator)
+            .setConversionService(createFormattingConversionService())
+            .setMessageConverters(jacksonMessageConverter).build();
+
+        restMortuaryMockMvc.perform(get("/api/mortuaries?eagerload=true"))
+        .andExpect(status().isOk());
+
+            verify(mortuaryRepositoryMock, times(1)).findAllWithEagerRelationships(any());
+    }
+
     @Test
     @Transactional
     public void getMortuary() throws Exception {

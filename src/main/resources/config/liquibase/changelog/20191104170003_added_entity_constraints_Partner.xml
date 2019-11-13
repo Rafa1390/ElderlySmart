@@ -14,5 +14,17 @@
                                  referencedColumnNames="id"
                                  referencedTableName="user_app"/>
 
+        <addForeignKeyConstraint baseColumnNames="partner_id"
+                                 baseTableName="partner_asylum"
+                                 constraintName="fk_partner_asylum_partner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="partner"/>
+
+        <addForeignKeyConstraint baseColumnNames="asylum_id"
+                                 baseTableName="partner_asylum"
+                                 constraintName="fk_partner_asylum_asylum_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="asylum"/>
+        
     </changeSet>
 </databaseChangeLog>

@@ -19,7 +19,7 @@ export interface ICaseFile {
   resuscitation?: string;
   organDonation?: string;
   state?: string;
-  elderly?: IElderly;
+  idElderly?: IElderly;
   alergies?: IAllergies[];
   pathologies?: IPathologies[];
 }
@@ -41,7 +41,7 @@ export class CaseFile implements ICaseFile {
     public resuscitation?: string,
     public organDonation?: string,
     public state?: string,
-    public elderly?: IElderly,
+    public idElderly?: IElderly,
     public alergies?: IAllergies[],
     public pathologies?: IPathologies[]
   ) {}

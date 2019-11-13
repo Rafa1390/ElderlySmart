@@ -89,10 +89,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.elderly" for="field_elderly">Elderly</label>
-                    <select class="form-control" id="field_elderly" name="elderly" formControlName="elderly">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.caseFile.idElderly" for="field_idElderly">Id Elderly</label>
+                    <select class="form-control" id="field_idElderly" name="idElderly" formControlName="idElderly">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="elderlyOption.id === editForm.get('elderly').value?.id ? editForm.get('elderly').value : elderlyOption" *ngFor="let elderlyOption of elderlies; trackBy: trackElderlyById">{{elderlyOption.id}}</option>
+                        <option [ngValue]="elderlyOption.id === editForm.get('idElderly').value?.id ? editForm.get('idElderly').value : elderlyOption" *ngFor="let elderlyOption of idelderlies; trackBy: trackElderlyById">{{elderlyOption.id}}</option>
                     </select>
                 </div>
             </div>

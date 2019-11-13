@@ -5,7 +5,7 @@
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">Código</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
@@ -58,22 +58,28 @@
                         </span>
                     </div>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Empleado</label>
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.asylum" for="field_asylum">Asylum</label>
+                    <select class="form-control" id="field_asylum" name="asylum" formControlName="asylum">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="asylumOption.id === editForm.get('asylum').value?.id ? editForm.get('asylum').value : asylumOption" *ngFor="let asylumOption of asylums; trackBy: trackAsylumById">{{asylumOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Employee</label>
                     <select class="form-control" id="field_employee" name="employee" formControlName="employee">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="employeeOption.id === editForm.get('employee').value?.id ? editForm.get('employee').value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-check mt-3">
-                        <label class="form-check-label" for="field_state">
-                            <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
-                                   formControlName="state" checked> Activo
-                            <span class="circle">
+                    <label class="form-check-label" for="field_state">
+                        <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
+                               formControlName="state" checked> Activo
+                        <span class="circle">
                         <span class="check"></span>
                       </span>
-                        </label>
+                    </label>
                 </div>
 
                 <div class="form-check">

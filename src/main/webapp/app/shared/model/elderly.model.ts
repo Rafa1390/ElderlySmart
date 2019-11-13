@@ -1,4 +1,5 @@
 import { Moment } from 'moment';
+import { IAsylum } from 'app/shared/model/asylum.model';
 import { IEmployee } from 'app/shared/model/employee.model';
 import { IFamily } from 'app/shared/model/family.model';
 import { IDoctor } from 'app/shared/model/doctor.model';
@@ -15,6 +16,7 @@ export interface IElderly {
   address?: string;
   admissionDate?: Moment;
   state?: string;
+  asylum?: IAsylum;
   employee?: IEmployee;
   families?: IFamily[];
   doctors?: IDoctor[];
@@ -33,6 +35,7 @@ export class Elderly implements IElderly {
     public address?: string,
     public admissionDate?: Moment,
     public state?: string,
+    public asylum?: IAsylum,
     public employee?: IEmployee,
     public families?: IFamily[],
     public doctors?: IDoctor[]
