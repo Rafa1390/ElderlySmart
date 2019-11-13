@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Doctor, IDoctor } from 'app/shared/model/doctor.model';
+import { IDoctor } from 'app/shared/model/doctor.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { DoctorService } from './doctor.service';
 import { Router } from '@angular/router';

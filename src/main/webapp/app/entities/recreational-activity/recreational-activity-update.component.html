@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-recreational-activity-heading" jhiTranslate="elderlySmartApp.recreationalActivity.home.createOrEditLabel">Create or edit a Recreational Activity</h2>
+            <h2 id="jhi-recreational-activity-heading" class="text-center mb-5">Actividad recreativa</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
@@ -10,52 +10,83 @@
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.recreationalActivity.idRecreationalActivity" for="field_idRecreationalActivity">Id Recreational Activity</label>
+                    <label class="form-control-label" for="field_idRecreationalActivity">Código de actividad</label>
                     <input type="number" class="form-control" name="idRecreationalActivity" id="field_idRecreationalActivity"
-                           formControlName="idRecreationalActivity"/>
+                           formControlName="idRecreationalActivity"
+                           [(ngModel)]="createFromForm().idRecreationalActivity" required
+                    />
+                    <div *ngIf="idRecreationalActivity.invalid && idRecreationalActivity.touched" class="validate-danger-form">
+                        El código de la actividad es requerido.
+                    </div>
                 </div>
 
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.recreationalActivity.name" for="field_name">Name</label>
+                    <label class="form-control-label" for="field_name">Nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                            formControlName="name"
                            [(ngModel)]="createFromForm().name" required
                     />
-                    <div *ngIf="editForm.invalid && editForm.touched" class="validate-danger-form">
-                        Nombre requerido.
+                    <div *ngIf="name.invalid && name.touched" class="validate-danger-form">
+                        El nombre es requerido.
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.recreationalActivity.description" for="field_description">Description</label>
+                    <label class="form-control-label" for="field_description">Descripción</label>
                     <input type="text" class="form-control" name="description" id="field_description"
-                           formControlName="description"/>
+                           formControlName="description"
+                           [(ngModel)]="createFromForm().description" required
+                    />
+                    <div *ngIf="description.invalid && description.touched" class="validate-danger-form">
+                        La descripción es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.recreationalActivity.date" for="field_date">Date</label>
+                    <label class="form-control-label" for="field_date">Fecha</label>
                     <div class="input-group">
-                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker" formControlName="date"/>
+                        <input id="field_date" type="date" class="form-control" name="date" ngbDatepicker  #dateDp="ngbDatepicker"
+                               formControlName="date"
+                               [(ngModel)]="createFromForm().date" required
+                        />
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
+                        <div *ngIf="date.invalid && date.touched" class="validate-danger-form">
+                            La fecha es requerida.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.recreationalActivity.startTime" for="field_startTime">Start Time</label>
+                    <label class="form-control-label" for="field_startTime">Hora de inicio</label>
                     <input type="text" class="form-control" name="startTime" id="field_startTime"
-                           formControlName="startTime"/>
+                           formControlName="startTime"
+                           [(ngModel)]="createFromForm().startTime" required
+                    />
+                    <div *ngIf="startTime.invalid && startTime.touched" class="validate-danger-form">
+                        La hora de inicio es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.recreationalActivity.endTime" for="field_endTime">End Time</label>
+                    <label class="form-control-label" for="field_endTime">Hora de finalización</label>
                     <input type="text" class="form-control" name="endTime" id="field_endTime"
-                           formControlName="endTime"/>
+                           formControlName="endTime"
+                           [(ngModel)]="createFromForm().endTime" required
+                    />
+                    <div *ngIf="endTime.invalid && endTime.touched" class="validate-danger-form">
+                        La hora de finalización es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.recreationalActivity.state" for="field_state">State</label>
+                    <label class="form-control-label" for="field_state">Estado</label>
                     <input type="text" class="form-control" name="state" id="field_state"
-                           formControlName="state"/>
+                           formControlName="state"
+                           [(ngModel)]="createFromForm().state" required
+                    />
+                    <div *ngIf="state.invalid && state.touched" class="validate-danger-form">
+                        El estado es requerido.
+                    </div>
                 </div>
 
                 <div class="form-group">

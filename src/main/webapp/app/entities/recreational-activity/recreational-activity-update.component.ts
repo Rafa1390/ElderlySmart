@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -24,13 +24,13 @@ export class RecreationalActivityUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idRecreationalActivity: [],
-    name: [],
-    description: [],
-    date: [],
-    startTime: [],
-    endTime: [],
-    state: [],
+    idRecreationalActivity: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
+    startTime: new FormControl('', [Validators.required]),
+    endTime: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
     asylum: []
   });
 
@@ -117,5 +117,33 @@ export class RecreationalActivityUpdateComponent implements OnInit {
 
   trackAsylumById(index: number, item: IAsylum) {
     return item.id;
+  }
+
+  get idRecreationalActivity() {
+    return this.editForm.get('idRecreationalActivity');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get description() {
+    return this.editForm.get('description');
+  }
+
+  get date() {
+    return this.editForm.get('date');
+  }
+
+  get startTime() {
+    return this.editForm.get('startTime');
+  }
+
+  get endTime() {
+    return this.editForm.get('endTime');
+  }
+
+  get state() {
+    return this.editForm.get('state');
   }
 }
