@@ -26,7 +26,7 @@ export class ProviderUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    identification: new FormControl(['']),
+    identification: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required]),
     providerType: new FormControl('', [Validators.required]),

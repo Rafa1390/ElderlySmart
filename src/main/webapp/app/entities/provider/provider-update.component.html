@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="save()">
-            <h2 id="jhi-provider-heading" class="text-center mb-5">Provedor</h2>
+            <h2 id="jhi-provider-heading" class="text-center mb-5">Proveedor</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
@@ -9,9 +9,6 @@
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
-
-
-
                 <div class="form-group">
                     <label class="form-control-label"  for="field_identification">Cédula Jurídica</label>
                     <input type="text" class="form-control" name="identification" id="field_identification"
@@ -27,7 +24,7 @@
                     <label class="form-control-label"  for="field_email">Correo electrónico</label>
                     <input type="text" class="form-control" name="email" id="field_email"
                            formControlName="email"
-                           [(ngModel)]="createFromForm().identification" required />
+                           [(ngModel)]="createFromForm().email" required />
 
                     <div *ngIf="email.invalid && email.touched" class="validate-danger-form">
                         El correo electrónico es requerido.
@@ -38,8 +35,7 @@
                     <label class="form-control-label"  for="field_name">Nombre de la empresa</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                            formControlName="name"
-                           [(ngModel)]="createFromForm().identification" required />
-
+                           [(ngModel)]="createFromForm().name" required />
                     <div *ngIf="name.invalid && name.touched" class="validate-danger-form">
                         El nombre del proveedor es requerido.
                     </div>
@@ -49,7 +45,7 @@
                     <label class="form-control-label"  for="field_providerType">Tipo de provedor</label>
                     <input type="text" class="form-control" name="providerType" id="field_providerType"
                            formControlName="providerType"
-                           [(ngModel)]="createFromForm().identification" required />
+                           [(ngModel)]="createFromForm().providerType" requered/>
                     <div *ngIf="providerType.invalid && providerType.touched" class="validate-danger-form">
                         El tipo de proveedor es requerido.
                     </div>
@@ -58,20 +54,20 @@
                     <label class="form-control-label"  for="field_address">Dirección</label>
                     <input type="text" class="form-control" name="address" id="field_address"
                            formControlName="address"
-                           [(ngModel)]="createFromForm().identification" required />
+                           [(ngModel)]="createFromForm().address" required />
                     <div *ngIf="address.invalid && address.touched" class="validate-danger-form">
                         La dirección es requerida.
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="form-control-label" for="field_userApp">User App</label>
-                    <select class="form-control" id="field_userApp" name="userApp" formControlName="userApp">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="userAppOption.id === editForm.get('userApp').value?.id ? editForm.get('userApp').value : userAppOption" *ngFor="let userAppOption of userapps; trackBy: trackUserAppById">{{userAppOption.id}}</option>
-                    </select>
-                </div>
-            </div>
+<!--                <div class="form-group">-->
+<!--                    <label class="form-control-label" for="field_userApp">User App</label>-->
+<!--                    <select class="form-control" id="field_userApp" name="userApp" formControlName="userApp">-->
+<!--                        <option [ngValue]="null"></option>-->
+<!--                        <option [ngValue]="userAppOption.id === editForm.get('userApp').value?.id ? editForm.get('userApp').value : userAppOption" *ngFor="let userAppOption of userapps; trackBy: trackUserAppById">{{userAppOption.id}}</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--            </div>-->
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Cancelar</span>
