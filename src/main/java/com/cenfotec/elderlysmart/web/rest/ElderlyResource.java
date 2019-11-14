@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,9 +52,13 @@ public class ElderlyResource {
     @PostMapping("/elderlies")
     public ResponseEntity<Elderly> createElderly(@RequestBody Elderly elderly, CaseFile caseFile) throws URISyntaxException {
         log.debug("REST request to save Elderly : {}", elderly);
+
+        LocalDate date = LocalDate.now();
         if (elderly.getId() != null) {
             throw new BadRequestAlertException("A new elderly cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        elderly.setAdmissionDate(date);
+
         Elderly result = elderlyRepository.save(elderly);
         return ResponseEntity.created(new URI("/api/elderlies/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))

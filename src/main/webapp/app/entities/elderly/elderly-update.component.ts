@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import * as moment from 'moment';
 import { JhiAlertService } from 'ng-jhipster';
 import { IElderly, Elderly } from 'app/shared/model/elderly.model';
 import { ElderlyService } from './elderly.service';
@@ -37,18 +36,18 @@ export class ElderlyUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idElderly: [],
-    name: [],
+    idElderly: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
     name2: [],
-    lastName: [],
+    lastName: new FormControl('', [Validators.required]),
     lastName2: [],
-    age: [],
-    nationality: [],
+    age: new FormControl('', [Validators.min(40), Validators.max(90)]),
+    nationality: new FormControl('', [Validators.required]),
     address: [],
     admissionDate: [],
-    state: [],
+    state: new FormControl('', [Validators.required]),
     asylum: [],
-    employee: []
+    employee: new FormControl('', [Validators.required])
   });
 
   constructor(
@@ -146,6 +145,42 @@ export class ElderlyUpdateComponent implements OnInit {
       asylum: this.editForm.get(['asylum']).value,
       employee: this.editForm.get(['employee']).value
     };
+  }
+
+  get idElderly() {
+    return this.editForm.get('idElderly');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get name2() {
+    return this.editForm.get('name2');
+  }
+
+  get lastName() {
+    return this.editForm.get('lastName');
+  }
+
+  get lastName2() {
+    return this.editForm.get('lastName2');
+  }
+
+  get age() {
+    return this.editForm.get('age');
+  }
+
+  get nationality() {
+    return this.editForm.get('nationality');
+  }
+
+  get address() {
+    return this.editForm.get('address');
+  }
+
+  get state() {
+    return this.editForm.get('state');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IElderly>>) {
