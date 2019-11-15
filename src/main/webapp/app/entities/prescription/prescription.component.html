@@ -3,8 +3,8 @@
         <span jhiTranslate="elderlySmartApp.prescription.home.title">Prescriptions</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prescription" [routerLink]="['/prescription/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.prescription.home.createLabel">
-            Create a new Prescription
+            <span>
+           Crear nueva receta
             </span>
         </button>
     </h2>
@@ -18,17 +18,17 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.idPrescription">Id Prescription</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.officeName">Office Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.creationDate">Creation Date</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.doctorName">Doctor Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.patientName">Patient Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.patientAge">Patient Age</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.prescriptionDrugs">Prescription Drugs</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.state">State</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.pharmacy">Pharmacy</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.doctor">Doctor</span></th>
+            <th scope="col"><span>ID</span></th>
+            <th scope="col"><span>Código</span></th>
+            <th scope="col"><span>Nombre de oficina</span></th>
+            <th scope="col"><span>Dia de creacion</span></th>
+            <th scope="col"><span>Nombre del doctor</span></th>
+            <th scope="col"><span>Nombre del paciente</span></th>
+            <th scope="col"><span>Edad del paciente</span></th>
+            <th scope="col"><span>Medicamentos</span></th>
+            <th scope="col"><span>Estado</span></th>
+            <th scope="col"><span>Farmacia</span></th>
+            <th scope="col"><span>ID Doctor</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
