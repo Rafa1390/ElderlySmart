@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IMedicationSchedule, MedicationSchedule } from 'app/shared/model/medication-schedule.model';
@@ -17,11 +17,11 @@ export class MedicationScheduleUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idMedicationSchedule: [],
-    meticationName: [],
-    elderly: [],
-    dose: [],
-    time: [],
+    idMedicationSchedule: new FormControl('', [Validators.required]),
+    meticationName: new FormControl('', [Validators.required]),
+    elderly: new FormControl('', [Validators.required]),
+    dose: new FormControl('', [Validators.required]),
+    time: new FormControl('', [Validators.required]),
     state: []
   });
 
@@ -88,5 +88,25 @@ export class MedicationScheduleUpdateComponent implements OnInit {
 
   protected onSaveError() {
     this.isSaving = false;
+  }
+
+  get idMedicationSchedule() {
+    return this.editForm.get('idMedicationSchedule');
+  }
+
+  get meticationName() {
+    return this.editForm.get('meticationName');
+  }
+
+  get elderly() {
+    return this.editForm.get('elderly');
+  }
+
+  get dose() {
+    return this.editForm.get('dose');
+  }
+
+  get time() {
+    return this.editForm.get('time');
   }
 }

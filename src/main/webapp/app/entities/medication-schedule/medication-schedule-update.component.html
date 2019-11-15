@@ -10,35 +10,79 @@
                         readonly />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicationSchedule.idMedicationSchedule" for="field_idMedicationSchedule">Id Medication Schedule</label>
+                    <label class="form-control-label" for="field_idMedicationSchedule">Código de medicación</label>
                     <input type="number" class="form-control" name="idMedicationSchedule" id="field_idMedicationSchedule"
-                           formControlName="idMedicationSchedule"/>
+                           formControlName="idMedicationSchedule"
+                           [(ngModel)]="createFromForm().idMedicationSchedule" required
+                    />
+                    <div *ngIf="idMedicationSchedule.invalid && idMedicationSchedule.touched" class="validate-danger-form">
+                        El código de medicación es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicationSchedule.meticationName" for="field_meticationName">Metication Name</label>
+                    <label class="form-control-label" for="field_meticationName">Nombre de la medicación</label>
                     <input type="text" class="form-control" name="meticationName" id="field_meticationName"
-                           formControlName="meticationName"/>
+                           formControlName="meticationName"
+                           [(ngModel)]="createFromForm().meticationName" required
+                    />
+                    <div *ngIf="meticationName.invalid && meticationName.touched" class="validate-danger-form">
+                        El nombre de la medicación es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicationSchedule.elderly" for="field_elderly">Elderly</label>
+                    <label class="form-control-label" for="field_elderly">Nombre del adulto mayor</label>
                     <input type="text" class="form-control" name="elderly" id="field_elderly"
-                           formControlName="elderly"/>
+                           formControlName="elderly"
+                           [(ngModel)]="createFromForm().elderly" required
+                    />
+                    <div *ngIf="elderly.invalid && elderly.touched" class="validate-danger-form">
+                        El nombre del adulto mayor es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicationSchedule.dose" for="field_dose">Dose</label>
+                    <label class="form-control-label" for="field_dose">Dosis</label>
                     <input type="text" class="form-control" name="dose" id="field_dose"
-                           formControlName="dose"/>
+                           formControlName="dose"
+                           [(ngModel)]="createFromForm().dose" required
+                    />
+                    <div *ngIf="dose.invalid && dose.touched" class="validate-danger-form">
+                        La dosis es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicationSchedule.time" for="field_time">Time</label>
+                    <label class="form-control-label" for="field_time">Hora de medicación</label>
                     <input type="text" class="form-control" name="time" id="field_time"
-                           formControlName="time"/>
+                           formControlName="time"
+                           [(ngModel)]="createFromForm().time" required
+                    />
+                    <div *ngIf="time.invalid && time.touched" class="validate-danger-form">
+                        La hora de medicación es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.medicationSchedule.state" for="field_state">State</label>
+                    <label class="form-control-label" for="field_state">Estado</label>
                     <input type="text" class="form-control" name="state" id="field_state"
                            formControlName="state"/>
                 </div>
+
+                <!--<label class="form-control-label mt-3">Estado</label>
+                <div class="form-check mt-1">
+                    <label class="form-check-label" for="field_state">
+                        <input class="form-check-input" type="radio" class="form-control" name="state" id="field_state"
+                               formControlName="state" checked required/> Activo
+                        <span class="circle"><span class="check"></span></span>
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label" for="field_state2">
+                        <input class="form-check-input" type="radio" name="state" value="Inactivo" id="field_state2"
+                               formControlName="state"> Inactivo
+                        <span class="circle">
+                            <span class="check"></span>
+                        </span>
+                    </label>
+                </div>-->
 
             </div>
             <div>
