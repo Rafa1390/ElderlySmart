@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.product.home.title">Products</span>
+        <span>Productos</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.product.home.createLabel">
-            Create a new Product
+            <span>
+            Crear nuevo producto
             </span>
         </button>
     </h2>
@@ -18,21 +18,21 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.idProduct">Id Product</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.code">Code</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.brand">Brand</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.description">Description</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.type">Type</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.state">State</span></th>
+            <th scope="col" ><span>ID</span></th>
+<!--            <th scope="col" ><span>Id Product</span></th>-->
+            <th scope="col" ><span>Código</span></th>
+            <th scope="col" ><span>Nombre</span></th>
+            <th scope="col" ><span>Marca</span></th>
+            <th scope="col" ><span>Descripción</span></th>
+            <th scope="col" ><span>Tipo</span></th>
+            <th scope="col" ><span>Estado</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let product of products ;trackBy: trackId">
                 <td><a [routerLink]="['/product', product.id, 'view' ]">{{product.id}}</a></td>
-                <td>{{product.idProduct}}</td>
+<!--                <td>{{product.idProduct}}</td>-->
                 <td>{{product.code}}</td>
                 <td>{{product.name}}</td>
                 <td>{{product.brand}}</td>

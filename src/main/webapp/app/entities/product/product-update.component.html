@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
-        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-product-heading" jhiTranslate="elderlySmartApp.product.home.createOrEditLabel">Create or edit a Product</h2>
+        <form name="editForm" role="form" novalidate [formGroup]="editForm" (ngSubmit)="save()">
+            <h2 id="jhi-product-heading" class="text-center mb-5">Producto médico</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
@@ -9,49 +9,73 @@
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
+<!--                <div class="form-group">-->
+<!--                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.idProduct" for="field_idProduct">Id Product</label>-->
+<!--                    <input type="number" class="form-control" name="idProduct" id="field_idProduct"-->
+<!--                           formControlName="idProduct"/>-->
+<!--                </div>-->
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.idProduct" for="field_idProduct">Id Product</label>
-                    <input type="number" class="form-control" name="idProduct" id="field_idProduct"
-                           formControlName="idProduct"/>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.code" for="field_code">Code</label>
+                    <label class="form-control-label" for="field_code">Código</label>
                     <input type="text" class="form-control" name="code" id="field_code"
-                           formControlName="code"/>
+                           formControlName="code"
+                           [(ngModel)]="createFromForm().code" />
+                    <div *ngIf="code.invalid && code.touched" class="validate-danger-form">
+                        El código es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.name" for="field_name">Name</label>
+                    <label class="form-control-label" for="field_name">Nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"/>
+                           formControlName="name"
+                           [(ngModel)]="createFromForm().name" />
+                    <div *ngIf="name.invalid && name.touched" class="validate-danger-form">
+                        El nombre es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.brand" for="field_brand">Brand</label>
+                    <label class="form-control-label"  for="field_brand">Marca</label>
                     <input type="text" class="form-control" name="brand" id="field_brand"
-                           formControlName="brand"/>
+                           formControlName="brand"
+                           [(ngModel)]="createFromForm().brand" />
+                    <div *ngIf="brand.invalid && brand.touched" class="validate-danger-form">
+                        La marca es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.description" for="field_description">Description</label>
+                    <label class="form-control-label" for="field_description">Descripción</label>
                     <input type="text" class="form-control" name="description" id="field_description"
-                           formControlName="description"/>
+                           formControlName="description"
+                           [(ngModel)]="createFromForm().description" />
+                    <div *ngIf="description.invalid && description.touched" class="validate-danger-form">
+                        La descripción es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.type" for="field_type">Type</label>
+                    <label class="form-control-label" for="field_type">Tipo</label>
                     <input type="number" class="form-control" name="type" id="field_type"
-                           formControlName="type"/>
+                           formControlName="type"
+                           [(ngModel)]="createFromForm().type" />
+                    <div *ngIf="type.invalid && type.touched" class="validate-danger-form">
+                        El tipo es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.product.state" for="field_state">State</label>
+                    <label class="form-control-label" for="field_state">Estado</label>
                     <input type="text" class="form-control" name="state" id="field_state"
-                           formControlName="state"/>
+                           formControlName="state"
+                           [(ngModel)]="createFromForm().state"/>
+                    <div *ngIf="state.invalid && state.touched" class="validate-danger-form">
+                        El estado es requerido.
+                    </div>
                 </div>
 
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Cancelar</span>
                 </button>
                 <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span >Guardar</span>
                 </button>
             </div>
         </form>

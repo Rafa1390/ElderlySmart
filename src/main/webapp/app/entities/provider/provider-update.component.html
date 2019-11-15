@@ -14,7 +14,6 @@
                     <input type="text" class="form-control" name="identification" id="field_identification"
                            formControlName="identification"
                            [(ngModel)]="createFromForm().identification" required />
-
                     <div *ngIf="identification.invalid && identification.touched" class="validate-danger-form">
                         La cédula jurídica es requerida.
                     </div>
@@ -68,13 +67,14 @@
 <!--                    </select>-->
 <!--                </div>-->
 <!--            </div>-->
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Cancelar</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span >Guardar</span>
-                </button>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Cancelar</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span >Guardar</span>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
