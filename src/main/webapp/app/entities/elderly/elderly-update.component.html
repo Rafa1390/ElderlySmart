@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_idElderly">Identificación</label>
                     <input type="text" class="form-control" name="idElderly" id="field_idElderly"
-                           formControlName="idElderly" [(ngModel)]="createFromForm().idElderly" required/>
+                           formControlName="idElderly" [(ngModel)]="createFromForm().idElderly"/>
                     <div *ngIf="idElderly.invalid && idElderly.touched" class="validate-danger-form">
                         La identificación es requerida.
                     </div>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_name">Primer nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name" [(ngModel)]="createFromForm().name" required pattern="[a-zA-Z ]*"/>
+                           formControlName="name" [(ngModel)]="createFromForm().name" pattern="[a-zA-Z ]*"/>
                     <div *ngIf="name.errors?.required && name.touched" class="validate-danger-form">
                         El primer nombre es requerido.
                     </div>
@@ -40,7 +40,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_lastName">Primer apellido</label>
                     <input type="text" class="form-control" name="lastName" id="field_lastName"
-                           formControlName="lastName" [(ngModel)]="createFromForm().lastName" required pattern="[a-zA-Z ]*"/>
+                           formControlName="lastName" [(ngModel)]="createFromForm().lastName" pattern="[a-zA-Z ]*"/>
                     <div *ngIf="lastName.errors?.required && lastName.touched" class="validate-danger-form">
                         El primer apellido es requerida.
                     </div>
@@ -59,7 +59,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_age">Edad</label>
                     <input type="number" class="form-control" name="age" id="field_age"
-                           formControlName="age" [(ngModel)]="createFromForm().age" required min max/>
+                           formControlName="age" [(ngModel)]="createFromForm().age" min max/>
                     <div *ngIf="age.errors?.required && age.touched" class="validate-danger-form">
                         La edad es requerida.
                     </div>
@@ -73,7 +73,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_nationality">Nacionalidad</label>
                     <input type="text" class="form-control" name="nationality" id="field_nationality"
-                           formControlName="nationality" [(ngModel)]="createFromForm().nationality" required pattern="[a-zA-Z ]*"/>
+                           formControlName="nationality" [(ngModel)]="createFromForm().nationality" pattern="[a-zA-Z ]*"/>
                     <div *ngIf="nationality.errors?.required && nationality.touched" class="validate-danger-form">
                         La nacionalidad es requerida.
                     </div>
@@ -122,10 +122,10 @@
                 </div>
             </div>
             <div class="mt-4">
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                <button type="button" id="cancel-save" class="btn btn-danger"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info">
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info btns">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
                 </button>
             </div>

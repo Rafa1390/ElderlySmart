@@ -178,7 +178,7 @@ public class AsylumResourceIT {
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS)));
     }
-    
+
     @SuppressWarnings({"unchecked"})
     public void getAllAsylumsWithEagerRelationshipsIsEnabled() throws Exception {
         AsylumResource asylumResource = new AsylumResource(asylumRepositoryMock);

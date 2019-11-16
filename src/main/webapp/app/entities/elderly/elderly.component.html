@@ -1,7 +1,12 @@
 <div>
+    <div class="card-header card-header-icon mt-3">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+    </div>
     <h2 id="page-heading">
-        <span>Adultos mayores</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-elderly" [routerLink]="['/elderly/new']">
+        <h4 class="card-title ">Adultos mayores</h4>
+        <button id="jh-create-entity" class="btn btns btn-primary float-right jh-create-entity create-elderly" [routerLink]="['/elderly/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
             Añadir adulto mayor
@@ -39,13 +44,13 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/elderly', elderly.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/elderly', elderly.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline">Editar</span>
                         </button>
@@ -53,7 +58,7 @@
                                 [routerLink]="['/elderly', { outlets: { popup: elderly.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline">Eliminar</span>
                         </button>
