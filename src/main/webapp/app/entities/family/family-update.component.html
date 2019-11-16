@@ -41,7 +41,7 @@
                     <input type="text" class="form-control" name="lastName" id="field_lastName"
                            formControlName="lastName"[(ngModel)]="createFromForm().lastName" required pattern="[a-zA-Z ]*"/>
                     <div *ngIf="lastName.errors?.required && lastName.touched" class="validate-danger-form">
-                        El primer apellido es requerida.
+                        El primer apellido es requerido.
                     </div>
                     <div *ngIf="lastName.errors?.pattern && lastName.touched" class="validate-danger-form">
                         No se permiten números.
@@ -82,6 +82,7 @@
                     <div *ngIf="age.errors?.max && age.touched" class="validate-danger-form">
                         La edad máxima es de 99 años.
                     </div>
+                </div>
                 <div class="form-group">
                     <label class="form-control-label"  for="field_familyRelation">Relación con el familiar</label>
                     <input type="text" class="form-control" name="familyRelation" id="field_familyRelation"
@@ -108,7 +109,6 @@
                       </span>
                     </label>
                 </div>
-
                 <div class="form-check">
                     <label class="form-check-label" for="field_state2">
                         <input class="form-check-input" type="radio" name="state" value="Inactivo" id="field_state2"
