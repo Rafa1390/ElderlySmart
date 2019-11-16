@@ -23,9 +23,9 @@
                     <label class="form-control-label" for="field_email">Correo electrónico</label>
                     <input type="text" class="form-control" name="email" id="field_email"
                            formControlName="email"
-                           [(ngModel)]="createFromForm().email" required
+                           [(ngModel)]="createFromForm().email" required email
                     />
-                    <div *ngIf="email.invalid && email.touched" class="validate-danger-form">
+                    <div *ngIf="email.errors?.required && email.touched" class="validate-danger-form">
                         El correo electrónico es requerido.
                     </div>
                     <div *ngIf="email.errors?.email && email.touched" class="validate-danger-form">

@@ -60,7 +60,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_startTime">Hora de inicio</label>
-                    <input type="text" class="form-control" name="startTime" id="field_startTime"
+                    <input type="time" class="form-control" name="startTime" id="field_startTime"
                            formControlName="startTime"
                            [(ngModel)]="createFromForm().startTime" required
                     />
@@ -70,7 +70,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_endTime">Hora de finalización</label>
-                    <input type="text" class="form-control" name="endTime" id="field_endTime"
+                    <input type="time" class="form-control" name="endTime" id="field_endTime"
                            formControlName="endTime"
                            [(ngModel)]="createFromForm().endTime" required
                     />
@@ -78,15 +78,24 @@
                         La hora de finalización es requerida.
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="field_state">Estado</label>
-                    <input type="text" class="form-control" name="state" id="field_state"
-                           formControlName="state"
-                           [(ngModel)]="createFromForm().state" required
-                    />
-                    <div *ngIf="state.invalid && state.touched" class="validate-danger-form">
-                        El estado es requerido.
-                    </div>
+                <label class="form-control-label mt-3">Estado</label>
+                <div class="form-check mt-3">
+                    <label class="form-check-label" for="field_state">
+                        <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
+                               formControlName="state" checked> Activo
+                        <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="field_state2">
+                        <input class="form-check-input" type="radio" name="state" value="Inactivo" id="field_state2"
+                               formControlName="state"> Inactivo
+                        <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    </label>
                 </div>
 
                 <div class="form-group">
