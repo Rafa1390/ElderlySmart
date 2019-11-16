@@ -31,7 +31,8 @@ export class MortuaryUpdateComponent implements OnInit {
     email: [],
     name: [],
     address: [],
-    userApp: []
+    userApp: [],
+    asylums: []
   });
 
   constructor(
@@ -89,7 +90,8 @@ export class MortuaryUpdateComponent implements OnInit {
       email: mortuary.email,
       name: mortuary.name,
       address: mortuary.address,
-      userApp: mortuary.userApp
+      userApp: mortuary.userApp,
+      asylums: mortuary.asylums
     });
   }
 
@@ -115,7 +117,8 @@ export class MortuaryUpdateComponent implements OnInit {
       email: this.editForm.get(['email']).value,
       name: this.editForm.get(['name']).value,
       address: this.editForm.get(['address']).value,
-      userApp: this.editForm.get(['userApp']).value
+      userApp: this.editForm.get(['userApp']).value,
+      asylums: this.editForm.get(['asylums']).value
     };
   }
 

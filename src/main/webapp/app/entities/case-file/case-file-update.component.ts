@@ -20,7 +20,7 @@ import { ElderlyService } from 'app/entities/elderly/elderly.service';
 export class CaseFileUpdateComponent implements OnInit {
   isSaving: boolean;
 
-  elderlies: IElderly[];
+  idelderlies: IElderly[];
   creationDateDp: any;
   birthDp: any;
 
@@ -40,7 +40,7 @@ export class CaseFileUpdateComponent implements OnInit {
     resuscitation: [],
     organDonation: [],
     state: [],
-    elderly: []
+    idElderly: []
   });
 
   constructor(
@@ -64,17 +64,17 @@ export class CaseFileUpdateComponent implements OnInit {
       )
       .subscribe(
         (res: IElderly[]) => {
-          if (!this.editForm.get('elderly').value || !this.editForm.get('elderly').value.id) {
-            this.elderlies = res;
+          if (!this.editForm.get('idElderly').value || !this.editForm.get('idElderly').value.id) {
+            this.idelderlies = res;
           } else {
             this.elderlyService
-              .find(this.editForm.get('elderly').value.id)
+              .find(this.editForm.get('idElderly').value.id)
               .pipe(
                 filter((subResMayBeOk: HttpResponse<IElderly>) => subResMayBeOk.ok),
                 map((subResponse: HttpResponse<IElderly>) => subResponse.body)
               )
               .subscribe(
-                (subRes: IElderly) => (this.elderlies = [subRes].concat(res)),
+                (subRes: IElderly) => (this.idelderlies = [subRes].concat(res)),
                 (subRes: HttpErrorResponse) => this.onError(subRes.message)
               );
           }
@@ -100,7 +100,7 @@ export class CaseFileUpdateComponent implements OnInit {
       resuscitation: caseFile.resuscitation,
       organDonation: caseFile.organDonation,
       state: caseFile.state,
-      elderly: caseFile.elderly
+      idElderly: caseFile.idElderly
     });
   }
 
@@ -136,7 +136,7 @@ export class CaseFileUpdateComponent implements OnInit {
       resuscitation: this.editForm.get(['resuscitation']).value,
       organDonation: this.editForm.get(['organDonation']).value,
       state: this.editForm.get(['state']).value,
-      elderly: this.editForm.get(['elderly']).value
+      idElderly: this.editForm.get(['idElderly']).value
     };
   }
 

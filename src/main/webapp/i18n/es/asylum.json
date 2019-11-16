@@ -24,9 +24,10 @@
       "cleaningProgram": "Cleaning Program",
       "foodMenu": "Food Menu",
       "recreationalActivity": "Recreational Activity",
+      "elderly": "Elderly",
       "employee": "Employee",
-      "mortuary": "Mortuary",
       "pharmacy": "Pharmacy",
+      "mortuary": "Mortuary",
       "partner": "Partner"
     }
   }

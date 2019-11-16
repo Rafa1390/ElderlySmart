@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.elderly.home.title">Elderlies</span>
+        <span>Adultos mayores</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-elderly" [routerLink]="['/elderly/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.elderly.home.createLabel">
-            Create a new Elderly
+            <span>
+            Añadir adulto mayor
             </span>
         </button>
     </h2>
@@ -12,24 +12,18 @@
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="elderlies?.length === 0">
-        <span jhiTranslate="elderlySmartApp.elderly.home.notFound">No elderlies found</span>
+        <span>No se encontraron adultos mayores</span>
     </div>
     <div class="table-responsive" *ngIf="elderlies?.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped text-center" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.idElderly">Id Elderly</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.name2">Name 2</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.lastName">Last Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.lastName2">Last Name 2</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.age">Age</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.nationality">Nationality</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.address">Address</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.admissionDate">Admission Date</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.state">State</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.elderly.employee">Employee</span></th>
+            <th scope="col" ><span>Código</span></th>
+            <th scope="col" ><span>Identificación</span></th>
+            <th scope="col" ><span>Nombre</span></th>
+            <th scope="col" ><span>Apellido</span></th>
+            <th scope="col" ><span>Edad</span></th>
+            <th scope="col" ><span>Estado</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -38,32 +32,22 @@
                 <td><a [routerLink]="['/elderly', elderly.id, 'view' ]">{{elderly.id}}</a></td>
                 <td>{{elderly.idElderly}}</td>
                 <td>{{elderly.name}}</td>
-                <td>{{elderly.name2}}</td>
                 <td>{{elderly.lastName}}</td>
-                <td>{{elderly.lastName2}}</td>
                 <td>{{elderly.age}}</td>
-                <td>{{elderly.nationality}}</td>
-                <td>{{elderly.address}}</td>
-                <td>{{elderly.admissionDate | date:'mediumDate'}}</td>
                 <td>{{elderly.state}}</td>
-                <td>
-                    <div *ngIf="elderly.employee">
-                        <a [routerLink]="['/employee', elderly.employee?.id, 'view' ]" >{{elderly.employee?.id}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/elderly', elderly.id, 'view' ]"
                                 class="btn btn-info btn-sm">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/elderly', elderly.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/elderly', { outlets: { popup: elderly.id + '/delete'} }]"
@@ -71,7 +55,7 @@
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>

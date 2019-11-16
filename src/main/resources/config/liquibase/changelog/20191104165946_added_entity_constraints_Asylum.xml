@@ -15,18 +15,6 @@
                                  referencedTableName="user_app"/>
 
         <addForeignKeyConstraint baseColumnNames="asylum_id"
-                                 baseTableName="asylum_mortuary"
-                                 constraintName="fk_asylum_mortuary_asylum_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="asylum"/>
-
-        <addForeignKeyConstraint baseColumnNames="mortuary_id"
-                                 baseTableName="asylum_mortuary"
-                                 constraintName="fk_asylum_mortuary_mortuary_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="mortuary"/>
-        
-        <addForeignKeyConstraint baseColumnNames="asylum_id"
                                  baseTableName="asylum_pharmacy"
                                  constraintName="fk_asylum_pharmacy_asylum_id"
                                  referencedColumnNames="id"
@@ -37,18 +25,6 @@
                                  constraintName="fk_asylum_pharmacy_pharmacy_id"
                                  referencedColumnNames="id"
                                  referencedTableName="pharmacy"/>
-        
-        <addForeignKeyConstraint baseColumnNames="asylum_id"
-                                 baseTableName="asylum_partner"
-                                 constraintName="fk_asylum_partner_asylum_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="asylum"/>
-
-        <addForeignKeyConstraint baseColumnNames="partner_id"
-                                 baseTableName="asylum_partner"
-                                 constraintName="fk_asylum_partner_partner_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="partner"/>
         
     </changeSet>
 </databaseChangeLog>

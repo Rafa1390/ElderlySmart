@@ -29,7 +29,8 @@ export class PartnerUpdateComponent implements OnInit {
     id: [],
     idPartner: [],
     address: [],
-    userApp: []
+    userApp: [],
+    asylums: []
   });
 
   constructor(
@@ -85,7 +86,8 @@ export class PartnerUpdateComponent implements OnInit {
       id: partner.id,
       idPartner: partner.idPartner,
       address: partner.address,
-      userApp: partner.userApp
+      userApp: partner.userApp,
+      asylums: partner.asylums
     });
   }
 
@@ -109,7 +111,8 @@ export class PartnerUpdateComponent implements OnInit {
       id: this.editForm.get(['id']).value,
       idPartner: this.editForm.get(['idPartner']).value,
       address: this.editForm.get(['address']).value,
-      userApp: this.editForm.get(['userApp']).value
+      userApp: this.editForm.get(['userApp']).value,
+      asylums: this.editForm.get(['asylums']).value
     };
   }
 

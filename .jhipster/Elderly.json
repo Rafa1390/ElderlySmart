@@ -44,6 +44,12 @@
     ],
     "relationships": [
         {
+            "relationshipName": "asylum",
+            "otherEntityName": "asylum",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
             "relationshipName": "employee",
             "otherEntityName": "employee",
             "relationshipType": "many-to-one",

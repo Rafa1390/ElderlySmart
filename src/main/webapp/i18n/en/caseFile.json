@@ -30,7 +30,7 @@
       "resuscitation": "Resuscitation",
       "organDonation": "Organ Donation",
       "state": "State",
-      "elderly": "Elderly",
+      "idElderly": "Id Elderly",
       "alergies": "Alergies",
       "pathologies": "Pathologies"
     }

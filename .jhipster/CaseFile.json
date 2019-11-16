@@ -63,7 +63,7 @@
             "relationshipType": "one-to-one",
             "otherEntityName": "elderly",
             "otherEntityRelationshipName": "caseFile",
-            "relationshipName": "elderly",
+            "relationshipName": "idElderly",
             "otherEntityField": "id",
             "ownerSide": true
         },

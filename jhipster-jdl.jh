@@ -262,7 +262,7 @@ relationship OneToOne {
     PrescriptionNotification{prescription} to Prescription,
     AppointmentNotification{medicalAppointment} to MedicalAppointment,
     ProviderHistory{provider} to Provider,
-    CaseFile{elderly} to Elderly,
+    CaseFile{idElderly} to Elderly,
     InventoryProvider{provider} to Provider,
     InventoryPharmacy{pharmacy} to Pharmacy
    
@@ -282,10 +282,10 @@ relationship OneToOne {
 }
 
 relationship ManyToMany{
-	Asylum{mortuary} to Mortuary{asylum},
+	Mortuary{asylum} to Asylum{Mortuary},
 	Family{elderly} to Elderly{family},
 	Asylum{pharmacy} to Pharmacy{asylum},
-	Asylum{partner} to Partner{asylum},
+	Partner{asylum} to Asylum{partner},
 	Pharmacy{provider} to Provider{pharmacy},
 	Doctor{elderly} to Elderly{doctor},
 	InventoryProvider{product} to Product{inventoryProvider}
@@ -295,6 +295,7 @@ relationship OneToMany {
 	Asylum{cleaningProgram} to CleaningProgram,
 	Asylum{foodMenu} to FoodMenu,
 	Asylum{recreationalActivity} to RecreationalActivity,
+    Asylum{elderly} to Elderly,
     Employee{elderly} to Elderly,
 	Asylum{employee} to Employee,
     CaseFile{alergies} to Allergies,

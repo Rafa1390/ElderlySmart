@@ -214,6 +214,7 @@ public class ElderlyResourceIT {
             .andExpect(jsonPath("$.[*].admissionDate").value(hasItem(DEFAULT_ADMISSION_DATE.toString())))
             .andExpect(jsonPath("$.[*].state").value(hasItem(DEFAULT_STATE)));
     }
+
     @Test
     @Transactional
     public void getElderly() throws Exception {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -11,12 +10,13 @@ import { IAsylum, Asylum } from 'app/shared/model/asylum.model';
 import { AsylumService } from './asylum.service';
 import { IUserApp } from 'app/shared/model/user-app.model';
 import { UserAppService } from 'app/entities/user-app/user-app.service';
-import { IMortuary } from 'app/shared/model/mortuary.model';
-import { MortuaryService } from 'app/entities/mortuary/mortuary.service';
 import { IPharmacy } from 'app/shared/model/pharmacy.model';
 import { PharmacyService } from 'app/entities/pharmacy/pharmacy.service';
+import { IMortuary } from 'app/shared/model/mortuary.model';
+import { MortuaryService } from 'app/entities/mortuary/mortuary.service';
 import { IPartner } from 'app/shared/model/partner.model';
 import { PartnerService } from 'app/entities/partner/partner.service';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'jhi-asylum-update',
@@ -27,30 +27,28 @@ export class AsylumUpdateComponent implements OnInit {
 
   userapps: IUserApp[];
 
-  mortuaries: IMortuary[];
-
   pharmacies: IPharmacy[];
+
+  mortuaries: IMortuary[];
 
   partners: IPartner[];
 
   editForm = this.fb.group({
     id: [],
-    identification: [],
-    email: [],
-    name: [],
-    address: [],
-    userApp: [],
-    mortuaries: [],
-    pharmacies: [],
-    partners: []
+    identification: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
+    userApp: new FormControl('', [Validators.required]),
+    pharmacies: []
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected asylumService: AsylumService,
     protected userAppService: UserAppService,
-    protected mortuaryService: MortuaryService,
     protected pharmacyService: PharmacyService,
+    protected mortuaryService: MortuaryService,
     protected partnerService: PartnerService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -86,13 +84,6 @@ export class AsylumUpdateComponent implements OnInit {
         },
         (res: HttpErrorResponse) => this.onError(res.message)
       );
-    this.mortuaryService
-      .query()
-      .pipe(
-        filter((mayBeOk: HttpResponse<IMortuary[]>) => mayBeOk.ok),
-        map((response: HttpResponse<IMortuary[]>) => response.body)
-      )
-      .subscribe((res: IMortuary[]) => (this.mortuaries = res), (res: HttpErrorResponse) => this.onError(res.message));
     this.pharmacyService
       .query()
       .pipe(
@@ -100,6 +91,13 @@ export class AsylumUpdateComponent implements OnInit {
         map((response: HttpResponse<IPharmacy[]>) => response.body)
       )
       .subscribe((res: IPharmacy[]) => (this.pharmacies = res), (res: HttpErrorResponse) => this.onError(res.message));
+    this.mortuaryService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<IMortuary[]>) => mayBeOk.ok),
+        map((response: HttpResponse<IMortuary[]>) => response.body)
+      )
+      .subscribe((res: IMortuary[]) => (this.mortuaries = res), (res: HttpErrorResponse) => this.onError(res.message));
     this.partnerService
       .query()
       .pipe(
@@ -117,9 +115,7 @@ export class AsylumUpdateComponent implements OnInit {
       name: asylum.name,
       address: asylum.address,
       userApp: asylum.userApp,
-      mortuaries: asylum.mortuaries,
-      pharmacies: asylum.pharmacies,
-      partners: asylum.partners
+      pharmacies: asylum.pharmacies
     });
   }
 
@@ -146,9 +142,7 @@ export class AsylumUpdateComponent implements OnInit {
       name: this.editForm.get(['name']).value,
       address: this.editForm.get(['address']).value,
       userApp: this.editForm.get(['userApp']).value,
-      mortuaries: this.editForm.get(['mortuaries']).value,
-      pharmacies: this.editForm.get(['pharmacies']).value,
-      partners: this.editForm.get(['partners']).value
+      pharmacies: this.editForm.get(['pharmacies']).value
     };
   }
 
@@ -172,16 +166,32 @@ export class AsylumUpdateComponent implements OnInit {
     return item.id;
   }
 
-  trackMortuaryById(index: number, item: IMortuary) {
+  trackPharmacyById(index: number, item: IPharmacy) {
     return item.id;
   }
 
-  trackPharmacyById(index: number, item: IPharmacy) {
+  trackMortuaryById(index: number, item: IMortuary) {
     return item.id;
   }
 
   trackPartnerById(index: number, item: IPartner) {
     return item.id;
+  }
+
+  get identification() {
+    return this.editForm.get('identification');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get email() {
+    return this.editForm.get('email');
+  }
+
+  get address() {
+    return this.editForm.get('address');
   }
 
   getSelected(selectedVals: any[], option: any) {
