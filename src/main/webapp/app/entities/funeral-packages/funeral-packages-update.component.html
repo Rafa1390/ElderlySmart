@@ -14,7 +14,7 @@
                     <label class="form-control-label" for="field_idFuneralPackages">Código</label>
                     <input type="number" class="form-control" name="idFuneralPackages" id="field_idFuneralPackages"
                            formControlName="idFuneralPackages"
-                            [(ngModel)]="createFromForm().idFuneralPackages" required />
+                            [(ngModel)]="createFromForm().idFuneralPackages"/>
                     <div *ngIf="idFuneralPackages.invalid && idFuneralPackages.touched" class="validate-danger-form">
                         El código es requerido.
                     </div>
@@ -24,7 +24,7 @@
                     <label class="form-control-label" for="field_name">Nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                            formControlName="name"
-                            [(ngModel)]="createFromForm().name" required />
+                            [(ngModel)]="createFromForm().name"/>
                     <div *ngIf="name.invalid && name.touched" class="validate-danger-form">
                         El nombre es requerido.
                     </div>
@@ -34,7 +34,7 @@
                     <label class="form-control-label" for="field_description">Descripción</label>
                     <input type="text" class="form-control" name="description" id="field_description"
                            formControlName="description"
-                            [(ngModel)]="createFromForm().description" required />
+                            [(ngModel)]="createFromForm().description"/>
                     <div *ngIf="description.invalid && description.touched" class="validate-danger-form">
                         La descripción es requerida.
                     </div>
@@ -44,7 +44,7 @@
                     <label class="form-control-label" for="field_price">Precio</label>
                     <input type="number" class="form-control" name="price" id="field_price"
                            formControlName="price"
-                            [(ngModel)]="createFromForm().price" required />
+                            [(ngModel)]="createFromForm().price"/>
                     <div *ngIf="price.invalid && price.touched" class="validate-danger-form">
                         El precio es requerido.
                     </div>
@@ -54,7 +54,7 @@
                     <label class="form-control-label" for="field_state">Estado</label>
                     <input type="text" class="form-control" name="state" id="field_state"
                            formControlName="state"
-                            [(ngModel)]="createFromForm().state" required />
+                            [(ngModel)]="createFromForm().state"/>
                     <div *ngIf="state.invalid && state.touched" class="validate-danger-form">
                         El estado es requerido.
                     </div>
@@ -70,12 +70,12 @@
 
             </div>
             <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
+                    <button type="button" id="cancel-save" class="btn btn-danger"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info btns">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
+                    </button>
             </div>
         </form>
     </div>

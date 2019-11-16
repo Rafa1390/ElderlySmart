@@ -1,12 +1,13 @@
 <div>
     <h2 id="page-heading">
         <span>Paquetes funebres</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-funeral-packages" [routerLink]="['/funeral-packages/new']">
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-funeral-packages" [routerLink]="['/funeral-packages/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span >
             Crear nuevo paquete
             </span>
         </button>
+
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
@@ -45,13 +46,13 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/funeral-packages', funeralPackages.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-info btn-sm btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/funeral-packages', funeralPackages.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btn-primary btn-sm btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
@@ -59,7 +60,7 @@
                                 [routerLink]="['/funeral-packages', { outlets: { popup: funeralPackages.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>

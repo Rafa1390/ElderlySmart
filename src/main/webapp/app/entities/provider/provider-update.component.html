@@ -13,7 +13,7 @@
                     <label class="form-control-label"  for="field_identification">Cédula Jurídica</label>
                     <input type="text" class="form-control" name="identification" id="field_identification"
                            formControlName="identification"
-                           [(ngModel)]="createFromForm().identification" required />
+                           [(ngModel)]="createFromForm().identification"/>
                     <div *ngIf="identification.invalid && identification.touched" class="validate-danger-form">
                         La cédula jurídica es requerida.
                     </div>
@@ -23,7 +23,7 @@
                     <label class="form-control-label"  for="field_email">Correo electrónico</label>
                     <input type="text" class="form-control" name="email" id="field_email"
                            formControlName="email"
-                           [(ngModel)]="createFromForm().email" required />
+                           [(ngModel)]="createFromForm().email"/>
 
                     <div *ngIf="email.invalid && email.touched" class="validate-danger-form">
                         El correo electrónico es requerido.
@@ -34,7 +34,7 @@
                     <label class="form-control-label"  for="field_name">Nombre de la empresa</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                            formControlName="name"
-                           [(ngModel)]="createFromForm().name" required />
+                           [(ngModel)]="createFromForm().name"/>
                     <div *ngIf="name.invalid && name.touched" class="validate-danger-form">
                         El nombre del proveedor es requerido.
                     </div>
@@ -44,7 +44,7 @@
                     <label class="form-control-label"  for="field_providerType">Tipo de provedor</label>
                     <input type="text" class="form-control" name="providerType" id="field_providerType"
                            formControlName="providerType"
-                           [(ngModel)]="createFromForm().providerType" requered/>
+                           [(ngModel)]="createFromForm().providerType"/>
                     <div *ngIf="providerType.invalid && providerType.touched" class="validate-danger-form">
                         El tipo de proveedor es requerido.
                     </div>
@@ -53,7 +53,7 @@
                     <label class="form-control-label"  for="field_address">Dirección</label>
                     <input type="text" class="form-control" name="address" id="field_address"
                            formControlName="address"
-                           [(ngModel)]="createFromForm().address" required />
+                           [(ngModel)]="createFromForm().address"/>
                     <div *ngIf="address.invalid && address.touched" class="validate-danger-form">
                         La dirección es requerida.
                     </div>
@@ -69,11 +69,11 @@
 <!--            </div>-->
 
                 <div>
-                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span >Cancelar</span>
+                    <button type="button" id="cancel-save" class="btn btn-danger"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                     </button>
-                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span >Guardar</span>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info btns">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
                     </button>
                 </div>
             </div>
