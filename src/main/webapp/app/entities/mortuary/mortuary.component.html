@@ -24,6 +24,7 @@
             <th scope="col" ><span jhiTranslate="elderlySmartApp.mortuary.name">Name</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.mortuary.address">Address</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.mortuary.userApp">User App</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.mortuary.asylum">Asylum</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -38,6 +39,11 @@
                     <div *ngIf="mortuary.userApp">
                         <a [routerLink]="['/user-app', mortuary.userApp?.id, 'view' ]" >{{mortuary.userApp?.id}}</a>
                     </div>
+                </td>
+                <td>
+                    <span *ngFor="let asylum of mortuary.asylums; let last = last">
+                            <a class="form-control-static" [routerLink]="['/asylum', asylum?.id, 'view' ]">{{asylum.id}}</a>{{last ? '' : ', '}}
+                        </span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group">

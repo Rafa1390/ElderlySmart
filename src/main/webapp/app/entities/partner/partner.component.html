@@ -22,6 +22,7 @@
             <th scope="col" ><span jhiTranslate="elderlySmartApp.partner.idPartner">Id Partner</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.partner.address">Address</span></th>
             <th scope="col" ><span jhiTranslate="elderlySmartApp.partner.userApp">User App</span></th>
+            <th scope="col" ><span jhiTranslate="elderlySmartApp.partner.asylum">Asylum</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -34,6 +35,11 @@
                     <div *ngIf="partner.userApp">
                         <a [routerLink]="['/user-app', partner.userApp?.id, 'view' ]" >{{partner.userApp?.id}}</a>
                     </div>
+                </td>
+                <td>
+                    <span *ngFor="let asylum of partner.asylums; let last = last">
+                            <a class="form-control-static" [routerLink]="['/asylum', asylum?.id, 'view' ]">{{asylum.id}}</a>{{last ? '' : ', '}}
+                        </span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group">

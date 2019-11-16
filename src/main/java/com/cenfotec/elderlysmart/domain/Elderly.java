@@ -57,6 +57,10 @@ public class Elderly implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties("elderlies")
+    private Asylum asylum;
+
+    @ManyToOne
+    @JsonIgnoreProperties("elderlies")
     private Employee employee;
 
     @ManyToMany(mappedBy = "elderlies")
@@ -206,6 +210,19 @@ public class Elderly implements Serializable {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public Asylum getAsylum() {
+        return asylum;
+    }
+
+    public Elderly asylum(Asylum asylum) {
+        this.asylum = asylum;
+        return this;
+    }
+
+    public void setAsylum(Asylum asylum) {
+        this.asylum = asylum;
     }
 
     public Employee getEmployee() {

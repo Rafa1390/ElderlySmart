@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
 import { IElderly, Elderly } from 'app/shared/model/elderly.model';
 import { ElderlyService } from './elderly.service';
+import { IAsylum } from 'app/shared/model/asylum.model';
+import { AsylumService } from 'app/entities/asylum/asylum.service';
 import { IEmployee } from 'app/shared/model/employee.model';
 import { EmployeeService } from 'app/entities/employee/employee.service';
 import { IFamily } from 'app/shared/model/family.model';
@@ -23,6 +25,8 @@ import { DoctorService } from 'app/entities/doctor/doctor.service';
 export class ElderlyUpdateComponent implements OnInit {
   isSaving: boolean;
 
+  asylums: IAsylum[];
+
   employees: IEmployee[];
 
   families: IFamily[];
@@ -32,22 +36,24 @@ export class ElderlyUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idElderly: [],
-    name: [],
+    idElderly: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
     name2: [],
-    lastName: [],
+    lastName: new FormControl('', [Validators.required]),
     lastName2: [],
-    age: [],
-    nationality: [],
+    age: new FormControl('', [Validators.min(40), Validators.max(90)]),
+    nationality: new FormControl('', [Validators.required]),
     address: [],
     admissionDate: [],
-    state: [],
-    employee: []
+    state: new FormControl('', [Validators.required]),
+    asylum: [],
+    employee: new FormControl('', [Validators.required])
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected elderlyService: ElderlyService,
+    protected asylumService: AsylumService,
     protected employeeService: EmployeeService,
     protected familyService: FamilyService,
     protected doctorService: DoctorService,
@@ -60,6 +66,13 @@ export class ElderlyUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ elderly }) => {
       this.updateForm(elderly);
     });
+    this.asylumService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<IAsylum[]>) => mayBeOk.ok),
+        map((response: HttpResponse<IAsylum[]>) => response.body)
+      )
+      .subscribe((res: IAsylum[]) => (this.asylums = res), (res: HttpErrorResponse) => this.onError(res.message));
     this.employeeService
       .query()
       .pipe(
@@ -96,6 +109,7 @@ export class ElderlyUpdateComponent implements OnInit {
       address: elderly.address,
       admissionDate: elderly.admissionDate,
       state: elderly.state,
+      asylum: elderly.asylum,
       employee: elderly.employee
     });
   }
@@ -128,8 +142,45 @@ export class ElderlyUpdateComponent implements OnInit {
       address: this.editForm.get(['address']).value,
       admissionDate: this.editForm.get(['admissionDate']).value,
       state: this.editForm.get(['state']).value,
+      asylum: this.editForm.get(['asylum']).value,
       employee: this.editForm.get(['employee']).value
     };
+  }
+
+  get idElderly() {
+    return this.editForm.get('idElderly');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get name2() {
+    return this.editForm.get('name2');
+  }
+
+  get lastName() {
+    return this.editForm.get('lastName');
+  }
+
+  get lastName2() {
+    return this.editForm.get('lastName2');
+  }
+
+  get age() {
+    return this.editForm.get('age');
+  }
+
+  get nationality() {
+    return this.editForm.get('nationality');
+  }
+
+  get address() {
+    return this.editForm.get('address');
+  }
+
+  get state() {
+    return this.editForm.get('state');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IElderly>>) {
@@ -146,6 +197,10 @@ export class ElderlyUpdateComponent implements OnInit {
   }
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  trackAsylumById(index: number, item: IAsylum) {
+    return item.id;
   }
 
   trackEmployeeById(index: number, item: IEmployee) {

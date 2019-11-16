@@ -81,13 +81,13 @@ public class PartnerResource {
     /**
      * {@code GET  /partners} : get all the partners.
      *
-
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of partners in body.
      */
     @GetMapping("/partners")
-    public List<Partner> getAllPartners() {
+    public List<Partner> getAllPartners(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Partners");
-        return partnerRepository.findAll();
+        return partnerRepository.findAllWithEagerRelationships();
     }
 
     /**
@@ -99,7 +99,7 @@ public class PartnerResource {
     @GetMapping("/partners/{id}")
     public ResponseEntity<Partner> getPartner(@PathVariable Long id) {
         log.debug("REST request to get Partner : {}", id);
-        Optional<Partner> partner = partnerRepository.findById(id);
+        Optional<Partner> partner = partnerRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(partner);
     }
 

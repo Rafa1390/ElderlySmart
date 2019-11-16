@@ -100,6 +100,7 @@ public class CacheConfiguration {
             createCache(cm, com.cenfotec.elderlysmart.domain.MedicationSchedule.class.getName());
             createCache(cm, com.cenfotec.elderlysmart.domain.MedicalAppointment.class.getName());
             createCache(cm, com.cenfotec.elderlysmart.domain.AppointmentNotification.class.getName());
+            createCache(cm, com.cenfotec.elderlysmart.domain.Asylum.class.getName() + ".elderlies");
             // jhipster-needle-ehcache-add-entry
         };
     }

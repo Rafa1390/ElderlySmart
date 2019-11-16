@@ -46,6 +46,9 @@
             <column name="state" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="asylum_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="employee_id" type="bigint">
                 <constraints nullable="true" />
             </column>

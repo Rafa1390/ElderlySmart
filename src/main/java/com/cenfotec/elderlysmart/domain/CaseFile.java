@@ -67,7 +67,7 @@ public class CaseFile implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Elderly elderly;
+    private Elderly idElderly;
 
     @OneToMany(mappedBy = "caseFile")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -268,17 +268,17 @@ public class CaseFile implements Serializable {
         this.state = state;
     }
 
-    public Elderly getElderly() {
-        return elderly;
+    public Elderly getIdElderly() {
+        return idElderly;
     }
 
-    public CaseFile elderly(Elderly elderly) {
-        this.elderly = elderly;
+    public CaseFile idElderly(Elderly elderly) {
+        this.idElderly = elderly;
         return this;
     }
 
-    public void setElderly(Elderly elderly) {
-        this.elderly = elderly;
+    public void setIdElderly(Elderly elderly) {
+        this.idElderly = elderly;
     }
 
     public Set<Allergies> getAlergies() {
@@ -368,4 +368,5 @@ public class CaseFile implements Serializable {
             ", state='" + getState() + "'" +
             "}";
     }
+
 }

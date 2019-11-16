@@ -1,7 +1,11 @@
 <div>
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
     <h2 id="page-heading">
-        <span>Asilos</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-asylum" [routerLink]="['/asylum/new']">
+        <h4 class="card-title ">Asilos</h4>
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
             Registrar asilo
@@ -15,14 +19,13 @@
         <span>No se encontraron asilos</span>
     </div>
     <div class="table-responsive" *ngIf="asylums?.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped text-center" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col"><span >ID</span></th>
-            <th scope="col"><span >Identification</span></th>
-            <th scope="col"><span >Email</span></th>
-            <th scope="col"><span >Name</span></th>
-            <th scope="col"><span >Address</span></th>
+            <th scope="col" ><span>Código</span></th>
+            <th scope="col" ><span>Identificación</span></th>
+            <th scope="col" ><span>Nombre</span></th>
+            <th scope="col" ><span>Correo electrónico</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -30,30 +33,29 @@
             <tr *ngFor="let asylum of asylums ;trackBy: trackId">
                 <td><a [routerLink]="['/asylum', asylum.id, 'view' ]">{{asylum.id}}</a></td>
                 <td>{{asylum.identification}}</td>
-                <td>{{asylum.email}}</td>
                 <td>{{asylum.name}}</td>
-                <td>{{asylum.address}}</td>
+                <td>{{asylum.email}}</td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/asylum', asylum.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Ver</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/asylum', asylum.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/asylum', { outlets: { popup: asylum.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>
