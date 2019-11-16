@@ -27,6 +27,12 @@
                         <a [routerLink]="['/user-app', mortuary.userApp?.id, 'view']">{{mortuary.userApp?.id}}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="elderlySmartApp.mortuary.asylum">Asylum</span></dt>
+                <dd>
+                    <span *ngFor="let asylum of mortuary.asylums; let last = last">
+                        <a [routerLink]="['/asylum', asylum?.id, 'view' ]">{{asylum.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
             </dl>
 
             <button type="submit"

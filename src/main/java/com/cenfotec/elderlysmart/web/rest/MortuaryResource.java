@@ -81,13 +81,13 @@ public class MortuaryResource {
     /**
      * {@code GET  /mortuaries} : get all the mortuaries.
      *
-
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of mortuaries in body.
      */
     @GetMapping("/mortuaries")
-    public List<Mortuary> getAllMortuaries() {
+    public List<Mortuary> getAllMortuaries(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Mortuaries");
-        return mortuaryRepository.findAll();
+        return mortuaryRepository.findAllWithEagerRelationships();
     }
 
     /**
@@ -99,7 +99,7 @@ public class MortuaryResource {
     @GetMapping("/mortuaries/{id}")
     public ResponseEntity<Mortuary> getMortuary(@PathVariable Long id) {
         log.debug("REST request to get Mortuary : {}", id);
-        Optional<Mortuary> mortuary = mortuaryRepository.findById(id);
+        Optional<Mortuary> mortuary = mortuaryRepository.findOneWithEagerRelationships(id);
         return ResponseUtil.wrapOrNotFound(mortuary);
     }
 

@@ -26,6 +26,7 @@
       "address": "Address",
       "admissionDate": "Admission Date",
       "state": "State",
+      "asylum": "Asylum",
       "employee": "Employee",
       "family": "Family",
       "doctor": "Doctor"

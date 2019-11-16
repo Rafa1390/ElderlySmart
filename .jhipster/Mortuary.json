@@ -39,7 +39,7 @@
             "otherEntityRelationshipName": "mortuary",
             "relationshipName": "asylum",
             "otherEntityField": "id",
-            "ownerSide": false
+            "ownerSide": true
         }
     ],
     "changelogDate": "20191104170005",

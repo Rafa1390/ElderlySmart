@@ -5,44 +5,81 @@
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <label for="id">Código</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_idElderly">Identificación</label>
                     <input type="text" class="form-control" name="idElderly" id="field_idElderly"
-                           formControlName="idElderly"/>
+                           formControlName="idElderly" [(ngModel)]="createFromForm().idElderly" required/>
+                    <div *ngIf="idElderly.invalid && idElderly.touched" class="validate-danger-form">
+                        La identificación es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_name">Primer nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"/>
+                           formControlName="name" [(ngModel)]="createFromForm().name" required pattern="[a-zA-Z ]*"/>
+                    <div *ngIf="name.errors?.required && name.touched" class="validate-danger-form">
+                        El primer nombre es requerido.
+                    </div>
+                    <div *ngIf="name.errors?.pattern && name.touched" class="validate-danger-form">
+                        No se permiten números.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label"  for="field_name2">Segundo nombre</label>
                     <input type="text" class="form-control" name="name2" id="field_name2"
-                           formControlName="name2"/>
+                           formControlName="name2" pattern="[a-zA-Z ]*"/>
+                    <div *ngIf="name2.errors?.pattern && name2.touched" class="validate-danger-form">
+                        No se permiten números.
+                    </div>
                 </div>
+
                 <div class="form-group">
                     <label class="form-control-label" for="field_lastName">Primer apellido</label>
                     <input type="text" class="form-control" name="lastName" id="field_lastName"
-                           formControlName="lastName"/>
+                           formControlName="lastName" [(ngModel)]="createFromForm().lastName" required pattern="[a-zA-Z ]*"/>
+                    <div *ngIf="lastName.errors?.required && lastName.touched" class="validate-danger-form">
+                        El primer apellido es requerida.
+                    </div>
+                    <div *ngIf="lastName.errors?.pattern && lastName.touched" class="validate-danger-form">
+                        No se permiten números.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_lastName2">Segundo apellido</label>
                     <input type="text" class="form-control" name="lastName2" id="field_lastName2"
-                           formControlName="lastName2"/>
+                           formControlName="lastName2" pattern="[a-zA-Z ]*"/>
+                    <div *ngIf="lastName2.errors?.pattern && lastName2.touched" class="validate-danger-form">
+                        No se permiten números.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_age">Edad</label>
                     <input type="number" class="form-control" name="age" id="field_age"
-                           formControlName="age"/>
+                           formControlName="age" [(ngModel)]="createFromForm().age" required min max/>
+                    <div *ngIf="age.errors?.required && age.touched" class="validate-danger-form">
+                        La edad es requerida.
+                    </div>
+                    <div *ngIf="age.errors?.min && age.touched" class="validate-danger-form">
+                        Debe ser mayor de 40 años.
+                    </div>
+                    <div *ngIf="age.errors?.max && age.touched" class="validate-danger-form">
+                        La edad máxima es de 99 años.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_nationality">Nacionalidad</label>
                     <input type="text" class="form-control" name="nationality" id="field_nationality"
-                           formControlName="nationality"/>
+                           formControlName="nationality" [(ngModel)]="createFromForm().nationality" required pattern="[a-zA-Z ]*"/>
+                    <div *ngIf="nationality.errors?.required && nationality.touched" class="validate-danger-form">
+                        La nacionalidad es requerida.
+                    </div>
+                    <div *ngIf="nationality.errors?.pattern && nationality.touched" class="validate-danger-form">
+                        No se permiten números.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_address">Dirección</label>
@@ -50,30 +87,28 @@
                            formControlName="address"/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_admissionDate">Fecha de admisión</label>
-                    <div class="input-group">
-                        <input id="field_admissionDate" type="text" class="form-control" name="admissionDate" ngbDatepicker  #admissionDateDp="ngbDatepicker" formControlName="admissionDate"/>
-                        <span class="input-group-append">
-                            <button type="button" class="btn btn-secondary" (click)="admissionDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
-                        </span>
-                    </div>
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.asylum" for="field_asylum">Asylum</label>
+                    <select class="form-control" id="field_asylum" name="asylum" formControlName="asylum">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="asylumOption.id === editForm.get('asylum').value?.id ? editForm.get('asylum').value : asylumOption" *ngFor="let asylumOption of asylums; trackBy: trackAsylumById">{{asylumOption.id}}</option>
+                    </select>
                 </div>
-
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Empleado</label>
+                    <label class="form-control-label" jhiTranslate="elderlySmartApp.elderly.employee" for="field_employee">Employee</label>
                     <select class="form-control" id="field_employee" name="employee" formControlName="employee">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="employeeOption.id === editForm.get('employee').value?.id ? editForm.get('employee').value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
                     </select>
                 </div>
-                <div class="form-check mt-3">
-                        <label class="form-check-label" for="field_state">
-                            <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
-                                   formControlName="state" checked> Activo
-                            <span class="circle">
+                <label class="form-control-label mt-3">Estado</label>
+                <div class="form-check mt-1">
+                    <label class="form-check-label" for="field_state">
+                        <input class="form-check-input" type="radio" name="state" value="Activo" id="field_state"
+                               formControlName="state" checked required> Activo
+                        <span class="circle">
                         <span class="check"></span>
                       </span>
-                        </label>
+                    </label>
                 </div>
 
                 <div class="form-check">

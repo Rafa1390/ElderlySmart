@@ -1,4 +1,5 @@
 package com.cenfotec.elderlysmart.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -52,14 +53,11 @@ public class Asylum implements Serializable {
 
     @OneToMany(mappedBy = "asylum")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Employee> employees = new HashSet<>();
+    private Set<Elderly> elderlies = new HashSet<>();
 
-    @ManyToMany
+    @OneToMany(mappedBy = "asylum")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "asylum_mortuary",
-               joinColumns = @JoinColumn(name = "asylum_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "mortuary_id", referencedColumnName = "id"))
-    private Set<Mortuary> mortuaries = new HashSet<>();
+    private Set<Employee> employees = new HashSet<>();
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -68,11 +66,14 @@ public class Asylum implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "pharmacy_id", referencedColumnName = "id"))
     private Set<Pharmacy> pharmacies = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "asylums")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "asylum_partner",
-               joinColumns = @JoinColumn(name = "asylum_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "partner_id", referencedColumnName = "id"))
+    @JsonIgnore
+    private Set<Mortuary> mortuaries = new HashSet<>();
+
+    @ManyToMany(mappedBy = "asylums")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JsonIgnore
     private Set<Partner> partners = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -224,6 +225,31 @@ public class Asylum implements Serializable {
         this.recreationalActivities = recreationalActivities;
     }
 
+    public Set<Elderly> getElderlies() {
+        return elderlies;
+    }
+
+    public Asylum elderlies(Set<Elderly> elderlies) {
+        this.elderlies = elderlies;
+        return this;
+    }
+
+    public Asylum addElderly(Elderly elderly) {
+        this.elderlies.add(elderly);
+        elderly.setAsylum(this);
+        return this;
+    }
+
+    public Asylum removeElderly(Elderly elderly) {
+        this.elderlies.remove(elderly);
+        elderly.setAsylum(null);
+        return this;
+    }
+
+    public void setElderlies(Set<Elderly> elderlies) {
+        this.elderlies = elderlies;
+    }
+
     public Set<Employee> getEmployees() {
         return employees;
     }
@@ -249,31 +275,6 @@ public class Asylum implements Serializable {
         this.employees = employees;
     }
 
-    public Set<Mortuary> getMortuaries() {
-        return mortuaries;
-    }
-
-    public Asylum mortuaries(Set<Mortuary> mortuaries) {
-        this.mortuaries = mortuaries;
-        return this;
-    }
-
-    public Asylum addMortuary(Mortuary mortuary) {
-        this.mortuaries.add(mortuary);
-        mortuary.getAsylums().add(this);
-        return this;
-    }
-
-    public Asylum removeMortuary(Mortuary mortuary) {
-        this.mortuaries.remove(mortuary);
-        mortuary.getAsylums().remove(this);
-        return this;
-    }
-
-    public void setMortuaries(Set<Mortuary> mortuaries) {
-        this.mortuaries = mortuaries;
-    }
-
     public Set<Pharmacy> getPharmacies() {
         return pharmacies;
     }
@@ -297,6 +298,31 @@ public class Asylum implements Serializable {
 
     public void setPharmacies(Set<Pharmacy> pharmacies) {
         this.pharmacies = pharmacies;
+    }
+
+    public Set<Mortuary> getMortuaries() {
+        return mortuaries;
+    }
+
+    public Asylum mortuaries(Set<Mortuary> mortuaries) {
+        this.mortuaries = mortuaries;
+        return this;
+    }
+
+    public Asylum addMortuary(Mortuary mortuary) {
+        this.mortuaries.add(mortuary);
+        mortuary.getAsylums().add(this);
+        return this;
+    }
+
+    public Asylum removeMortuary(Mortuary mortuary) {
+        this.mortuaries.remove(mortuary);
+        mortuary.getAsylums().remove(this);
+        return this;
+    }
+
+    public void setMortuaries(Set<Mortuary> mortuaries) {
+        this.mortuaries = mortuaries;
     }
 
     public Set<Partner> getPartners() {

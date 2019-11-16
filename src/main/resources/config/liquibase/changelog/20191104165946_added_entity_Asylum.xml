@@ -37,17 +37,6 @@
 
     <changeSet id="20191104165946-1-relations" author="jhipster">
 
-        <createTable tableName="asylum_mortuary">
-            <column name="mortuary_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="asylum_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="asylum_id, mortuary_id" tableName="asylum_mortuary"/>
-        
         <createTable tableName="asylum_pharmacy">
             <column name="pharmacy_id" type="bigint">
                 <constraints nullable="false"/>
@@ -58,17 +47,6 @@
         </createTable>
 
         <addPrimaryKey columnNames="asylum_id, pharmacy_id" tableName="asylum_pharmacy"/>
-        
-        <createTable tableName="asylum_partner">
-            <column name="partner_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-            <column name="asylum_id" type="bigint">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addPrimaryKey columnNames="asylum_id, partner_id" tableName="asylum_partner"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

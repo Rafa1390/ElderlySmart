@@ -27,22 +27,10 @@
                         <a [routerLink]="['/user-app', asylum.userApp?.id, 'view']">{{asylum.userApp?.id}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.asylum.mortuary">Mortuary</span></dt>
-                <dd>
-                    <span *ngFor="let mortuary of asylum.mortuaries; let last = last">
-                        <a [routerLink]="['/mortuary', mortuary?.id, 'view' ]">{{mortuary.id}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
                 <dt><span jhiTranslate="elderlySmartApp.asylum.pharmacy">Pharmacy</span></dt>
                 <dd>
                     <span *ngFor="let pharmacy of asylum.pharmacies; let last = last">
                         <a [routerLink]="['/pharmacy', pharmacy?.id, 'view' ]">{{pharmacy.id}}</a>{{last ? '' : ', '}}
-                    </span>
-                </dd>
-                <dt><span jhiTranslate="elderlySmartApp.asylum.partner">Partner</span></dt>
-                <dd>
-                    <span *ngFor="let partner of asylum.partners; let last = last">
-                        <a [routerLink]="['/partner', partner?.id, 'view' ]">{{partner.id}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
             </dl>

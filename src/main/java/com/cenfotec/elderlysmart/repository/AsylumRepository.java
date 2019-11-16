@@ -15,14 +15,14 @@ import java.util.Optional;
 @Repository
 public interface AsylumRepository extends JpaRepository<Asylum, Long> {
 
-    @Query(value = "select distinct asylum from Asylum asylum left join fetch asylum.mortuaries left join fetch asylum.pharmacies left join fetch asylum.partners",
+    @Query(value = "select distinct asylum from Asylum asylum left join fetch asylum.pharmacies",
         countQuery = "select count(distinct asylum) from Asylum asylum")
     Page<Asylum> findAllWithEagerRelationships(Pageable pageable);
 
-    @Query("select distinct asylum from Asylum asylum left join fetch asylum.mortuaries left join fetch asylum.pharmacies left join fetch asylum.partners")
+    @Query("select distinct asylum from Asylum asylum left join fetch asylum.pharmacies")
     List<Asylum> findAllWithEagerRelationships();
 
-    @Query("select asylum from Asylum asylum left join fetch asylum.mortuaries left join fetch asylum.pharmacies left join fetch asylum.partners where asylum.id =:id")
+    @Query("select asylum from Asylum asylum left join fetch asylum.pharmacies where asylum.id =:id")
     Optional<Asylum> findOneWithEagerRelationships(@Param("id") Long id);
 
 }

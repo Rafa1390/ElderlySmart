@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -23,16 +23,16 @@ export class FamilyUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idFamily: [],
-    name: [],
+    idFamily: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
     name2: [],
-    lastName: [],
+    lastName: new FormControl('', [Validators.required]),
     lastName2: [],
-    phone1: [],
+    phone1: new FormControl('', [Validators.required]),
     phone2: [],
-    age: [],
-    familyRelation: [],
-    state: [],
+    age: new FormControl('', [Validators.min(18), Validators.max(90)]),
+    familyRelation: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
     elderlies: []
   });
 
@@ -43,6 +43,34 @@ export class FamilyUpdateComponent implements OnInit {
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
+
+  get idFamily() {
+    return this.editForm.get('idFamily');
+  }
+  get name() {
+    return this.editForm.get('name');
+  }
+  get name2() {
+    return this.editForm.get('name2');
+  }
+  get lastName() {
+    return this.editForm.get('lastName');
+  }
+  get lastName2() {
+    return this.editForm.get('lastName2');
+  }
+  get age() {
+    return this.editForm.get('age');
+  }
+  get familyRelation() {
+    return this.editForm.get('familyRelation');
+  }
+  get state() {
+    return this.editForm.get('state');
+  }
+  get phone1() {
+    return this.editForm.get('phone1');
+  }
 
   ngOnInit() {
     this.isSaving = false;

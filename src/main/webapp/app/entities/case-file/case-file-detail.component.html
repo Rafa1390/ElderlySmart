@@ -61,10 +61,10 @@
                 <dd>
                     <span>{{caseFile.state}}</span>
                 </dd>
-                <dt><span jhiTranslate="elderlySmartApp.caseFile.elderly">Elderly</span></dt>
+                <dt><span jhiTranslate="elderlySmartApp.caseFile.idElderly">Id Elderly</span></dt>
                 <dd>
-                    <div *ngIf="caseFile.elderly">
-                        <a [routerLink]="['/elderly', caseFile.elderly?.id, 'view']">{{caseFile.elderly?.id}}</a>
+                    <div *ngIf="caseFile.idElderly">
+                        <a [routerLink]="['/elderly', caseFile.idElderly?.id, 'view']">{{caseFile.idElderly?.id}}</a>
                     </div>
                 </dd>
             </dl>

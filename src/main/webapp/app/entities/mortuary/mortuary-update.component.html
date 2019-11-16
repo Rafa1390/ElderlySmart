@@ -37,6 +37,12 @@
                         <option [ngValue]="userAppOption.id === editForm.get('userApp').value?.id ? editForm.get('userApp').value : userAppOption" *ngFor="let userAppOption of userapps; trackBy: trackUserAppById">{{userAppOption.id}}</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label jhiTranslate="elderlySmartApp.mortuary.asylum" for="field_asylums">Asylum</label>
+                    <select class="form-control" id="field_asylums" multiple name="asylums" formControlName="asylums">
+                        <option [ngValue]="getSelected(editForm.get('asylums').value, asylumOption)" *ngFor="let asylumOption of asylums; trackBy: trackAsylumById">{{asylumOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

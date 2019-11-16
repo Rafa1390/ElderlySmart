@@ -47,17 +47,15 @@
         },
         {
             "relationshipType": "one-to-many",
+            "otherEntityName": "elderly",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "elderly"
+        },
+        {
+            "relationshipType": "one-to-many",
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "asylum",
             "relationshipName": "employee"
-        },
-        {
-            "relationshipType": "many-to-many",
-            "otherEntityName": "mortuary",
-            "otherEntityRelationshipName": "asylum",
-            "relationshipName": "mortuary",
-            "otherEntityField": "id",
-            "ownerSide": true
         },
         {
             "relationshipType": "many-to-many",
@@ -69,11 +67,19 @@
         },
         {
             "relationshipType": "many-to-many",
+            "otherEntityName": "mortuary",
+            "otherEntityRelationshipName": "asylum",
+            "relationshipName": "mortuary",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
             "otherEntityName": "partner",
             "otherEntityRelationshipName": "asylum",
             "relationshipName": "partner",
             "otherEntityField": "id",
-            "ownerSide": true
+            "ownerSide": false
         }
     ],
     "changelogDate": "20191104165946",
