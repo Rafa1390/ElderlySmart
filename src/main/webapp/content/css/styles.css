@@ -188,3 +188,14 @@
 .ng-invalid:not(form).ng-touched {
   border: 1px solid red;
 }
+
+.sizeTable {
+  width: 82% !important;
+  float: right !important;
+}
+
+.list-group {
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow: scroll;
+}
