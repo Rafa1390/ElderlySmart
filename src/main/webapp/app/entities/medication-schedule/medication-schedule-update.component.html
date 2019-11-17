@@ -13,7 +13,7 @@
                     <label class="form-control-label" for="field_idMedicationSchedule">Código de medicación</label>
                     <input type="number" class="form-control" name="idMedicationSchedule" id="field_idMedicationSchedule"
                            formControlName="idMedicationSchedule"
-                           [(ngModel)]="createFromForm().idMedicationSchedule" required
+                           [(ngModel)]="createFromForm().idMedicationSchedule"
                     />
                     <div *ngIf="idMedicationSchedule.invalid && idMedicationSchedule.touched" class="validate-danger-form">
                         El código de medicación es requerido.
@@ -23,7 +23,7 @@
                     <label class="form-control-label" for="field_meticationName">Nombre de la medicación</label>
                     <input type="text" class="form-control" name="meticationName" id="field_meticationName"
                            formControlName="meticationName"
-                           [(ngModel)]="createFromForm().meticationName" required
+                           [(ngModel)]="createFromForm().meticationName"
                     />
                     <div *ngIf="meticationName.invalid && meticationName.touched" class="validate-danger-form">
                         El nombre de la medicación es requerido.
@@ -33,7 +33,7 @@
                     <label class="form-control-label" for="field_elderly">Nombre del adulto mayor</label>
                     <input type="text" class="form-control" name="elderly" id="field_elderly"
                            formControlName="elderly"
-                           [(ngModel)]="createFromForm().elderly" required
+                           [(ngModel)]="createFromForm().elderly"
                     />
                     <div *ngIf="elderly.invalid && elderly.touched" class="validate-danger-form">
                         El nombre del adulto mayor es requerido.
@@ -43,7 +43,7 @@
                     <label class="form-control-label" for="field_dose">Dosis</label>
                     <input type="text" class="form-control" name="dose" id="field_dose"
                            formControlName="dose"
-                           [(ngModel)]="createFromForm().dose" required
+                           [(ngModel)]="createFromForm().dose"
                     />
                     <div *ngIf="dose.invalid && dose.touched" class="validate-danger-form">
                         La dosis es requerida.
@@ -53,7 +53,7 @@
                     <label class="form-control-label" for="field_time">Hora de medicación</label>
                     <input type="time" class="form-control" name="time" id="field_time"
                            formControlName="time"
-                           [(ngModel)]="createFromForm().time" required
+                           [(ngModel)]="createFromForm().time"
                     />
                     <div *ngIf="time.invalid && time.touched" class="validate-danger-form">
                         La hora de medicación es requerida.

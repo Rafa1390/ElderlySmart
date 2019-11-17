@@ -22,7 +22,7 @@ export class MedicationScheduleUpdateComponent implements OnInit {
     elderly: new FormControl('', [Validators.required]),
     dose: new FormControl('', [Validators.required]),
     time: new FormControl('', [Validators.required]),
-    state: []
+    state: new FormControl('', [Validators.required])
   });
 
   constructor(
@@ -108,5 +108,9 @@ export class MedicationScheduleUpdateComponent implements OnInit {
 
   get time() {
     return this.editForm.get('time');
+  }
+
+  get state() {
+    return this.editForm.get('state');
   }
 }

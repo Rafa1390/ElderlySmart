@@ -13,7 +13,7 @@
                     <label class="form-control-label" for="field_idDoctor">Código médico</label>
                     <input type="text" class="form-control" name="idDoctor" id="field_idDoctor"
                            formControlName="idDoctor"
-                           [(ngModel)]="createFromForm().idDoctor" required
+                           [(ngModel)]="createFromForm().idDoctor"
                     />
                     <div *ngIf="idDoctor.invalid && idDoctor.touched" class="validate-danger-form">
                         El código del medico es requerido.
@@ -23,7 +23,7 @@
                     <label class="form-control-label" for="field_email">Correo electrónico</label>
                     <input type="text" class="form-control" name="email" id="field_email"
                            formControlName="email"
-                           [(ngModel)]="createFromForm().email" required email
+                           [(ngModel)]="createFromForm().email"  email
                     />
                     <div *ngIf="email.errors?.required && email.touched" class="validate-danger-form">
                         El correo electrónico es requerido.
@@ -36,7 +36,7 @@
                     <label class="form-control-label" for="field_officeName">Nombre del consultorio</label>
                     <input type="text" class="form-control" name="officeName" id="field_officeName"
                            formControlName="officeName"
-                           [(ngModel)]="createFromForm().officeName" required
+                           [(ngModel)]="createFromForm().officeName"
                     />
                     <div *ngIf="officeName.invalid && officeName.touched" class="validate-danger-form">
                         El nombre del consultorio es requerido.
@@ -46,7 +46,7 @@
                     <label class="form-control-label" for="field_address">Dirección del consultorio</label>
                     <input type="text" class="form-control" name="address" id="field_address"
                            formControlName="address"
-                           [(ngModel)]="createFromForm().address" required
+                           [(ngModel)]="createFromForm().address"
                     />
                     <div *ngIf="address.invalid && address.touched" class="validate-danger-form">
                         La dirección del consultorio es requerida.

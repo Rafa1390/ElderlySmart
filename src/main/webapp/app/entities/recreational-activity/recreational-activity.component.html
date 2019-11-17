@@ -1,32 +1,36 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.recreationalActivity.home.title">Recreational Activities</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-recreational-activity" [routerLink]="['/recreational-activity/new']">
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Actividades recreativas</h4>
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-recreational-activity" [routerLink]="['/recreational-activity/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.recreationalActivity.home.createLabel">
-            Create a new Recreational Activity
+            <span>
+            Registrar actividad recreativa
             </span>
         </button>
-    </h2>
+    </div>
+
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="recreationalActivities?.length === 0">
-        <span jhiTranslate="elderlySmartApp.recreationalActivity.home.notFound">No recreationalActivities found</span>
+        <span>No se han registrado actividades recreativas</span>
     </div>
     <div class="table-responsive" *ngIf="recreationalActivities?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.idRecreationalActivity">Id Recreational Activity</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.description">Description</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.date">Date</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.startTime">Start Time</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.endTime">End Time</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.state">State</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.recreationalActivity.asylum">Asylum</span></th>
+            <th scope="col" class="text-center"><span>ID</span></th>
+            <th scope="col" class="text-center"><span>Código de actividad recreativa</span></th>
+            <th scope="col" class="text-center"><span>Nombre</span></th>
+            <th scope="col" class="text-center"><span>Descripción</span></th>
+            <th scope="col" class="text-center"><span>Fecha</span></th>
+            <th scope="col" class="text-center"><span>Hora de inicio</span></th>
+            <th scope="col" class="text-center"><span>Fecha de finalización</span></th>
+            <th scope="col" class="text-center"><span>Estado</span></th>
+<!--            <th scope="col" class="text-center"><span>Asilo</span></th>-->
             <th scope="col"></th>
             </tr>
             </thead>
@@ -49,23 +53,23 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/recreational-activity', recreationalActivity.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/recreational-activity', recreationalActivity.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/recreational-activity', { outlets: { popup: recreationalActivity.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>

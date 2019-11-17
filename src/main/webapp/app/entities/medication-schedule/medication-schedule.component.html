@@ -1,30 +1,34 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.medicationSchedule.home.title">Medication Schedules</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-medication-schedule" [routerLink]="['/medication-schedule/new']">
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Horarios de medicación</h4>
+        <button id="jh-create-entity" class="btn btns float-right float-right jh-create-entity create-medication-schedule" [routerLink]="['/medication-schedule/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.medicationSchedule.home.createLabel">
-            Create a new Medication Schedule
+            <span>
+            Registrar horario de medicación
             </span>
         </button>
-    </h2>
+    </div>
+
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="medicationSchedules?.length === 0">
-        <span jhiTranslate="elderlySmartApp.medicationSchedule.home.notFound">No medicationSchedules found</span>
+        <span>No se han registrado horarios de medicación</span>
     </div>
     <div class="table-responsive" *ngIf="medicationSchedules?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.medicationSchedule.idMedicationSchedule">Id Medication Schedule</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.medicationSchedule.meticationName">Metication Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.medicationSchedule.elderly">Elderly</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.medicationSchedule.dose">Dose</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.medicationSchedule.time">Time</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.medicationSchedule.state">State</span></th>
+            <th scope="col" class="text-center"><span >ID</span></th>
+            <th scope="col" class="text-center"><span>Código de medicación</span></th>
+            <th scope="col" class="text-center"><span>Nombre de medicación</span></th>
+            <th scope="col" class="text-center"><span>Adulto mayor</span></th>
+            <th scope="col" class="text-center"><span>Dosis</span></th>
+            <th scope="col" class="text-center"><span>Hora</span></th>
+            <th scope="col" class="text-center"><span>Estado</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -41,23 +45,23 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/medication-schedule', medicationSchedule.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/medication-schedule', medicationSchedule.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/medication-schedule', { outlets: { popup: medicationSchedule.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>
