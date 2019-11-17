@@ -7,27 +7,39 @@
                 <div class="form-group" [hidden]="!editForm.get('id').value">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
-                        readonly />
+                        readonly/>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_idPharmacy">Cédula jurídica</label>
                     <input type="text" class="form-control" name="idPharmacy" id="field_idPharmacy"
-                           formControlName="idPharmacy"/>
+                           formControlName="idPharmacy"  [(ngModel)]="createFromForm().idPharmacy" />
+                    <div *ngIf="idPharmacy.invalid && idPharmacy.touched" class="validate-danger-form">
+                        La identificación es requerida.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_email">Correo electrónico</label>
                     <input type="text" class="form-control" name="email" id="field_email"
-                           formControlName="email"/>
+                           formControlName="email" [(ngModel)]="createFromForm().idPharmacy"/>
+                    <div *ngIf="email.errors?.required && email.touched" class="validate-danger-form">
+                        El correo electrónico es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_name">Nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"/>
+                           formControlName="name" pattern="[a-zA-Z ]*"/>
+                    <div *ngIf="name.errors?.required && name.touched" class="validate-danger-form">
+                        El nombre es requerido.
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_address">Dirección</label>
                     <input type="text" class="form-control" name="address" id="field_address"
-                           formControlName="address"/>
+                           formControlName="address" pattern="[a-zA-Z ]*"/>
+                    <div *ngIf="name.errors?.required && name.touched" class="validate-danger-form">
+                        La dirección es requerida.
+                    </div>
                 </div>
 
 <!--                <div class="form-group">-->
