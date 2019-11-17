@@ -144,10 +144,12 @@
     font-size: 17px !important;
   }
 
-  .form-check,
-  .form-check-label,
-  .circle,
-  .check {
+  .form-check .form-check-label .circle .check {
+    background-color: #3051a1 !important ;
+  }
+
+  .form-check .form-check-input:checked ~ .circle {
+    border-color: #3051a1 !important ;
   }
 
   .btn-danger-word {
