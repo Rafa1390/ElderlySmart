@@ -190,3 +190,37 @@
 .ng-invalid:not(form).ng-touched {
   border: 1px solid red;
 }
+
+.homediv {
+  width: 1080px !important;
+  margin-left: 30%;
+  height: 550px !important;
+}
+
+.divHome {
+  text-align: justify !important;
+  width: 6000px !important;
+  margin-left: 25% !important;
+  margin-top: -10% !important;
+}
+
+.logbtn {
+  width: 300px !important;
+  margin-top: -10%;
+  margin-left: 11%;
+}
+
+.btnCreate {
+  margin-left: 50% !important;
+  width: 300px !important;
+  margin-top: 13% !important;
+}
+
+.form-create-user {
+  height: 500px !important;
+  margin-top: 2% !important;
+}
+
+jhi-register {
+  margin-top: -5% !important;
+}

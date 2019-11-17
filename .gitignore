@@ -146,3 +146,4 @@ Desktop.ini
 ######################
 .eslintcache
 *.yml
+src/main/resources/config/application-dev.yml
