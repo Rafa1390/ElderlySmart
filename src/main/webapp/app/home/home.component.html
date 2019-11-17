@@ -1,29 +1,31 @@
-<div class="row homediv">
-    <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
-    </div>
-        <div class="divHome">
+<div class="row homediv" [ngSwitch]="isAuthenticated()">
+        <div class="col-md-3" >
+            <span class="hipster img-fluid rounded"></span>
+        </div>
+        <div class="divHome" *ngSwitchCase="false">
             <h1 class="display-4" >¡Bienvenido a ElderlySmart!</h1>
             <p class="lead" >Somos una aplicación la cual permite la automatización
                 de recordatorios y gestión de actividades para los adultos
                 mayores, facilitando a cada médico o familiar responsable poder
                 realizar una atención más personalizada y eficiente a la hora de
                 llevar a cabo la atención del adulto mayor.</p>
+
+            <div style="margin-top: 2%;margin-left: -5%;margin-left: 0%;float: left;position: absolute;">
+                <button type="submit" id="login" class="btn btn-info btns logbtn" (click)="login()" id="login">
+                    <fa-icon icon="sign-in-alt" fixedWidth="true"></fa-icon><span>    Iniciar sesión</span>
+                </button>
+                <button type="submit" routerLink="account/register" routerLinkActive="active" class="btn btn-info btns">
+                    <fa-icon icon="user-plus" fixedWidth="true"></fa-icon><span>    Crear una cuenta</span>
+                </button>
+            </div>
         </div>
 
-    <div style="margin-top: -10%; margin-left: 25%;">
-        <button type="submit" id="login" class="btn btn-info btns logbtn" (click)="login()" id="login">
-            <fa-icon icon="sign-in-alt" fixedWidth="true"></fa-icon><span>    Iniciar sesión</span>
-        </button>
-    </div>
 
-    <div style="margin-top: -13%;margin-left: -10%;">
-        <button type="submit" routerLink="account/register" routerLinkActive="active" class="btn btn-info btns logbtn btnCreate">
-            <fa-icon icon="user-plus" fixedWidth="true"></fa-icon><span>    Crear una cuenta</span>
-        </button>
-    </div>
 
     <div [ngSwitch]="isAuthenticated()">
-
+        <div *ngSwitchCase="true">
+                <h1 class="display-4" >¡Bienvenido nuevamente!</h1>
+                <p class="lead" >Esta es tú página de inicio :D</p>
+        </div>
     </div>
 </div>

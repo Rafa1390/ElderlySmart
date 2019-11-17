@@ -199,7 +199,6 @@
 
 .divHome {
   text-align: justify !important;
-  width: 6000px !important;
   margin-left: 25% !important;
   margin-top: -10% !important;
 }
@@ -208,12 +207,6 @@
   width: 300px !important;
   margin-top: -10%;
   margin-left: 11%;
-}
-
-.btnCreate {
-  margin-left: 50% !important;
-  width: 300px !important;
-  margin-top: 13% !important;
 }
 
 .form-create-user {
