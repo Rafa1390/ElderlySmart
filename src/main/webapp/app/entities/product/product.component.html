@@ -1,12 +1,17 @@
 <div>
-    <h2 id="page-heading">
-        <span>Productos</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Productos médicos </h4>
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
-            Crear nuevo producto
+                Registrar producto
             </span>
         </button>
+    </div>
+    <h2 id="page-heading">
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>

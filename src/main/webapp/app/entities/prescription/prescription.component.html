@@ -1,12 +1,15 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.prescription.home.title">Prescriptions</span>
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Recetas médicas existentes</h4>
         <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-prescription" [routerLink]="['/prescription/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span>
-           Crear nueva receta
-            </span>
+            <span> Crear nueva receta</span>
         </button>
+    </div>
+    <h2 id="page-heading">
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
