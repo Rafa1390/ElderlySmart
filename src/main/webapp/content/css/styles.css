@@ -229,3 +229,14 @@
 jhi-register {
   margin-top: -5% !important;
 }
+
+.sizeTable {
+  width: 82% !important;
+  float: right !important;
+}
+
+.list-group {
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow: scroll;
+}

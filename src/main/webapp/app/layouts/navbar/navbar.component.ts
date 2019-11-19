@@ -38,6 +38,13 @@ export class NavbarComponent implements OnInit {
     this.isNavbarCollapsed = true;
   }
 
+  isMobileMenu() {
+    if ($(window).width() > 991) {
+      return false;
+    }
+    return true;
+  }
+
   ngOnInit() {
     this.languages = this.languageHelper.getAll();
 

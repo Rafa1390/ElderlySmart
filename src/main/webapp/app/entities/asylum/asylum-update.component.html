@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_identification">Identificación</label>
                     <input type="text" class="form-control" name="identification" id="field_identification"
-                           formControlName="identification" [(ngModel)]="createFromForm().identification" required/>
+                           formControlName="identification" [(ngModel)]="createFromForm().identification"/>
                     <div *ngIf="identification.invalid && identification.touched" class="validate-danger-form">
                         La identificación es requerida.
                     </div>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_email">Correo electrónico</label>
                     <input type="text" class="form-control" name="email" id="field_email"
-                           formControlName="email" [(ngModel)]="createFromForm().email" required email/>
+                           formControlName="email" [(ngModel)]="createFromForm().email" email/>
                     <div *ngIf="email.errors?.required && email.touched" class="validate-danger-form">
                         El correo electrónico es requerido.
                     </div>
@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_name">Nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name" [(ngModel)]="createFromForm().name" required/>
+                           formControlName="name" [(ngModel)]="createFromForm().name" />
                     <div *ngIf="name.invalid && name.touched" class="validate-danger-form">
                         El nombre del asilo es requerido.
                     </div>
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_address">Dirección exacta</label>
                     <input type="text" class="form-control" name="address" id="field_address"
-                           formControlName="address" [(ngModel)]="createFromForm().address" required/>
+                           formControlName="address" [(ngModel)]="createFromForm().address" />
                     <div *ngIf="address.invalid && address.touched" class="validate-danger-form">
                         La dirección exacta del asilo es requerida.
                     </div>

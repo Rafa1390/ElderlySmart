@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_idFamily">Identificación</label>
                     <input type="text" class="form-control" name="idFamily" id="field_idFamily"
-                           formControlName="idFamily"[(ngModel)]="createFromForm().idFamily" required/>
+                           formControlName="idFamily"[(ngModel)]="createFromForm().idFamily"/>
                     <div *ngIf="idFamily.errors?.required && idFamily.touched" class="validate-danger-form">
                         La identificación es requerida.
                     </div>
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="form-control-label" for="field_name">Primer nombre</label>
                     <input type="text" class="form-control" name="name" id="field_name"
-                           formControlName="name"[(ngModel)]="createFromForm().name" required pattern="[a-zA-Z ]*"/>
+                           formControlName="name"[(ngModel)]="createFromForm().name" pattern="[a-zA-Z ]*"/>
                     <div *ngIf="name.errors?.required && name.touched" class="validate-danger-form">
                         El primer nombre es requerido.
                     </div>
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label class="form-control-label"  for="field_lastName">Primer apellido</label>
                     <input type="text" class="form-control" name="lastName" id="field_lastName"
-                           formControlName="lastName"[(ngModel)]="createFromForm().lastName" required pattern="[a-zA-Z ]*"/>
+                           formControlName="lastName"[(ngModel)]="createFromForm().lastName" pattern="[a-zA-Z ]*"/>
                     <div *ngIf="lastName.errors?.required && lastName.touched" class="validate-danger-form">
                         El primer apellido es requerido.
                     </div>
@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label class="form-control-label"  for="field_phone1">Número de teléfono</label>
                     <input type="text" class="form-control" name="phone1" id="field_phone1"
-                           formControlName="phone1"[(ngModel)]="createFromForm().phone1" required/>
+                           formControlName="phone1"[(ngModel)]="createFromForm().phone1"/>
                     <div *ngIf="phone1.errors?.required && phone1.touched" class="validate-danger-form">
                         El número de teléfono es requerido.
                     </div>
@@ -72,7 +72,7 @@
                 <div class="form-group">
                     <label class="form-control-label"  for="field_age">Edad</label>
                     <input type="number" class="form-control" name="age" id="field_age"
-                           formControlName="age"[(ngModel)]="createFromForm().age" required min max/>
+                           formControlName="age"[(ngModel)]="createFromForm().age" min max/>
                     <div *ngIf="age.errors?.required && age.touched" class="validate-danger-form">
                         La edad es requerida.
                     </div>
@@ -86,7 +86,7 @@
                 <div class="form-group">
                     <label class="form-control-label"  for="field_familyRelation">Relación con el familiar</label>
                     <input type="text" class="form-control" name="familyRelation" id="field_familyRelation"
-                           formControlName="familyRelation"[(ngModel)]="createFromForm().familyRelation" required pattern="[a-zA-Z ]*"/>
+                           formControlName="familyRelation"[(ngModel)]="createFromForm().familyRelation" pattern="[a-zA-Z ]*"/>
                     <div *ngIf="familyRelation.errors?.required && familyRelation.touched" class="validate-danger-form">
                         El relación con el adulto es requerida.
                     </div>
@@ -120,10 +120,10 @@
                 </div>
             </div>
             <div class="mt-4">
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                <button type="button" id="cancel-save" class="btn btn-danger"  (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info">
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info btns">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
                 </button>
             </div>

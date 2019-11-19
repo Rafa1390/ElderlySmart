@@ -1,11 +1,12 @@
-<div>
-    <div class="card-header card-header-icon">
+<div xmlns:trackBy="http://www.w3.org/1999/xhtml">
+    <div class="card-header card-header-icon mt-3">
         <div class="card-icon card-list">
             <fa-icon [icon]="'list'"></fa-icon>
         </div>
+    </div>
     <h2 id="page-heading">
         <h4 class="card-title ">Asilos</h4>
-        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/pharmacy/new']">
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/asylum/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
             Registrar asilo
@@ -30,7 +31,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let asylum of asylums ;trackBy: trackId">
+            <tr *ngFor="let asylum of asylums; trackBy: trackId">
                 <td><a [routerLink]="['/asylum', asylum.id, 'view' ]">{{asylum.id}}</a></td>
                 <td>{{asylum.identification}}</td>
                 <td>{{asylum.name}}</td>
