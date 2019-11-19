@@ -25,20 +25,16 @@
                                    placeholder="{{'login.form.password.placeholder' | translate}}"
                                    formControlName="password">
                         </div>
-                        <button type="submit" class="btn btn-primary" jhiTranslate="login.form.button">Sign in</button>
+                        <button type="submit" class="btn btn-info btns" (click)="login()" id="login">
+                        <fa-icon icon="sign-in-alt" fixedWidth="true"></fa-icon><span>    Iniciar sesión</span>
+                    </button>
+
                     </form>
                     <p></p>
                     <div>
                         <a class="alert-link" (click)="requestResetPassword()" jhiTranslate="login.password.forgot">Did
                             you
                             forget your password?</a>
-                    </div>
-                    <div>
-                    <span
-                        jhiTranslate="global.messages.info.register.noaccount"><b>You don't have an account yet?</b></span>
-                        <br>
-                        <a class="alert-link" (click)="register()" jhiTranslate="global.messages.info.register.link">Register
-                            a new account</a>
                     </div>
                 </div>
             </div>

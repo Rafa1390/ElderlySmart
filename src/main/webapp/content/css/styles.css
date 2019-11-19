@@ -144,10 +144,12 @@
     font-size: 17px !important;
   }
 
-  .form-check,
-  .form-check-label,
-  .circle,
-  .check {
+  .form-check .form-check-label .circle .check {
+    background-color: #3051a1 !important ;
+  }
+
+  .form-check .form-check-input:checked ~ .circle {
+    border-color: #3051a1 !important ;
   }
 
   .btn-danger-word {
@@ -199,4 +201,31 @@
   margin-bottom: 10px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+}
+
+.homediv {
+  width: 1080px !important;
+  margin-left: 30%;
+  height: 550px !important;
+}
+
+.divHome {
+  text-align: justify !important;
+  margin-left: 25% !important;
+  margin-top: -10% !important;
+}
+
+.logbtn {
+  width: 300px !important;
+  margin-top: -10%;
+  margin-left: 11%;
+}
+
+.form-create-user {
+  height: 500px !important;
+  margin-top: 2% !important;
+}
+
+jhi-register {
+  margin-top: -5% !important;
 }
