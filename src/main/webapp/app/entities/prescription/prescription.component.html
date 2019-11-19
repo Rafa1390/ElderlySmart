@@ -1,12 +1,15 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.prescription.home.title">Prescriptions</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-prescription" [routerLink]="['/prescription/new']">
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Recetas médicas existentes</h4>
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-prescription" [routerLink]="['/prescription/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.prescription.home.createLabel">
-            Create a new Prescription
-            </span>
+            <span> Crear nueva receta</span>
         </button>
+    </div>
+    <h2 id="page-heading">
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
@@ -18,17 +21,17 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.idPrescription">Id Prescription</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.officeName">Office Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.creationDate">Creation Date</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.doctorName">Doctor Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.patientName">Patient Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.patientAge">Patient Age</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.prescriptionDrugs">Prescription Drugs</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.state">State</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.pharmacy">Pharmacy</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.prescription.doctor">Doctor</span></th>
+            <th scope="col"><span>ID</span></th>
+            <th scope="col"><span>Código</span></th>
+            <th scope="col"><span>Nombre de oficina</span></th>
+            <th scope="col"><span>Dia de creacion</span></th>
+            <th scope="col"><span>Nombre del doctor</span></th>
+            <th scope="col"><span>Nombre del paciente</span></th>
+            <th scope="col"><span>Edad del paciente</span></th>
+            <th scope="col"><span>Medicamentos</span></th>
+            <th scope="col"><span>Estado</span></th>
+            <th scope="col"><span>Farmacia</span></th>
+            <th scope="col"><span>ID Doctor</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
@@ -57,13 +60,13 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/prescription', prescription.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-info btn-sm btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/prescription', prescription.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btn-primary btn-sm btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
@@ -71,7 +74,7 @@
                                 [routerLink]="['/prescription', { outlets: { popup: prescription.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>

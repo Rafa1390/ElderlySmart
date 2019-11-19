@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -24,12 +24,12 @@ export class ProductUpdateComponent implements OnInit {
   editForm = this.fb.group({
     id: [],
     idProduct: [],
-    code: [],
-    name: [],
-    brand: [],
-    description: [],
-    type: [],
-    state: []
+    code: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    brand: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    type: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required])
   });
 
   constructor(
@@ -124,5 +124,32 @@ export class ProductUpdateComponent implements OnInit {
       }
     }
     return option;
+  }
+
+  get idProduct() {
+    return this.editForm.get('idProduct');
+  }
+
+  get code() {
+    return this.editForm.get('code');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get brand() {
+    return this.editForm.get('brand');
+  }
+
+  get description() {
+    return this.editForm.get('description');
+  }
+
+  get type() {
+    return this.editForm.get('type');
+  }
+  get state() {
+    return this.editForm.get('state');
   }
 }

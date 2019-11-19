@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,7 +52,9 @@ public class PrescriptionResource {
         if (prescription.getId() != null) {
             throw new BadRequestAlertException("A new prescription cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        prescription.setCreationDate(LocalDate.now());
         Prescription result = prescriptionRepository.save(prescription);
+
         return ResponseEntity.created(new URI("/api/prescriptions/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -72,6 +75,7 @@ public class PrescriptionResource {
         if (prescription.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
+        prescription.setCreationDate(LocalDate.now());
         Prescription result = prescriptionRepository.save(prescription);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, prescription.getId().toString()))

@@ -1,12 +1,17 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.product.home.title">Products</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-product" [routerLink]="['/product/new']">
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Productos médicos </h4>
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-product" [routerLink]="['/product/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.product.home.createLabel">
-            Create a new Product
+            <span>
+                Registrar producto
             </span>
         </button>
+    </div>
+    <h2 id="page-heading">
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
@@ -18,21 +23,21 @@
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.idProduct">Id Product</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.code">Code</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.brand">Brand</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.description">Description</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.type">Type</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.product.state">State</span></th>
+            <th scope="col" ><span>ID</span></th>
+<!--            <th scope="col" ><span>Id Product</span></th>-->
+            <th scope="col" ><span>Código</span></th>
+            <th scope="col" ><span>Nombre</span></th>
+            <th scope="col" ><span>Marca</span></th>
+            <th scope="col" ><span>Descripción</span></th>
+            <th scope="col" ><span>Tipo</span></th>
+            <th scope="col" ><span>Estado</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let product of products ;trackBy: trackId">
                 <td><a [routerLink]="['/product', product.id, 'view' ]">{{product.id}}</a></td>
-                <td>{{product.idProduct}}</td>
+<!--                <td>{{product.idProduct}}</td>-->
                 <td>{{product.code}}</td>
                 <td>{{product.name}}</td>
                 <td>{{product.brand}}</td>
@@ -43,13 +48,13 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/product', product.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-info btn-sm btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/product', product.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btn-primary btn-sm btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
@@ -57,7 +62,7 @@
                                 [routerLink]="['/product', { outlets: { popup: product.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>

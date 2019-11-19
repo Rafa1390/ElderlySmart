@@ -185,8 +185,8 @@
 .container-error-message {
   padding: 3px;
 }
-.ng-invalid:not(form).ng-touched {
-  border: 1px solid red;
+.ng-invalid:not(form) {
+  border-left: 105px solid red;
 }
 
 .sizeTable {

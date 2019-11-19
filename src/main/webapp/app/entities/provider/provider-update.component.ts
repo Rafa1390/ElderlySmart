@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -20,19 +20,17 @@ import { PharmacyService } from 'app/entities/pharmacy/pharmacy.service';
 })
 export class ProviderUpdateComponent implements OnInit {
   isSaving: boolean;
-  identification: string;
-
   userapps: IUserApp[];
 
   pharmacies: IPharmacy[];
 
   editForm = this.fb.group({
     id: [],
-    identification: [],
-    email: [],
-    name: [],
-    providerType: [],
-    address: [],
+    identification: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    providerType: new FormControl('', [Validators.required]),
+    address: new FormControl('', [Validators.required]),
     userApp: []
   });
 
@@ -156,5 +154,25 @@ export class ProviderUpdateComponent implements OnInit {
       }
     }
     return option;
+  }
+
+  get identification() {
+    return this.editForm.get('identification');
+  }
+
+  get email() {
+    return this.editForm.get('email');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get providerType() {
+    return this.editForm.get('providerType');
+  }
+
+  get address() {
+    return this.editForm.get('address');
   }
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -29,14 +29,14 @@ export class PrescriptionUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idPrescription: [],
-    officeName: [],
+    idPrescription: new FormControl('', [Validators.required]),
+    officeName: new FormControl('', [Validators.required]),
     creationDate: [],
-    doctorName: [],
-    patientName: [],
-    patientAge: [],
-    prescriptionDrugs: [],
-    state: [],
+    doctorName: new FormControl('', [Validators.required]),
+    patientName: new FormControl('', [Validators.required]),
+    patientAge: new FormControl('', [Validators.required]),
+    prescriptionDrugs: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
     pharmacy: [],
     doctor: []
   });
@@ -140,5 +140,37 @@ export class PrescriptionUpdateComponent implements OnInit {
 
   trackDoctorById(index: number, item: IDoctor) {
     return item.id;
+  }
+
+  get idPrescription() {
+    return this.editForm.get('idPrescription');
+  }
+
+  get officeName() {
+    return this.editForm.get('officeName');
+  }
+
+  get doctorName() {
+    return this.editForm.get('doctorName');
+  }
+
+  get patientName() {
+    return this.editForm.get('patientName');
+  }
+
+  get patientAge() {
+    return this.editForm.get('patientAge');
+  }
+
+  get prescriptionDrugs() {
+    return this.editForm.get('prescriptionDrugs');
+  }
+
+  get state() {
+    return this.editForm.get('state');
+  }
+
+  get email() {
+    return this.editForm.get('email');
   }
 }

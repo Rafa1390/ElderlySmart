@@ -1,31 +1,36 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.provider.home.title">Providers</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-provider" [routerLink]="['/provider/new']">
+    <div class="card-header card-header-icon">
+        <div class="card-icon card-list">
+        <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+        <h4 class="card-title ">Proveedores existentes </h4>
+        <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-provider" [routerLink]="['/provider/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.provider.home.createLabel">
-            Create a new Provider
+            <span>
+                Registrar proveedor
             </span>
         </button>
+    </div>
+    <h2 id="page-heading">
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="providers?.length === 0">
-        <span jhiTranslate="elderlySmartApp.provider.home.notFound">No providers found</span>
+        <span jhiTranslate="elderlySmartApp.provider.home.notFound">Proveedores no encontrados</span>
     </div>
     <div class="table-responsive" *ngIf="providers?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
             <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.identification">Identification</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.email">Email</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.providerType">Provider Type</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.address">Address</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.provider.userApp">User App</span></th>
-            <th scope="col"></th>
+            <th scope="col" ><span>Cédula Jurídica</span></th>
+            <th scope="col" ><span >Correo electrónico</span></th>
+            <th scope="col" ><span>Nombre </span></th>
+            <th scope="col" ><span>Tipo</span></th>
+            <th scope="col" ><span>Dirección</span></th>
+<!--            <th scope="col" ><span>ID usuario</span></th>-->
+                <th scope="col"><span> </span></th>
             </tr>
             </thead>
             <tbody>
@@ -45,13 +50,13 @@
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/provider', provider.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-info btn-sm btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/provider', provider.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btn-primary btn-sm btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
@@ -59,7 +64,7 @@
                                 [routerLink]="['/provider', { outlets: { popup: provider.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>

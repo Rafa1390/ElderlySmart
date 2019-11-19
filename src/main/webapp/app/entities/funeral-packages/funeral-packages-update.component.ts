@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -23,11 +23,11 @@ export class FuneralPackagesUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idFuneralPackages: [],
-    name: [],
-    description: [],
-    price: [],
-    state: [],
+    idFuneralPackages: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]),
+    state: new FormControl('', [Validators.required]),
     mortuary: []
   });
 
@@ -110,5 +110,25 @@ export class FuneralPackagesUpdateComponent implements OnInit {
 
   trackMortuaryById(index: number, item: IMortuary) {
     return item.id;
+  }
+
+  get idFuneralPackages() {
+    return this.editForm.get('idFuneralPackages');
+  }
+
+  get name() {
+    return this.editForm.get('name');
+  }
+
+  get description() {
+    return this.editForm.get('description');
+  }
+
+  get price() {
+    return this.editForm.get('price');
+  }
+
+  get state() {
+    return this.editForm.get('state');
   }
 }

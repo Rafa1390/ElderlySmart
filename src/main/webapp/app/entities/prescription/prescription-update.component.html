@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-prescription-heading" jhiTranslate="elderlySmartApp.prescription.home.createOrEditLabel">Create or edit a Prescription</h2>
+            <h2 id="jhi-prescription-heading" class="text-center mb-5"> Receta médica</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!editForm.get('id').value">
@@ -9,73 +9,111 @@
                     <input type="text" class="form-control" id="id" name="id" formControlName="id"
                         readonly />
                 </div>
+
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.idPrescription" for="field_idPrescription">Id Prescription</label>
+                    <label class="form-control-label" for="field_idPrescription">Codigo</label>
                     <input type="number" class="form-control" name="idPrescription" id="field_idPrescription"
-                           formControlName="idPrescription"/>
+                           formControlName="idPrescription"
+                           [(ngModel)]="createFromForm().idPrescription" />
+                    <div *ngIf="idPrescription.invalid && idPrescription.touched" class="validate-danger-form">
+                        El código es requerido.
+                    </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.officeName" for="field_officeName">Office Name</label>
+                    <label class="form-control-label" for="field_officeName">Nombre de la oficina</label>
                     <input type="text" class="form-control" name="officeName" id="field_officeName"
-                           formControlName="officeName"/>
+                           formControlName="officeName"
+                           [(ngModel)]="createFromForm().officeName" />
+                    <div *ngIf="officeName.invalid && officeName.touched" class="validate-danger-form">
+                       El nombre de la oficina es requerida.
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.creationDate" for="field_creationDate">Creation Date</label>
+                
+                <!-- <div class="form-group">
+                    <label class="form-control-label" for="field_creationDate">Creation Date</label>
                     <div class="input-group">
                         <input id="field_creationDate" type="text" class="form-control" name="creationDate" ngbDatepicker  #creationDateDp="ngbDatepicker" formControlName="creationDate"/>
                         <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="creationDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
                         </span>
                     </div>
-                </div>
+                </div> -->
+                
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.doctorName" for="field_doctorName">Doctor Name</label>
+                    <label class="form-control-label" for="field_doctorName">Nombre del doctor</label>
                     <input type="text" class="form-control" name="doctorName" id="field_doctorName"
-                           formControlName="doctorName"/>
+                           formControlName="doctorName"
+                           [(ngModel)]="createFromForm().doctorName" />
+                    <div *ngIf="doctorName.invalid && doctorName.touched" class="validate-danger-form">
+                     El nombre del doctor es requerido.
+                    </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.patientName" for="field_patientName">Patient Name</label>
+                    <label class="form-control-label" for="field_patientName">Nombre del paciente</label>
                     <input type="text" class="form-control" name="patientName" id="field_patientName"
-                           formControlName="patientName"/>
+                           formControlName="patientName"
+                           [(ngModel)]="createFromForm().patientName" />
+                    <div *ngIf="patientName.invalid && patientName.touched" class="validate-danger-form">
+                        El nombre del paciente es requerido.
+                    </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.patientAge" for="field_patientAge">Patient Age</label>
+                    <label class="form-control-label" for="field_patientAge">Edad del paciente</label>
                     <input type="number" class="form-control" name="patientAge" id="field_patientAge"
-                           formControlName="patientAge"/>
+                           formControlName="patientAge"
+                           [(ngModel)]="createFromForm().patientAge" />
+                    <div *ngIf="patientAge.invalid && patientAge.touched" class="validate-danger-form">
+                       La edad del paciente es requerida.
+                    </div>
                 </div>
+               
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.prescriptionDrugs" for="field_prescriptionDrugs">Prescription Drugs</label>
+                    <label class="form-control-label" for="field_prescriptionDrugs">Medicamentos </label>
                     <input type="text" class="form-control" name="prescriptionDrugs" id="field_prescriptionDrugs"
-                           formControlName="prescriptionDrugs"/>
+                           formControlName="prescriptionDrugs"
+                           [(ngModel)]="createFromForm().prescriptionDrugs" />
+                    <div *ngIf="prescriptionDrugs.invalid && prescriptionDrugs.touched" class="validate-danger-form">
+                        Los medicamentos son requeridos.
+                    </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.state" for="field_state">State</label>
+                    <label class="form-control-label" for="field_state">Estado</label>
                     <input type="text" class="form-control" name="state" id="field_state"
-                           formControlName="state"/>
+                           formControlName="state"
+                           [(ngModel)]="createFromForm().state" />
+                    <div *ngIf="state.invalid && state.touched" class="validate-danger-form">
+                        El estado es requerido.
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.pharmacy" for="field_pharmacy">Pharmacy</label>
+                    <label class="form-control-label"for="field_pharmacy">Farmacia</label>
                     <select class="form-control" id="field_pharmacy" name="pharmacy" formControlName="pharmacy">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="pharmacyOption.id === editForm.get('pharmacy').value?.id ? editForm.get('pharmacy').value : pharmacyOption" *ngFor="let pharmacyOption of pharmacies; trackBy: trackPharmacyById">{{pharmacyOption.id}}</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="elderlySmartApp.prescription.doctor" for="field_doctor">Doctor</label>
+                    <label class="form-control-label"for="field_doctor">Doctor</label>
                     <select class="form-control" id="field_doctor" name="doctor" formControlName="doctor">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="doctorOption.id === editForm.get('doctor').value?.id ? editForm.get('doctor').value : doctorOption" *ngFor="let doctorOption of doctors; trackBy: trackDoctorById">{{doctorOption.id}}</option>
                     </select>
+               
                 </div>
             </div>
             <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
-                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
+                    <button type="button" id="cancel-save" class="btn btn-danger"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancelar</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-info btns">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Guardar</span>
+                    </button>
             </div>
         </form>
     </div>
