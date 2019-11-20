@@ -5,12 +5,12 @@ import { IAsylum } from 'app/shared/model/asylum.model';
   name: 'asylumFilter'
 })
 export class AsylumFilter implements PipeTransform {
-  transform(asylums: IAsylum[], searchText: string) {
-    if (!asylums || !searchText) {
-      return asylums;
+  transform(value: any, searchText: any) {
+    if (!value || !searchText) {
+      return value;
     }
     const result = [];
-    for (const post of asylums) {
+    for (const post of value) {
       if (post.name.toLowerCase().indexOf(searchText.toLowerCase()) > -1) {
         result.push(post);
       }
