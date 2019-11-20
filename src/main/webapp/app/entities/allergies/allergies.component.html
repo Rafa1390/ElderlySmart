@@ -1,63 +1,54 @@
-<div>
+<div xmlns:trackBy="http://www.w3.org/1999/xhtml">
+    <div class="card-header card-header-icon mt-3">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+    </div>
     <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.allergies.home.title">Allergies</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-allergies" [routerLink]="['/allergies/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.allergies.home.createLabel">
-            Create a new Allergies
-            </span>
-        </button>
+        <h4 class="card-title ">Alergias</h4>
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="allergies?.length === 0">
-        <span jhiTranslate="elderlySmartApp.allergies.home.notFound">No allergies found</span>
+        <span>No se encontraron alergias</span>
     </div>
     <div class="table-responsive" *ngIf="allergies?.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped text-center" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.idAllergies">Id Allergies</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.description">Description</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.allergies.caseFile">Case File</span></th>
+            <th scope="col" ><span>Código</span></th>
+            <th scope="col" ><span>Nombre</span></th>
+            <th scope="col" ><span>Descripción</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let allergies of allergies ;trackBy: trackId">
                 <td><a [routerLink]="['/allergies', allergies.id, 'view' ]">{{allergies.id}}</a></td>
-                <td>{{allergies.idAllergies}}</td>
                 <td>{{allergies.name}}</td>
                 <td>{{allergies.description}}</td>
-                <td>
-                    <div *ngIf="allergies.caseFile">
-                        <a [routerLink]="['/case-file', allergies.caseFile?.id, 'view' ]" >{{allergies.caseFile?.id}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/allergies', allergies.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/allergies', allergies.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/allergies', { outlets: { popup: allergies.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>

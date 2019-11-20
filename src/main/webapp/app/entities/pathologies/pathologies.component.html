@@ -1,29 +1,25 @@
-<div>
+<div xmlns:trackBy="http://www.w3.org/1999/xhtml">
+    <div class="card-header card-header-icon mt-3">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+    </div>
     <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.pathologies.home.title">Pathologies</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pathologies" [routerLink]="['/pathologies/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.pathologies.home.createLabel">
-            Create a new Pathologies
-            </span>
-        </button>
-    </h2>
+        <h4 class="card-title ">Patologías</h4>    </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="pathologies?.length === 0">
-        <span jhiTranslate="elderlySmartApp.pathologies.home.notFound">No pathologies found</span>
+        <span>No se encontraron patologías</span>
     </div>
     <div class="table-responsive" *ngIf="pathologies?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pathologies.idPathologies">Id Pathologies</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pathologies.name">Name</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pathologies.description">Description</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.pathologies.caseFile">Case File</span></th>
-            <th scope="col"></th>
+                <th scope="col" ><span>Código</span></th>
+                <th scope="col" ><span>Nombre</span></th>
+                <th scope="col" ><span>Descripción</span></th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -32,32 +28,27 @@
                 <td>{{pathologies.idPathologies}}</td>
                 <td>{{pathologies.name}}</td>
                 <td>{{pathologies.description}}</td>
-                <td>
-                    <div *ngIf="pathologies.caseFile">
-                        <a [routerLink]="['/case-file', pathologies.caseFile?.id, 'view' ]" >{{pathologies.caseFile?.id}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/pathologies', pathologies.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/pathologies', pathologies.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/pathologies', { outlets: { popup: pathologies.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>

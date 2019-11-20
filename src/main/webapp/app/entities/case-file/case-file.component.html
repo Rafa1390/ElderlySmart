@@ -1,85 +1,56 @@
-<div>
+<div xmlns:trackBy="http://www.w3.org/1999/xhtml">
+    <div class="card-header card-header-icon mt-3">
+        <div class="card-icon card-list">
+            <fa-icon [icon]="'list'"></fa-icon>
+        </div>
+    </div>
     <h2 id="page-heading">
-        <span jhiTranslate="elderlySmartApp.caseFile.home.title">Case Files</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-case-file" [routerLink]="['/case-file/new']">
-            <fa-icon [icon]="'plus'"></fa-icon>
-            <span  jhiTranslate="elderlySmartApp.caseFile.home.createLabel">
-            Create a new Case File
-            </span>
-        </button>
+        <h4 class="card-title ">Expedientes</h4>
     </h2>
     <jhi-alert-error></jhi-alert-error>
     <jhi-alert></jhi-alert>
     <br/>
     <div class="alert alert-warning" *ngIf="caseFiles?.length === 0">
-        <span jhiTranslate="elderlySmartApp.caseFile.home.notFound">No caseFiles found</span>
+        <span>No se encontraron expedientes</span>
     </div>
     <div class="table-responsive" *ngIf="caseFiles?.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped text-center" aria-describedby="page-heading">
             <thead>
             <tr>
-            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.idCaseFile">Id Case File</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.creationDate">Creation Date</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.fullNameElderly">Full Name Elderly</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.age">Age</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.religion">Religion</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.nationality">Nationality</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.weight">Weight</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.height">Height</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.birth">Birth</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.gender">Gender</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.bloodType">Blood Type</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.resuscitation">Resuscitation</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.organDonation">Organ Donation</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.state">State</span></th>
-            <th scope="col" ><span jhiTranslate="elderlySmartApp.caseFile.idElderly">Id Elderly</span></th>
+            <th scope="col" ><span>Código</span></th>
+            <th scope="col" ><span>Nombre completo</span></th>
+            <th scope="col" ><span>Edad</span></th>
+            <th scope="col" ><span>Género</span></th>
             <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let caseFile of caseFiles ;trackBy: trackId">
                 <td><a [routerLink]="['/case-file', caseFile.id, 'view' ]">{{caseFile.id}}</a></td>
-                <td>{{caseFile.idCaseFile}}</td>
-                <td>{{caseFile.creationDate | date:'mediumDate'}}</td>
                 <td>{{caseFile.fullNameElderly}}</td>
                 <td>{{caseFile.age}}</td>
-                <td>{{caseFile.religion}}</td>
-                <td>{{caseFile.nationality}}</td>
-                <td>{{caseFile.weight}}</td>
-                <td>{{caseFile.height}}</td>
-                <td>{{caseFile.birth | date:'mediumDate'}}</td>
                 <td>{{caseFile.gender}}</td>
-                <td>{{caseFile.bloodType}}</td>
-                <td>{{caseFile.resuscitation}}</td>
-                <td>{{caseFile.organDonation}}</td>
-                <td>{{caseFile.state}}</td>
-                <td>
-                    <div *ngIf="caseFile.idElderly">
-                        <a [routerLink]="['/elderly', caseFile.idElderly?.id, 'view' ]" >{{caseFile.idElderly?.id}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
                                 [routerLink]="['/case-file', caseFile.id, 'view' ]"
-                                class="btn btn-info btn-sm">
+                                class="btn btn-success btn-link">
                             <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Ver</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/case-file', caseFile.id, 'edit']"
-                                class="btn btn-primary btn-sm">
+                                class="btn btns-words btn-link">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Editar</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/case-file', { outlets: { popup: caseFile.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
+                                class="btn btn-danger-word btn-link">
                             <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Eliminar</span>
                         </button>
                     </div>
                 </td>

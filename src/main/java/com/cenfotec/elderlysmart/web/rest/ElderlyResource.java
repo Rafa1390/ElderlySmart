@@ -1,9 +1,10 @@
 package com.cenfotec.elderlysmart.web.rest;
 
-import com.cenfotec.elderlysmart.domain.CaseFile;
-import com.cenfotec.elderlysmart.domain.Elderly;
+import com.cenfotec.elderlysmart.domain.*;
+import com.cenfotec.elderlysmart.repository.AllergiesRepository;
 import com.cenfotec.elderlysmart.repository.CaseFileRepository;
 import com.cenfotec.elderlysmart.repository.ElderlyRepository;
+import com.cenfotec.elderlysmart.repository.PathologiesRepository;
 import com.cenfotec.elderlysmart.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -36,10 +37,12 @@ public class ElderlyResource {
     private String applicationName;
 
     private final ElderlyRepository elderlyRepository;
+    private final CaseFileRepository caseFileRepository;
 
 
-    public ElderlyResource(ElderlyRepository elderlyRepository) {
+    public ElderlyResource(ElderlyRepository elderlyRepository, CaseFileRepository caseFileRepository) {
         this.elderlyRepository = elderlyRepository;
+        this.caseFileRepository = caseFileRepository;
     }
 
     /**
@@ -50,16 +53,27 @@ public class ElderlyResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/elderlies")
-    public ResponseEntity<Elderly> createElderly(@RequestBody Elderly elderly, CaseFile caseFile) throws URISyntaxException {
+    public ResponseEntity<Elderly> createElderly(@RequestBody Elderly elderly) throws URISyntaxException {
         log.debug("REST request to save Elderly : {}", elderly);
 
         LocalDate date = LocalDate.now();
         if (elderly.getId() != null) {
             throw new BadRequestAlertException("A new elderly cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        elderly.setAdmissionDate(date);
 
+        CaseFile caseFile = new CaseFile();
+
+        elderly.setAdmissionDate(date);
         Elderly result = elderlyRepository.save(elderly);
+        caseFile.setIdElderly(result);
+        caseFile.setCreationDate(elderly.getAdmissionDate());
+        caseFile.setFullNameElderly(elderly.getName() + " " + elderly.getLastName() + " " + elderly.getLastName2());
+        caseFile.setAge(elderly.getAge());
+        caseFile.setNationality(elderly.getNationality());
+        caseFile.setState("Activo");
+
+        caseFileRepository.save(caseFile);
+
         return ResponseEntity.created(new URI("/api/elderlies/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);

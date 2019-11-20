@@ -2,7 +2,10 @@ package com.cenfotec.elderlysmart.web.rest;
 
 import com.cenfotec.elderlysmart.ElderlySmartApp;
 import com.cenfotec.elderlysmart.domain.Elderly;
+import com.cenfotec.elderlysmart.repository.AllergiesRepository;
+import com.cenfotec.elderlysmart.repository.CaseFileRepository;
 import com.cenfotec.elderlysmart.repository.ElderlyRepository;
+import com.cenfotec.elderlysmart.repository.PathologiesRepository;
 import com.cenfotec.elderlysmart.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -69,6 +72,9 @@ public class ElderlyResourceIT {
     private ElderlyRepository elderlyRepository;
 
     @Autowired
+    private CaseFileRepository caseFileRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -90,7 +96,7 @@ public class ElderlyResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ElderlyResource elderlyResource = new ElderlyResource(elderlyRepository);
+        final ElderlyResource elderlyResource = new ElderlyResource(elderlyRepository, caseFileRepository);
         this.restElderlyMockMvc = MockMvcBuilders.standaloneSetup(elderlyResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
