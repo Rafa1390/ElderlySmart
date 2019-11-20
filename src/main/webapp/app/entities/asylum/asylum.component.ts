@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { IAsylum } from 'app/shared/model/asylum.model';
+import { Asylum, IAsylum } from 'app/shared/model/asylum.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { AsylumService } from './asylum.service';
 
@@ -17,6 +17,7 @@ export class AsylumComponent implements OnInit, OnDestroy {
   asylums: IAsylum[];
   currentAccount: any;
   eventSubscriber: Subscription;
+  searchText: '';
 
   constructor(protected asylumService: AsylumService, protected eventManager: JhiEventManager, protected accountService: AccountService) {}
 

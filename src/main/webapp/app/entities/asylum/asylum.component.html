@@ -6,6 +6,9 @@
     </div>
     <h2 id="page-heading">
         <h4 class="card-title ">Asilos</h4>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}">
+        </form>
         <button id="jh-create-entity" class="btn btns float-right jh-create-entity create-pharmacy" [routerLink]="['/asylum/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span>
@@ -31,7 +34,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let asylum of asylums; trackBy: trackId">
+            <tr *ngFor="let asylum of asylums | asylumFilter:searchText; trackBy: trackId">
                 <td><a [routerLink]="['/asylum', asylum.id, 'view' ]">{{asylum.id}}</a></td>
                 <td>{{asylum.identification}}</td>
                 <td>{{asylum.name}}</td>
