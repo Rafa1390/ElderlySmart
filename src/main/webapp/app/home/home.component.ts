@@ -51,4 +51,13 @@ export class HomeComponent implements OnInit, OnDestroy, DoCheck {
   }
 
   ngDoCheck(): void {}
+
+  // Home asylum, temporal
+  listElderlies() {
+    window.location.href = './elderly';
+  }
+
+  createElderly() {
+    window.location.href = './elderly/new';
+  }
 }

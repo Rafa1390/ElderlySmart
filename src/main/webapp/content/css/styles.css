@@ -110,7 +110,7 @@
   tr {
     font-family: 'Montserrat', sans-serif !important;
     font-size: 16px !important;
-    overflow-x: hidden !important;
+    overflow-x: unset;
   }
 
   td {
@@ -246,5 +246,12 @@ jhi-register {
 .jh-card {
   width: 1070px !important;
   min-height: 600px !important;
-  max-height: 620px !important;
+  /*max-height: 620px !important;*/
+}
+
+.homeAsylum {
+  text-align: justify !important;
+  margin-left: -25% !important;
+  margin-top: 5% !important;
+  width: 600px !important;
 }

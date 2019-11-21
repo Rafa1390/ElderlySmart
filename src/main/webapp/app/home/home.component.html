@@ -24,8 +24,20 @@
 
     <div [ngSwitch]="isAuthenticated()">
         <div *ngSwitchCase="true">
-                <h1 class="display-4" >¡Bienvenido nuevamente!</h1>
-                <p class="lead" >Esta es tú página de inicio :D</p>
+                <div class="homeAsylum">
+                    <h1 class="display-4" >¡Bienvenido nuevamente!</h1>
+                    <p class="lead" >Esta es tú página de inicio, acá podrás administrar tu asilo y sus funcionalidades..</p>
+                    <h4>¡Buena suerte!</h4>
+
+                    <div style="margin-top: 2%;margin-left: -5%;margin-left: 0%;float: left;position: absolute;">
+                        <button type="submit"  class="btn btn-info btns logbtn" (click)="listElderlies()"  style="width:400px !important;">
+                            <fa-icon icon="list-ol" fixedWidth="true"></fa-icon><span>    Lista de adultos mayores</span>
+                        </button>
+                        <button type="submit" class="btn btn-info btns" (click)="createElderly()">
+                            <fa-icon icon="user-plus" fixedWidth="true"></fa-icon><span>    Registrar adulto mayor</span>
+                        </button>
+                    </div>
+                </div>
         </div>
     </div>
 </div>

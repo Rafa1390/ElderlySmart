@@ -31,8 +31,6 @@
             <th scope="col" class="text-center"><span>Nombre</span></th>
             <th scope="col" class="text-center"><span>Dirección</span></th>
             <th scope="col" class="text-center"><span>Acciones</span></th>
-<!--            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.userApp">User App</span></th>-->
-<!--            <th scope="col" ><span jhiTranslate="elderlySmartApp.pharmacy.provider">Provider</span></th>-->
             <th scope="col"></th>
             </tr>
             </thead>
@@ -43,16 +41,6 @@
                 <td>{{pharmacy.email}}</td>
                 <td>{{pharmacy.name}}</td>
                 <td>{{pharmacy.address}}</td>
-<!--                <td>-->
-<!--                    <div *ngIf="pharmacy.userApp">-->
-<!--                        <a [routerLink]="['/user-app', pharmacy.userApp?.id, 'view' ]" >{{pharmacy.userApp?.id}}</a>-->
-<!--                    </div>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <span *ngFor="let provider of pharmacy.providers; let last = last">-->
-<!--                            <a class="form-control-static" [routerLink]="['/provider', provider?.id, 'view' ]">{{provider.id}}</a>{{last ? '' : ', '}}-->
-<!--                        </span>-->
-<!--                </td>-->
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
