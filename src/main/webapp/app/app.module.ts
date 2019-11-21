@@ -18,6 +18,8 @@ import { ErrorComponent } from './layouts/error/error.component';
 import { FormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ElderlySmartAppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    FullCalendarModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [JhiMainComponent]

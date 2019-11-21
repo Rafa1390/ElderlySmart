@@ -10,11 +10,12 @@ import {
   RecreationalActivityDeleteDialogComponent
 } from './recreational-activity-delete-dialog.component';
 import { recreationalActivityRoute, recreationalActivityPopupRoute } from './recreational-activity.route';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 const ENTITY_STATES = [...recreationalActivityRoute, ...recreationalActivityPopupRoute];
 
 @NgModule({
-  imports: [ElderlySmartSharedModule, RouterModule.forChild(ENTITY_STATES)],
+  imports: [ElderlySmartSharedModule, RouterModule.forChild(ENTITY_STATES), FullCalendarModule],
   declarations: [
     RecreationalActivityComponent,
     RecreationalActivityDetailComponent,

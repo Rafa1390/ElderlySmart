@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
-import { IRecreationalActivity } from 'app/shared/model/recreational-activity.model';
+import { IRecreationalActivity, RecreationalActivity } from 'app/shared/model/recreational-activity.model';
 
 type EntityResponseType = HttpResponse<IRecreationalActivity>;
 type EntityArrayResponseType = HttpResponse<IRecreationalActivity[]>;
@@ -44,6 +44,10 @@ export class RecreationalActivityService {
     return this.http
       .get<IRecreationalActivity[]>(this.resourceUrl, { params: options, observe: 'response' })
       .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
+  getData() {
+    return this.http.get<RecreationalActivity[]>(this.resourceUrl);
   }
 
   delete(id: number): Observable<HttpResponse<any>> {

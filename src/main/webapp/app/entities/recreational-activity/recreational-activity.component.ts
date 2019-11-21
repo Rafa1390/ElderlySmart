@@ -8,6 +8,12 @@ import { JhiEventManager } from 'ng-jhipster';
 import { IRecreationalActivity } from 'app/shared/model/recreational-activity.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { RecreationalActivityService } from './recreational-activity.service';
+import { FullCalendarComponent } from '@fullcalendar/angular';
+import { EventInput } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGrigPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import { CalendarObjectModel } from 'app/shared/model/calendar-object.model';
 
 @Component({
   selector: 'jhi-recreational-activity',
@@ -17,6 +23,10 @@ export class RecreationalActivityComponent implements OnInit, OnDestroy {
   recreationalActivities: IRecreationalActivity[];
   currentAccount: any;
   eventSubscriber: Subscription;
+  calendarEvents: Array<CalendarObjectModel> = new Array<CalendarObjectModel>();
+  calendarVisible = true;
+  calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
+  calendarWeekends = true;
 
   constructor(
     protected recreationalActivityService: RecreationalActivityService,
@@ -36,8 +46,20 @@ export class RecreationalActivityComponent implements OnInit, OnDestroy {
       });
   }
 
+  loadCalendar() {
+    this.recreationalActivityService.getData().subscribe(response => {
+      for (let i = 0; i < response.length; i++) {
+        const event = new CalendarObjectModel();
+        event.start = response[i].date.toString();
+        event.title = response[i].name;
+        this.calendarEvents = this.calendarEvents.concat(event);
+      }
+    });
+  }
+
   ngOnInit() {
     this.loadAll();
+    this.loadCalendar();
     this.accountService.identity().subscribe(account => {
       this.currentAccount = account;
     });
