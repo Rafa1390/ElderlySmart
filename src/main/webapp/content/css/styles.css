@@ -110,6 +110,7 @@
   tr {
     font-family: 'Montserrat', sans-serif !important;
     font-size: 16px !important;
+    overflow-x: hidden !important;
   }
 
   td {
@@ -213,6 +214,7 @@
   text-align: justify !important;
   margin-left: 25% !important;
   margin-top: -10% !important;
+  width: 600px !important;
 }
 
 .logbtn {
@@ -239,4 +241,10 @@ jhi-register {
   max-height: 300px;
   margin-bottom: 10px;
   overflow: scroll;
+}
+
+.jh-card {
+  width: 1070px !important;
+  min-height: 600px !important;
+  max-height: 620px !important;
 }
