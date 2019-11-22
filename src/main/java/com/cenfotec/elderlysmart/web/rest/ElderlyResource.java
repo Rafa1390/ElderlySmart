@@ -134,6 +134,7 @@ public class ElderlyResource {
     @DeleteMapping("/elderlies/{id}")
     public ResponseEntity<Void> deleteElderly(@PathVariable Long id) {
         log.debug("REST request to delete Elderly : {}", id);
+        caseFileRepository.deleteById(id);
         elderlyRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }

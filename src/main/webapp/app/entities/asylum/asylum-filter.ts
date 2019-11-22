@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IAsylum } from 'app/shared/model/asylum.model';
 
 @Pipe({
   name: 'asylumFilter'
