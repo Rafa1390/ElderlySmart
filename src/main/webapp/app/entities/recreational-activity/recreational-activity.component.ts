@@ -13,7 +13,7 @@ import { EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGrigPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { CalendarObjectModel } from 'app/shared/model/calendar-object.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'jhi-recreational-activity',
@@ -23,7 +23,7 @@ export class RecreationalActivityComponent implements OnInit, OnDestroy {
   recreationalActivities: IRecreationalActivity[];
   currentAccount: any;
   eventSubscriber: Subscription;
-  calendarEvents: Array<CalendarObjectModel> = new Array<CalendarObjectModel>();
+  calendarEvents: EventInput[] = [];
   calendarVisible = true;
   calendarPlugins = [dayGridPlugin, timeGrigPlugin, interactionPlugin];
   calendarWeekends = true;
@@ -46,17 +46,6 @@ export class RecreationalActivityComponent implements OnInit, OnDestroy {
       });
   }
 
-  loadCalendar() {
-    this.recreationalActivityService.getData().subscribe(response => {
-      for (let i = 0; i < response.length; i++) {
-        const event = new CalendarObjectModel();
-        event.start = response[i].date.toString();
-        event.title = response[i].name;
-        this.calendarEvents = this.calendarEvents.concat(event);
-      }
-    });
-  }
-
   ngOnInit() {
     this.loadAll();
     this.loadCalendar();
@@ -76,5 +65,34 @@ export class RecreationalActivityComponent implements OnInit, OnDestroy {
 
   registerChangeInRecreationalActivities() {
     this.eventSubscriber = this.eventManager.subscribe('recreationalActivityListModification', response => this.loadAll());
+  }
+
+  loadCalendar() {
+    this.recreationalActivityService.getData().subscribe(response => {
+      for (let i = 0; i < response.length; i++) {
+        this.calendarEvents = this.calendarEvents.concat({
+          id: response[i].id,
+          title: response[i].name,
+          start: response[i].date.toString()
+        });
+      }
+    });
+  }
+
+  eventClick(arg) {
+    Swal.fire({
+      title: arg.event.title,
+      html:
+        '<div class="form-group">' +
+        '<div class="btn-group"> ' +
+        '<button type="submit" [routerLink]="/recreational-activity,' +
+        arg.event.id +
+        ',view" class="btn btn-success">' +
+        '<fa-icon [icon]="\'eye\'"></fa-icon>' +
+        '<span class="d-none d-md-inline">Ver</span>' +
+        '</button>' +
+        '</div>' +
+        '</div>'
+    });
   }
 }

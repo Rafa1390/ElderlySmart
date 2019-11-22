@@ -1,6 +1,8 @@
 <full-calendar
     [events]="this.calendarEvents"
     [plugins]="calendarPlugins"
+    (eventClick)="eventClick($event)"
+
 
 ></full-calendar>
 
