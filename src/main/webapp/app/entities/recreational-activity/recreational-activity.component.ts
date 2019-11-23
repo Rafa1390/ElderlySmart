@@ -83,15 +83,31 @@ export class RecreationalActivityComponent implements OnInit, OnDestroy {
     Swal.fire({
       title: arg.event.title,
       html:
-        '<div class="form-group">' +
         '<div class="btn-group"> ' +
-        '<button type="submit" [routerLink]="/recreational-activity,' +
+        '<a href="recreational-activity/' +
         arg.event.id +
-        ',view" class="btn btn-success">' +
+        '/view"> ' +
+        '<button type="button" class="btn btn-success">' +
         '<fa-icon [icon]="\'eye\'"></fa-icon>' +
         '<span class="d-none d-md-inline">Ver</span>' +
         '</button>' +
-        '</div>' +
+        '</a>' +
+        '<a href="recreational-activity/' +
+        arg.event.id +
+        '/edit"> ' +
+        '<button type="button" class="btn btn-info">' +
+        '<fa-icon [icon]="\'pencil-alt\'"></fa-icon>' +
+        '<span class="d-none d-md-inline">Editar</span>' +
+        '</button>' +
+        '</a>' +
+        '<a (click)="deleteEvent(' +
+        arg.event.id +
+        ')" >' +
+        '<button type="button" class="btn btn-danger">' +
+        '<fa-icon [icon]="\'pencil-alt\'"></fa-icon>' +
+        '<span class="d-none d-md-inline">Eliminar</span>' +
+        '</button>' +
+        '</a>' +
         '</div>'
     });
   }
