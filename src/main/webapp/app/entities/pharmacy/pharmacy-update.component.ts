@@ -15,6 +15,7 @@ import { IProvider } from 'app/shared/model/provider.model';
 import { ProviderService } from 'app/entities/provider/provider.service';
 import { IAsylum } from 'app/shared/model/asylum.model';
 import { AsylumService } from 'app/entities/asylum/asylum.service';
+import { PharmacyComponent } from 'app/entities/pharmacy/pharmacy.component';
 
 @Component({
   selector: 'jhi-pharmacy-update',
@@ -24,6 +25,8 @@ export class PharmacyUpdateComponent implements OnInit {
   private _isSaving: boolean;
 
   private _userapps: IUserApp[];
+
+  private all: IPharmacy[];
 
   private _providers: IProvider[];
 
@@ -36,7 +39,8 @@ export class PharmacyUpdateComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     address: new FormControl('', [Validators.required]),
     userApp: [],
-    providers: []
+    providers: [],
+    pharmachys: []
   });
 
   constructor(
@@ -46,6 +50,7 @@ export class PharmacyUpdateComponent implements OnInit {
     protected _providerService: ProviderService,
     protected _asylumService: AsylumService,
     protected _activatedRoute: ActivatedRoute,
+    protected pharmachyC: PharmacyComponent,
     private fb: FormBuilder
   ) {}
 

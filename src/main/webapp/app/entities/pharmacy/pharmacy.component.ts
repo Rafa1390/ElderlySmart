@@ -36,6 +36,18 @@ export class PharmacyComponent implements OnInit, OnDestroy {
       });
   }
 
+  getAll() {
+    return this.pharmacyService
+      .query()
+      .pipe(
+        filter((res: HttpResponse<IPharmacy[]>) => res.ok),
+        map((res: HttpResponse<IPharmacy[]>) => res.body)
+      )
+      .subscribe((res: IPharmacy[]) => {
+        this.pharmacies = res;
+      });
+  }
+
   ngOnInit() {
     this.loadAll();
     this.accountService.identity().subscribe(account => {
